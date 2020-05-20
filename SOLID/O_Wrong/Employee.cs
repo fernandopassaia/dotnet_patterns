@@ -1,5 +1,5 @@
 ﻿
-namespace S_Wrong
+namespace O_Wrong
 {
     public class Employee
     {
@@ -8,5 +8,6 @@ namespace S_Wrong
         public string Account { get; set; }
         public int WorkHoursMonth { get; set; }
         public int WorkedHoursMonth { get; set; }
+        public EmployeeLevel Level { get; set; } = EmployeeLevel.Junior;
     }
 }

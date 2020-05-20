@@ -1,0 +1,7 @@
+C:\Dev\dotnet_patterns\SOLID\O\bin\Debug\O.exe.config
+C:\Dev\dotnet_patterns\SOLID\O\bin\Debug\O.exe
+C:\Dev\dotnet_patterns\SOLID\O\bin\Debug\O.pdb
+C:\Dev\dotnet_patterns\SOLID\O\obj\Debug\O.csprojAssemblyReference.cache
+C:\Dev\dotnet_patterns\SOLID\O\obj\Debug\O.csproj.CoreCompileInputs.cache
+C:\Dev\dotnet_patterns\SOLID\O\obj\Debug\O.exe
+C:\Dev\dotnet_patterns\SOLID\O\obj\Debug\O.pdb

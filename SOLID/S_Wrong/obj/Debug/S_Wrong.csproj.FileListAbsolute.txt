@@ -4,3 +4,4 @@ C:\Dev\dotnet_patterns\SOLID\S_Wrong\bin\Debug\S_Wrong.pdb
 C:\Dev\dotnet_patterns\SOLID\S_Wrong\obj\Debug\S_Wrong.csproj.CoreCompileInputs.cache
 C:\Dev\dotnet_patterns\SOLID\S_Wrong\obj\Debug\S_Wrong.exe
 C:\Dev\dotnet_patterns\SOLID\S_Wrong\obj\Debug\S_Wrong.pdb
+C:\Dev\dotnet_patterns\SOLID\S_Wrong\obj\Debug\S_Wrong.csprojAssemblyReference.cache
