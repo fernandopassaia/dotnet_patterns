@@ -1,0 +1,7 @@
+C:\Dev\dotnet_patterns\SOLID\L_Wrong\bin\Debug\L_Wrong.exe.config
+C:\Dev\dotnet_patterns\SOLID\L_Wrong\bin\Debug\L_Wrong.exe
+C:\Dev\dotnet_patterns\SOLID\L_Wrong\bin\Debug\L_Wrong.pdb
+C:\Dev\dotnet_patterns\SOLID\L_Wrong\obj\Debug\L_Wrong.csprojAssemblyReference.cache
+C:\Dev\dotnet_patterns\SOLID\L_Wrong\obj\Debug\L_Wrong.csproj.CoreCompileInputs.cache
+C:\Dev\dotnet_patterns\SOLID\L_Wrong\obj\Debug\L_Wrong.exe
+C:\Dev\dotnet_patterns\SOLID\L_Wrong\obj\Debug\L_Wrong.pdb
