@@ -1,0 +1,6 @@
+C:\Dev\dotnet_patterns\SOLID\D_Wrong\bin\Debug\D_Wrong.exe.config
+C:\Dev\dotnet_patterns\SOLID\D_Wrong\bin\Debug\D_Wrong.exe
+C:\Dev\dotnet_patterns\SOLID\D_Wrong\bin\Debug\D_Wrong.pdb
+C:\Dev\dotnet_patterns\SOLID\D_Wrong\obj\Debug\D_Wrong.csproj.CoreCompileInputs.cache
+C:\Dev\dotnet_patterns\SOLID\D_Wrong\obj\Debug\D_Wrong.exe
+C:\Dev\dotnet_patterns\SOLID\D_Wrong\obj\Debug\D_Wrong.pdb
