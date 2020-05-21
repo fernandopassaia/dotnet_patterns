@@ -8,7 +8,8 @@ namespace I_Wrong
 {
     class Program
     {
-        // ICP: Classes não devem ser forçadas a depender de métodos que elas não utilizadas. Ou seja: É melhor termos várias
+        // Interface Segregation Principle:
+        // ISP: Classes não devem ser forçadas a depender de métodos que elas não utilizadas. Ou seja: É melhor termos várias
         // interfaces curtas do que poucas interfaces longas, também conhecidas como interfaces monolíticas. Ou seja: Se você
         // quer usar uma banana, não faz sentido que você tenha que lidar com o macaco, com a árvore, o bananeiro.
 
