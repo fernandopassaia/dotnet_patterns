@@ -1,5 +1,16 @@
-### This is my Personal Folder containing tips, annotattions, reviews and other stuff regarding C# and .Net programming including DDD/SOLID, Design Patterns, software architecture and lot of other stuff - this is my personal folder for reviews and also a folder to a future reference.
+### Hi There. I did this repository on 05/2020 during the Corona Times (quarantine) when i've stayed most of the times at home.
 
-**Note**: This folder will contains lot of questions, answers, tests, some projects and also some IMGs on img folder that contains
-some info that i can use in the future. Some Info i also write down in Portuguese, once it`s easier for me to understand and 
-memorize it in my native language (or at least i think so...)
+Basically I've decided to make a big review regarding the Technologies I work with (C#, Angular...) and the Methodologies like
+OOP, DDD, SOLID, Design Patterns. Sometimes it's good to take some time to review what you are doing ;)
+
+So basically you'll find lot of information, questions and answers, some projects and also some IMGs on this folder that contains
+some info about what I'm studying, and also to serve me as a reference in the future. My Goals here are:
+
+SOLID Principles (Done)
+C# 50  TOP 50 Questions/Principles (Progress)
+Unit Tests (To-Do)
+Angular Redux / Promisses (Async/Await) (To-Do)
+Angular TOP 50 Questions/Principles (To-Do)
+Docker Envoirnment for AppFullStackDemo (To-Do)
+C# first app for RABBITMQ and Messaging (To-Do)
+C# Review for Async/Await (To-Do)
