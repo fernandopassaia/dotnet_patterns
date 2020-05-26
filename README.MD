@@ -8,7 +8,8 @@ some info about what I'm studying, and also to serve me as a reference in the fu
 
 SOLID Principles (Done) <br>
 C# 50  TOP 50 Questions/Principles (Progress) <br>
-Unit Tests (To-Do) <br>
+Unit Tests Eduardo Pires (To-Do) <br>
+Rest and Restful principles <br>
 Angular Redux / Promisses (Async/Await) (To-Do) <br>
 Angular TOP 50 Questions/Principles (To-Do) <br>
 Docker Envoirnment for AppFullStackDemo (To-Do) <br>
