@@ -10,6 +10,9 @@ C# Programs don't run right on the Operational System, but, in a Virtual Machine
 Common Intermediate Language (CIL) (or MSIL - Microsoft Intermediate Language):
 Because the CLR should works with lot of different languages (C#, VB...) - CLR needs a common "intermediate" language to all the languages of .NET. This is a compiler that will get the C# code (or other language) and turns to CLR. It's the "csc.exe" (the compiler) that will generate CLR. The Compiler will "transform" the CLI to CRL.
 
+Base Class Library (BCL):
+The Base Class Library BCL is literally the basic, fundamental types like System.String, System.DateTime...
+
 Common Language Runtime (CLR)
 CLR is the execution envoirnment for all .NET languages. It's responsible to manage memory, threads, GC and everything. Is the most vital part. It's the layer between the Operating System and your APP, that handles the execution of the .Net Applications. Our Apps do not speaks right to the Operational System, but through the CLR. CLR will also manage memory, load assemblies used in the assembly, manage garbage collector and more. See below how a .Net Program is executed to understand the work of CLR.
 
@@ -48,29 +51,22 @@ Class is the DEFINITION of a object. It's a template of the object that describe
 Everything on .Net Platform is a OBJECT, so we can say that ALL the types on the platform derivates from System.Object. So basically if we want to do an OPERATION like 1 + 2, we will need 3 Objects, one to allocate 1, a second to allocate 2, and a thirt to put the result in. This is a big complex solution. To avoid all this problem, Java solve this questions by creatint primitive types (int, char, boolean, byte). Because they are primitive types, they don't have methods, they just allocate values in memory. The New Versions of Java also addopt Box and Unboxing as solution.
 
 And How C# solves this question? Types of Reference, and Type of Values.
-ValueTypes are the primitive types that will be stored on the stack (a variable that will be structured on memory to contains a direct value). Example: Byte, Integer, Single, Double, Boolean, Char, Struct, Enum and etc...
 
-ReferenceTypes are stored on the heap. 
+ValueTypes are the primitive types that will be stored on the stack (a variable that will be structured on memory to contains a direct value). So basically ValueTypes will be stored right to the memory. Example: Byte, Integer, Single, Double, Decimal, Float, Uint, ULong, Boolean, Char, Struct, Enum and etc... This most primitive type are references of "System.ValueType" and don't contains methods, are the most primitive types.
 
+ReferenceTypes are stored on the heap. A ReferenceType doesn't store it's value directly, instead, stores the address where the value is being store: a reference type contains a pointer to another memory location that holds the data. All "Classes" that we create, all the "new" and instances, are ReferenceType. ReferenceTypes are derivated from System.Object. Example: String, All Arrays (even if their elements are value types), Class, Delegates.
 
 Boxing is the Conversion of a ValueType to a ReferenceType. Unboxing is the conversion back of ReferenceType to ValueType.
 
 Exempla of boxing:
 int i = 10;
-object o = i; //boxing
+object o = i; //boxing - a conversion of valuetype (integer) to object
 double d = (double)(int)o; //unboxing a object o (of type int) to a double
 
 Example of Unboxing:
 object o = 10;
 int i = (int)o; //you're unboxing an object to a integer
 
-
-
-
-
-Type of Values store the value itself 
-
-
-
-
-Types of 
+**(6) Difference between constants and readonly variables**
+Constants support ValueType variables. Cannot be initialized in a constructor or declaration.
+ReadOnly variables can hold ReferenceType variables. Can be initialized in a constructor or declaration.
