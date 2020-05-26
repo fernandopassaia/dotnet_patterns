@@ -16,7 +16,7 @@ CLR is the execution envoirnment for all .NET languages. It's responsible to man
 Just in Time (JIT):
 To Run the C# Application, we need to convert the CIL to CLR, the virtual machine of C#. The CLR needs to be executed into the Operational System of the user, and do to it, needs to generate machine-code to the operational system where the program will be executed. CLR instead of "interpretate" the CLI code (that will be slow) - compile its to machinecode using a CLR internal JIT (just in time) compiler. So basically: CLR will generate machine-code and allocate the whole program on memory, making C# run faster as any other language.
 
-**So basically to Execute a .Net Program we have this architecture (note that program will be compiled 2 times)**:
+**So basically to Execute a .Net Program we have this architecture (note that program will be compiled 2 times)**
 (1) Your C#/VB code (or other) needs to be compiled to CIL, using csc.exe or another compiler (like dotnet, on .net core).
 (2) When you Run the Program and Open It, CLR will get this CIL and pass into a JIT compiler to generate machine-code.
 
@@ -40,3 +40,37 @@ We can use to improve memory usage and program performance ajusting specific det
 
 **(3) Difference between Managed and Unmamaged Code**
 All the Code of .Net Platform is MANAGED code. .NET Framework is necessary to execute managed code, and managed code is managed by CLR, that will make memory management, garbage collection and so on... Unmanaged code is that independent of .Net Framework, not managed by CLR. Remember some times when you have to integrate to 3th Dlls components (like Daruma, Bematech) or even call right System32.dll.
+
+**(4) Difference between Classes and Objects**
+Class is the DEFINITION of a object. It's a template of the object that describes all methods, properties. OBJECT is a instance of a classes, that needs to be instancied, and it's used to access all the properties from a class.
+
+**(5) Boxing and Unboxing - Type of Value and Types of Reference**
+Everything on .Net Platform is a OBJECT, so we can say that ALL the types on the platform derivates from System.Object. So basically if we want to do an OPERATION like 1 + 2, we will need 3 Objects, one to allocate 1, a second to allocate 2, and a thirt to put the result in. This is a big complex solution. To avoid all this problem, Java solve this questions by creatint primitive types (int, char, boolean, byte). Because they are primitive types, they don't have methods, they just allocate values in memory. The New Versions of Java also addopt Box and Unboxing as solution.
+
+And How C# solves this question? Types of Reference, and Type of Values.
+ValueTypes are the primitive types that will be stored on the stack (a variable that will be structured on memory to contains a direct value). Example: Byte, Integer, Single, Double, Boolean, Char, Struct, Enum and etc...
+
+ReferenceTypes are stored on the heap. 
+
+
+Boxing is the Conversion of a ValueType to a ReferenceType. Unboxing is the conversion back of ReferenceType to ValueType.
+
+Exempla of boxing:
+int i = 10;
+object o = i; //boxing
+double d = (double)(int)o; //unboxing a object o (of type int) to a double
+
+Example of Unboxing:
+object o = 10;
+int i = (int)o; //you're unboxing an object to a integer
+
+
+
+
+
+Type of Values store the value itself 
+
+
+
+
+Types of 
