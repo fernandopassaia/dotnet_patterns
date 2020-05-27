@@ -1,4 +1,4 @@
-C# Questions/Principles Review:
+### C# Questions/Principles Review:
 
 **(1) What is .Net Framework?**
 A Platform to build object-oriented applications multiplatform. It supports languages like C#, VB, Cobol, Perl, etc. It has a wide variety of tools and functionalities like class, library, APIs that can be used to build, deploy and run web servicies and different applications.
@@ -140,3 +140,30 @@ Client Side validation (normally JS) and ServerSide, that will runs on the backe
 
 **(17) Difference between DLL and EXE?**
 An EXE cannot be shared with other applications, and can run right and directly the applications. All the assemblies will be LOAD when we run the EXE. DLL otherwise, consists of code that needs to be hide. The code is encapsulated in this library, and can be shared with other N applications.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+### ASYNC and AWAIT Review
+In "general" words, you should use async when you have IO operations, and you want to increase the performance and scability of your app. In the Sincronous programming you will have an ORDER and the things will happen in the order you defined. In Assincronous programming you will allow your application to do lot of things at same time, without blocking or waiting for other operations.
+
+In the Development of Desktop, ClientSide, like WindowsForms, Mobile or FrontEnd Web the most benefit of async is to keep the UI responsible meanwhile operations are being executed in background. In BackEnd Development, the principal reason to use Async is scability.
+
+The Main Reason to CHOOSE between use async or not, should be the I/O operations, when you have to read a file, read a large amount of data on database, something that will "take time". If your operation makes uses of just CPU for example, use async is a BAD choice because will create a unecessary overhead in the processor.
+
+Another thing to take care: If you have a problem in your database, a performance problem, async will not help and can make it worst, depending on scenario. Server will get more requests at the same time and overload too much more the database - you have to fix your database performance problems, and in this case, async will not solve it.
+
+Now Let's explain how it works on IIS:
+
+Syncronous Process: When IIS receives a Request, it takes a Thread in the Thread Pool and put this request. So IIS will process this request using this Thread, do all the process (including database operations, I/O, anything else) until the process is over, giving an answer to the user. Now let's imagine that you have a DataBase Operation that will take 8 seconds to Run: The Thread will get stuck waiting for database.
+
+ The problem is: If you have a LOT of requests, if there's not Thread in the Thread Pool, IIS will put the request into Queue to wait for a chance to get a thread to process it... Depending on time, Request will give user a 503 (Service Unavailable) to the user.
+
+Asyncronous Process: Now looking for the Syncronous Process and the problem there (Thread will have to wait 8 seconds the operation on database finish) - Async comes to solve it. When you use Async, Windows/IIS will put the Operation in a TASK, and will run it in a Parallel processing. The Thread will RETURN to IIS Thread Pool, and will be available to IIS. So Basically what happens is that during this 8 seconds of database processing, the Thread will be available on the Pool, to receive more and more Requests. Basically you will have more "scability" and you will attempt to more and more requests at the same time, with the same number of Threads.
+
+When the Async method finish (so the 8 seconds to DataBase response an operations): Windows will notify the Runtime/IIS and the continuing of the Task will be schedelue on the Thread Pool. So basically IIS will get an available Thread, and put the Request Again to Run, to Finish it and Answer the HTTP Requests. Look for Bruno Brito Article to see Graphics and Understand Perfectly how it works. (Also saved on Async Folder).
+
+
+
+
+Fonts:
+EXCELENT Article: https://www.brunobrito.net.br/asp-net-e-iis-anatomia-de-uma-aplicacao-web-parte-ii/ 

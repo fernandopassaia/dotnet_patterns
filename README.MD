@@ -6,22 +6,22 @@ OOP, DDD, SOLID, Design Patterns. Sometimes it's good to take some time to revie
 So basically you'll find lot of information, questions and answers, some projects and also some IMGs on this folder that contains
 some info about what I'm studying, and also to serve me as a reference in the future. My Goals here are:
 
-**C#**:
-SOLID Principles (Done) <br>
+**C#**: <br>
 C# TOP Questions/Principles (Done) <br>
-C# Review for Async/Await (Progress...) <br>
+C# Review for Async/Await (Done) <br>
 C# first app for RABBITMQ and Messaging (To-Do) <br>
 Unit Tests Eduardo Pires (To-Do) <br>
-MicroServices (ver vídeo Eduardo) <br>
+MicroServices (To-Do) (ver vídeo Eduardo) <br>
 
-**OOP, Architecture, Design Patterns, Principles**:
+**OOP, Architecture, Design Patterns, Principles**: <br>
+SOLID Principles (Done) <br>
 Rest and Restful principles <br>
 Agile <br>
 
-**Angular**:
+**Angular**: <br>
 Angular Redux / Promisses (Async/Await) (To-Do) <br>
 Angular TOP Questions/Principles (To-Do) <br>
 
-**DevOps**:
-Azure Serverless (study Azure, see some course) <br>
+**DevOps**: <br>
+Azure Serverless (To-Do) (study Azure, see some course) <br>
 Docker Envoirnment for AppFullStackDemo (To-Do) <br>
