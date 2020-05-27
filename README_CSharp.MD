@@ -97,3 +97,46 @@ Caching means storing the data temporarily in memory so the data can be access i
 
 **(13) What is Localization and Globalization?**
 Localization means changing the already Globalized application to cater a specific language or culture. Globalization is the process of developing apps to suppor multi languages. One is opose other.
+
+**(14) What is a Delegate in C#?**
+Delegate is similar to the pointer to functions in C / C++ languages. A delegate allow you to make reference to a method, that will be defined in execution time. You don't have to define witch method will be called in compilation time, it could be make dynamic in execution time. You have flexibility to define any funcionality in execution time. A construction of a Delegate:
+
+Delegate int SampleOfDelegate(string name, bool b);
+
+(this delegate returns a integer, and receive a string and a boolean). Example calling it:
+
+namespace Macoratti.SimplesDelegate
+{
+    // Declaração
+    public delegate void SimplesDelegate();
+
+    class ExemploDeDelegate
+    {
+        public static void minhaFuncao()
+        {
+            Console.WriteLine("Eu fui chamada por um delegate ...");
+        }
+
+        public static void Main()
+        {
+            // Instanciação
+            SimplesDelegate simplesDelegate = new SimplesDelegate(minhaFuncao);
+
+            // Invocação
+            simplesDelegate();
+            Console.ReadKey();
+        }
+    }
+}
+
+**(14) Difference Between Abstract class and Interface**
+Abstract class contains a partial implementation for a functionality that must be implemented by the inheriting entities. An abstract class declares fields too. An INTERFACE declares a contract that the implementing classes should have - may declare properties, methods and events with no access modifiers.
+
+**(15) Whats the difference between a Stack and a Heap?**
+Stack store ValueTypes, and Heap stores ReferenceTypes (read under). Stack is more faster because will store primitive types, and Heap is more slower, but has capabilities to deal with more complex types like object or data.
+
+**(16) Different type of validators in Asp.Net?**
+Client Side validation (normally JS) and ServerSide, that will runs on the backend.
+
+**(17) Difference between DLL and EXE?**
+An EXE cannot be shared with other applications, and can run right and directly the applications. All the assemblies will be LOAD when we run the EXE. DLL otherwise, consists of code that needs to be hide. The code is encapsulated in this library, and can be shared with other N applications.
