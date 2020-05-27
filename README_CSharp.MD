@@ -8,10 +8,7 @@ C# Programs don't run right on the Operational System, but, in a Virtual Machine
 
 
 Common Intermediate Language (CIL) (or MSIL - Microsoft Intermediate Language):
-Because the CLR should works with lot of different languages (C#, VB...) - CLR needs a common "intermediate" language to all the languages of .NET. This is a compiler that will get the C# code (or other language) and turns to CLR. It's the "csc.exe" (the compiler) that will generate CLR. The Compiler will "transform" the CLI to CRL.
-
-Base Class Library (BCL):
-The Base Class Library BCL is literally the basic, fundamental types like System.String, System.DateTime...
+Because the CLR should works with lot of different languages (C#, VB...) - CLR needs a common "intermediate" language to all the languages of .NET. This is a compiler that will get the C# code (or other language) and turns to CLR. It's the "csc.exe" (the compiler) that will generate CLR. The Compiler will "transform" the CLI to CRL. All the .NET codes are first compiled to Microsoft intermediate language.
 
 Common Language Runtime (CLR)
 CLR is the execution envoirnment for all .NET languages. It's responsible to manage memory, threads, GC and everything. Is the most vital part. It's the layer between the Operating System and your APP, that handles the execution of the .Net Applications. Our Apps do not speaks right to the Operational System, but through the CLR. CLR will also manage memory, load assemblies used in the assembly, manage garbage collector and more. See below how a .Net Program is executed to understand the work of CLR.
@@ -25,6 +22,9 @@ To Run the C# Application, we need to convert the CIL to CLR, the virtual machin
 
 Framework Class Library (FCL):
 Here we are: The Main Librarys, Packages and APIs of .Net Platform, the ones you'll see on Visual Studio, and you will use to develop your program. Entrance to Windows Api, string manipulation, common data structures, IO, streams, threads, security, windows-web-networking programming, data access and go on.
+
+Base Class Library (BCL):
+The Base Class Library BCL is literally the basic, fundamental types like System.String, System.DateTime...
 
 Common Type System (CTS):
 Is the Types that is a common for any language. Let's imagine that you have an integer, or a string. This should be the SAME, with same bytes in C# or VB. Using this principle, you don't have to worry about converting types when you integrate C# and VB code. We can even make our own classes and functions with the rules in CTS, it helps in calling the data type declared in one program language by other programming language.
@@ -70,3 +70,30 @@ int i = (int)o; //you're unboxing an object to a integer
 **(6) Difference between constants and readonly variables**
 Constants support ValueType variables. Cannot be initialized in a constructor or declaration.
 ReadOnly variables can hold ReferenceType variables. Can be initialized in a constructor or declaration.
+
+**(7) What is LINQ**
+Linq is a set of features that extend query capabilities to the .NET framework language that allows data manipulation irrespective of the data source. Linq bridges the gap between the world of objects and the world of data. You can use it with Xml, DataBases and Collections.
+
+**(8) What is the different parts of an Assembly**
+Manifest (information about the assembly). Type Metadata (binary information of the program). MSIL (Microsoft intermediate language) and the Resources (files, images).
+
+**(9) How to prevent a class from being inherited?**
+Using the "sealed" keyword. This is how you can prevent it from inheritance.
+
+**(10) What Are the Different Constructors in C#**
+Default, Parameterized, Copy, Static, Private.
+
+Default: with no parameters. Should initialize numeric fields with 0, strings and classes to null.
+Parameterized: the one that will receive at least one parameter and initialize something with it.
+Copy: This constructor initialize variables from copying data from another object. Create a new instance with values from a existing instance.
+Static: will inicialize data on the class only once. User has no control and it have no parameter as well.
+Private: It's impossible to create a instance of the class.
+
+**(11) How to prevent a class from being inherited?**
+Using the "sealed" keyword. This is how you can prevent it from inheritance.
+
+**(12) What is caching?**
+Caching means storing the data temporarily in memory so the data can be access in a more efficiency and speed way.
+
+**(13) What is Localization and Globalization?**
+Localization means changing the already Globalized application to cater a specific language or culture. Globalization is the process of developing apps to suppor multi languages. One is opose other.
