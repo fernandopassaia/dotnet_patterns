@@ -89,16 +89,35 @@ Copy: This constructor initialize variables from copying data from another objec
 Static: will inicialize data on the class only once. User has no control and it have no parameter as well.
 Private: It's impossible to create a instance of the class.
 
-**(11) How to prevent a class from being inherited?**
-Using the "sealed" keyword. This is how you can prevent it from inheritance.
+**(11) Difference Between Abstract class and Interface**
+Abstract class contains a partial implementation for a functionality that must be implemented by the inheriting entities. An abstract class declares fields too. An INTERFACE declares a contract that the implementing classes should have - may declare properties, methods and events with no access modifiers.
 
-**(12) What is caching?**
+**(12) Difference access modifiers of C#**
+
+**(13) Difference Between IEnumerable and IEnumerator**
+
+**(14) When to use IEnumerable, IList, IDictionary**
+
+**(15) Ref x Out Parameter**
+Both are parameters passed by REFERENCE, not by "value" like commons parameters. They are very similar, difference of "ref" and "out", is that REF parameters should be initialized BEFORE it's passed to the method.
+
+If you pass a parameter by value, what happens to the parameter inside the method, will NOT reflect to the passed parameter. When you pass it by Referente, what happens inside a method, will AFFECT the original parameter. So again: When you pass by Reference, the changes made to the argument in the method will REFLECT in the variable when it returns to the calling method.
+
+**(16) Constant and Readonly**
+
+**(17) Var and Dynamic**
+
+**(18) Encapsulation and Abstraction (difference)**
+
+**(19) Polymorphism (Static and Dynamic)**
+
+**(20) What is caching?**
 Caching means storing the data temporarily in memory so the data can be access in a more efficiency and speed way.
 
-**(13) What is Localization and Globalization?**
+**(21) What is Localization and Globalization?**
 Localization means changing the already Globalized application to cater a specific language or culture. Globalization is the process of developing apps to suppor multi languages. One is opose other.
 
-**(14) What is a Delegate in C#?**
+**(22) What is a Delegate in C#?**
 Delegate is similar to the pointer to functions in C / C++ languages. A delegate allow you to make reference to a method, that will be defined in execution time. You don't have to define witch method will be called in compilation time, it could be make dynamic in execution time. You have flexibility to define any funcionality in execution time. A construction of a Delegate:
 
 Delegate int SampleOfDelegate(string name, bool b);
@@ -129,16 +148,13 @@ namespace Macoratti.SimplesDelegate
     }
 }
 
-**(14) Difference Between Abstract class and Interface**
-Abstract class contains a partial implementation for a functionality that must be implemented by the inheriting entities. An abstract class declares fields too. An INTERFACE declares a contract that the implementing classes should have - may declare properties, methods and events with no access modifiers.
-
-**(15) Whats the difference between a Stack and a Heap?**
+**(23) Whats the difference between a Stack and a Heap?**
 Stack store ValueTypes, and Heap stores ReferenceTypes (read under). Stack is more faster because will store primitive types, and Heap is more slower, but has capabilities to deal with more complex types like object or data.
 
-**(16) Different type of validators in Asp.Net?**
+**(24) Different type of validators in Asp.Net?**
 Client Side validation (normally JS) and ServerSide, that will runs on the backend.
 
-**(17) Difference between DLL and EXE?**
+**(25) Difference between DLL and EXE?**
 An EXE cannot be shared with other applications, and can run right and directly the applications. All the assemblies will be LOAD when we run the EXE. DLL otherwise, consists of code that needs to be hide. The code is encapsulated in this library, and can be shared with other N applications.
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------

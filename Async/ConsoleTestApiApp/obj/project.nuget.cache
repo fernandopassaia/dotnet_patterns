@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "7wmnlpJawDafsVUDSG3xcYG37oXK8Bugr970850Ivmu6lvTapNN4ZyzberXnDxg8wKnF+UMZzxuQ6SjahI/E2A==",
+  "dgSpecHash": "09uVNKU1F9CiTLpGRkqMkZF955HS82NHhzoHK2B9+1NAI94nRG1NGB1hwHUj+S0n/uteUb1y/d0lK3UaglQQrQ==",
   "success": true,
-  "projectFilePath": "C:\\Dev\\dotnet_patterns\\Async\\ConsoleTestApiApp\\ConsoleTestApiApp.csproj",
+  "projectFilePath": "/home/fernandopassaia/Dev/dotnet_patterns/Async/ConsoleTestApiApp/ConsoleTestApiApp.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\FernandoPassaia\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.2\\microsoft.aspnetcore.app.ref.3.1.2.nupkg.sha512"
+    "/home/fernandopassaia/.nuget/packages/microsoft.aspnetcore.app.ref/3.1.2/microsoft.aspnetcore.app.ref.3.1.2.nupkg.sha512"
   ],
   "logs": []
 }
