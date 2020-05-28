@@ -95,8 +95,69 @@ Abstract class contains a partial implementation for a functionality that must b
 **(12) Difference access modifiers of C#**
 
 **(13) Difference Between IEnumerable and IEnumerator**
+IEnumerable and IEnumerator is very similar and work basically the same. But IEnumerator is more complex to deal, once you have to call "MoveNext()" method to walk thought the list. IEnumerable is most simple, has a simplier and shorter syntax. Let's Create a List<string> of months, and then load an IEnumerable and IEnumerator, to show how IEnumerable is most simple to use.
 
-**(14) When to use IEnumerable, IList, IDictionary**
+   List<string> Month = new List<string>();  
+   Month.Add("January");  
+   Month.Add("February");  
+   Month.Add("March");  
+   Month.Add("April");  
+   Month.Add("May");  
+   Month.Add("June");  
+   Month.Add("July");  
+   Month.Add("August");  
+   Month.Add("September");  
+   Month.Add("October");  
+   Month.Add("November");  
+   Month.Add("December");   
+
+   //create IEnumerable of string 
+   IEnumerable<string> iEnumerableOfString = (IEnumerable<string>)Month;      
+   //If we want to retrieve all the items from this IEnumerable object, we can use a foreach loop. 
+   foreach(string AllMonths in iEnumerableOfString)
+   {  
+    Console.WriteLine(AllMonths);  
+   }  
+
+    //Create IEnumerator of string. 
+    IEnumerator<string> iEnumeratorOfString = Month.GetEnumerator();//to convert list into IEnumerator we can invoke the GetEnumerator method      
+    //To retrieve all the items from the above IEnumerator object, we cannot use foreach loop instead of that we need to invoke MoveNext() Boolean method.  
+    while(iEnumeratorOfString.MoveNext())
+    {  
+        //as you can see, iEnumerator is more complex, you have to invoke moveNext
+    }  
+
+
+**(14) When to use IDictionary, IEnumerable x IList x IQueryable**
+**IDictionary** could be use to store a simple relationship, a key/value pair collection. For example:
+
+        IDictionary<int, string> dic = new Dictionary<int, string>();
+        dic.Add(1, "Facebook");
+        dic.Add(2, "Orkut");
+        dic.Add(3, "Twitter");
+        Console.WriteLine(dic[1]);
+        Console.WriteLine(dic[2]);
+        Console.WriteLine(dic[3]);
+        Console.ReadLine();
+
+**IQueryable** is a specific interface that contains a provedor of query, like LINQ-TO-SQL. It's a special object, where you can use filters and apply queries. IQueryable makes inheritance of IEnumerable, so basically everything IEnumerable can do, IQueryable also can.
+
+
+Now the most complex question: **IEnumrable x IList**
+
+**IEnumerable**: First important thing to have in mind, is that IEnumerable don't allow updates on the collection. It's Readonly, and you don't have any information about the collection, but just the necessary to run over it (foreach). Another thing is that you cannot have access to random positions, so with a IEnumerable, you cannot do: var position = IEnumerable[i]. It's a readonly simple collection of registrys.
+
+**List**: First thing here is that you can Add, Update and Remove items from a List. So the List is not readonly, but contains methods and can be manipulated. List also have another methods, like .Count(), .Any(). 
+
+**Important concept**: Another important concept to have in mind, is that IEnumerable is LAZY Loading. So IEnumerable don't contains the data in true, it just will be loaded when we need then (on demand). List (or ToList()) will LOAD all the data need into the List, because of it Lists know how to Count(), if have Any(), list can add items, remove, get by position and lot of other methods.
+
+
+
+
+
+
+
+
 
 **(15) Ref x Out Parameter**
 Both are parameters passed by REFERENCE, not by "value" like commons parameters. They are very similar, difference of "ref" and "out", is that REF parameters should be initialized BEFORE it's passed to the method.
