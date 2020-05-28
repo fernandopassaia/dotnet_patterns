@@ -1,0 +1,13 @@
+C:\Dev\dotnet_patterns\Async\ConsoleTestApiApp\bin\Debug\netcoreapp3.1\ConsoleTestApiApp.exe
+C:\Dev\dotnet_patterns\Async\ConsoleTestApiApp\bin\Debug\netcoreapp3.1\ConsoleTestApiApp.deps.json
+C:\Dev\dotnet_patterns\Async\ConsoleTestApiApp\bin\Debug\netcoreapp3.1\ConsoleTestApiApp.runtimeconfig.json
+C:\Dev\dotnet_patterns\Async\ConsoleTestApiApp\bin\Debug\netcoreapp3.1\ConsoleTestApiApp.runtimeconfig.dev.json
+C:\Dev\dotnet_patterns\Async\ConsoleTestApiApp\bin\Debug\netcoreapp3.1\ConsoleTestApiApp.dll
+C:\Dev\dotnet_patterns\Async\ConsoleTestApiApp\bin\Debug\netcoreapp3.1\ConsoleTestApiApp.pdb
+C:\Dev\dotnet_patterns\Async\ConsoleTestApiApp\obj\Debug\netcoreapp3.1\ConsoleTestApiApp.csprojAssemblyReference.cache
+C:\Dev\dotnet_patterns\Async\ConsoleTestApiApp\obj\Debug\netcoreapp3.1\ConsoleTestApiApp.AssemblyInfoInputs.cache
+C:\Dev\dotnet_patterns\Async\ConsoleTestApiApp\obj\Debug\netcoreapp3.1\ConsoleTestApiApp.AssemblyInfo.cs
+C:\Dev\dotnet_patterns\Async\ConsoleTestApiApp\obj\Debug\netcoreapp3.1\ConsoleTestApiApp.csproj.CoreCompileInputs.cache
+C:\Dev\dotnet_patterns\Async\ConsoleTestApiApp\obj\Debug\netcoreapp3.1\ConsoleTestApiApp.dll
+C:\Dev\dotnet_patterns\Async\ConsoleTestApiApp\obj\Debug\netcoreapp3.1\ConsoleTestApiApp.pdb
+C:\Dev\dotnet_patterns\Async\ConsoleTestApiApp\obj\Debug\netcoreapp3.1\ConsoleTestApiApp.genruntimeconfig.cache

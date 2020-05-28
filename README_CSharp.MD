@@ -162,7 +162,7 @@ Asyncronous Process: Now looking for the Syncronous Process and the problem ther
 
 When the Async method finish (so the 8 seconds to DataBase response an operations): Windows will notify the Runtime/IIS and the continuing of the Task will be schedelue on the Thread Pool. So basically IIS will get an available Thread, and put the Request Again to Run, to Finish it and Answer the HTTP Requests. Look for Bruno Brito Article to see Graphics and Understand Perfectly how it works. (Also saved on Async Folder).
 
-
+**Note**: When you use the keyword "async", the compilator will generate a "status-machine" (called TAP) on background. It's an extra code, so you have to take it in mind, you'll have an "small aditional" processor cost on it, so have in mind that your should use it when it needs. Don't use async in everything... If your operation depends on CPU operations for example (not I/O), don't use async operations, you can loose performance and async could be a problem instead of solution. Same thing for DataBase problems: Performance problems on your database will NOT be solved by Async in BackEnd.
 
 
 Fonts:

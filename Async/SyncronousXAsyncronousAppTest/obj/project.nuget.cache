@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "h1rR1RDZq0rAr3tRvyk1eogASZrSvqKe1p0oufipLMRGZk5Da7zwL8yEsE8IxI9+oroRQdc2n2s+x8dQIyIp5A==",
+  "success": true,
+  "projectFilePath": "C:\\Dev\\dotnet_patterns\\Async\\SyncronousXAsyncronousAppTest\\SyncronousXAsyncronousAppTest.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\FernandoPassaia\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.2\\microsoft.aspnetcore.app.ref.3.1.2.nupkg.sha512"
+  ],
+  "logs": []
+}
