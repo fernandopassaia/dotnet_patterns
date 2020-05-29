@@ -1,9 +1,0 @@
-/home/fernandopassaia/Dev/dotnet_patterns/principles_review/classlib/bin/Debug/netstandard2.0/classlib.deps.json
-/home/fernandopassaia/Dev/dotnet_patterns/principles_review/classlib/bin/Debug/netstandard2.0/classlib.dll
-/home/fernandopassaia/Dev/dotnet_patterns/principles_review/classlib/bin/Debug/netstandard2.0/classlib.pdb
-/home/fernandopassaia/Dev/dotnet_patterns/principles_review/classlib/obj/Debug/netstandard2.0/classlib.csprojAssemblyReference.cache
-/home/fernandopassaia/Dev/dotnet_patterns/principles_review/classlib/obj/Debug/netstandard2.0/classlib.AssemblyInfoInputs.cache
-/home/fernandopassaia/Dev/dotnet_patterns/principles_review/classlib/obj/Debug/netstandard2.0/classlib.AssemblyInfo.cs
-/home/fernandopassaia/Dev/dotnet_patterns/principles_review/classlib/obj/Debug/netstandard2.0/classlib.csproj.CoreCompileInputs.cache
-/home/fernandopassaia/Dev/dotnet_patterns/principles_review/classlib/obj/Debug/netstandard2.0/classlib.dll
-/home/fernandopassaia/Dev/dotnet_patterns/principles_review/classlib/obj/Debug/netstandard2.0/classlib.pdb

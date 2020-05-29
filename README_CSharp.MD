@@ -141,7 +141,7 @@ IEnumerable and IEnumerator is very similar and work basically the same. But IEn
     }  
 
 
-**(14) When to use IDictionary, IEnumerable x IList x IQueryable**
+**(14) When to use IDictionary, Hashtable, IEnumerable x IList x IQueryable**
 **IDictionary** could be use to store a simple relationship, a key/value pair collection. For example:
 
         IDictionary<int, string> dic = new Dictionary<int, string>();
@@ -152,6 +152,10 @@ IEnumerable and IEnumerator is very similar and work basically the same. But IEn
         Console.WriteLine(dic[2]);
         Console.WriteLine(dic[3]);
         Console.ReadLine();
+
+The Values in Dictionary is stored as values, so they do not need to be Box/Unboxing.
+
+**Hashtable**: Hashtable is very similar to Dictionary, but here you have the values stored as OBJECTS and you need to do Boxing and Unboxing.
 
 **IQueryable** is a specific interface that contains a provedor of query, like LINQ-TO-SQL. It's a special object, where you can use filters and apply queries. IQueryable makes inheritance of IEnumerable, so basically everything IEnumerable can do, IQueryable also can.
 
@@ -173,15 +177,35 @@ If you pass a parameter by value, what happens to the parameter inside the metho
 Constant Variables are declared and initialized at compile time, the value can't be changed afterwards. ReadOnly is used only when we want to assing value at runtime.
 
 **(17) Var and Dynamic**
+When we define a variable as VAR, we cannot change it type after the first initialization. A variable Dynamic can have it's type changed after first initialization.
 
-**(18) Encapsulation and Abstraction (difference)**
+**(18) Encapsulation and Abstractionm, Inheritance, Polymorphism (difference)**
+Abstraction is used to map the entities on the real world, understanding it reasons, caracteristics and actions. Abstraction is about to hide the complexity and provide set of interfaces to consume the funcionality. A Method is a good example of abstraction: When we call a method, we never knows the logic behind it, we know just how to call it, but not how it works inside. For example: If i want to call someone, i know how i can do it and where i need to go, but i don't know how it works inside, between the mobilephone and the operator.
+
+Entity: Car. Properties: Size, Color, Height, Weight. Actions: Accelerate, stop, start, ends (engineOn).
+Entity: Elevator. Properties: Size, MaxWeight. Actions: GoUp, GoDown, ChooseFloor.
+Entity: BankAccount. Properties: Value, Limit, Number. Actions: Deposit, WithDraw, GetExtract.
+
+Encapsulation is the techinique used to hide an idea, to not expose to user it details. In a process of Encapsulation, the atributes of class should be set as PRIVATE, and to access these modifiers is necessary to create setters and getters methods.
+
+In Inheritance, a class can get attributes from another class. The great gain is on the Reutilization of Code. For example:
+Manager, Secretary, Techinical, different kind of professionals can make Inheritance of a "super class" called Employee.
+To make inheritance you need to use the keyword EXTENDS on C#.
+
+Inheritance is the ability to create a classe from another class, extending the functionality and state of the parent in the derived (or child). In "simple way" we can say that parent child between classes is inheritance. It allows derived classes to overload methods (polymorphism) from their parent classes.
+
+Polymorphism: Polimorphism means that one name can have many forms. One object behaving as multiple forms, one function behaves in different forms. For example: A Object of type "Fernando" at the company will be an Employee. But when he arrives at home, now he's a husband, a father. It will change it's behavior according to conditions. So in other words, Many Forms of a single object is called polimorphism. We can have Polimorphism in two situations:
+
+Method overloading and Method Overriding (now with examples became easier, huh?)
 
 **(19) Polymorphism (Static and Dynamic)**
+On the Polymophism static the decision about witch method will be called is made in compilation time. The Dynamic, this decision is made during the execution time.
 
 **(20) Difference between Structs and Classes**
 Structs are ValueType variables and will be saved in the stack, meanwhile classes are ReferenceType and will be stored on the heap. Structs cannot be inherited.
 
 **(21) Difference Between Overriding and OverLoading**
+Overriding is when you "rewrite" a Method that came from a class that you make herance. Overloading is when you have differente constructors/parameters for methods with same names.
 
 **(22) Differente between AS and IS**
 Is is a operator used to check the compatibility of a object with a given type. "as" operator is used for casting a object to a type or a class.
@@ -235,6 +259,19 @@ Client Side validation (normally JS) and ServerSide, that will runs on the backe
 
 **(28) Difference between DLL and EXE?**
 An EXE cannot be shared with other applications, and can run right and directly the applications. All the assemblies will be LOAD when we run the EXE. DLL otherwise, consists of code that needs to be hide. The code is encapsulated in this library, and can be shared with other N applications.
+
+**(29) Difference between String and StringBuilder**
+The First one is that with StringBuilder you can use Append method (like i did in the past) to organize better the code, you can store queries and everthing else. But there are more than this that you need to catch:
+
+Strings are immutable. So basically you cannot modify a value of a string, and everytime you did it, C# will always create a New Object with TypeString in memory. Example:
+string str = "Hello";
+str += "Hello?";
+str += "How are you?".
+
+It will creates 3 strings on memory. StringBuilder is mutable, so here i can perform insert, replace, apprend without creating new instances for everytime, it will update the space in memory without creating new spaces.
+
+**(30) Difference between Dispose() and Finalize()**
+Dispose is called when we want an object to release any unmanaged resources with them. OtherHand, Finalize() is used for the same purpose, but it doens't assure the garbage collection of an object. So Dispose is more accertive and will force the GB.
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------
 
