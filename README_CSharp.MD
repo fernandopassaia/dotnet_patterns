@@ -57,6 +57,7 @@ ValueTypes are the primitive types that will be stored on the stack (a variable 
 ReferenceTypes are stored on the heap. A ReferenceType doesn't store it's value directly, instead, stores the address where the value is being store: a reference type contains a pointer to another memory location that holds the data. All "Classes" that we create, all the "new" and instances, are ReferenceType. ReferenceTypes are derivated from System.Object. Example: String, All Arrays (even if their elements are value types), Class, Delegates.
 
 Boxing is the Conversion of a ValueType to a ReferenceType. Unboxing is the conversion back of ReferenceType to ValueType.
+Boxing occurs when you convert a Int to a Object, for example. Unboxing is the opositive, the process of converting a Object to a Primitive ValueType.
 
 Exempla of boxing:
 int i = 10;
@@ -66,6 +67,9 @@ double d = (double)(int)o; //unboxing a object o (of type int) to a double
 Example of Unboxing:
 object o = 10;
 int i = (int)o; //you're unboxing an object to a integer
+
+OR
+int y = Convert.ToInt32(o); //this is also unboxing
 
 **(6) Difference between constants and readonly variables**
 Constants support ValueType variables. Cannot be initialized in a constructor or declaration.
@@ -90,9 +94,18 @@ Static: will inicialize data on the class only once. User has no control and it 
 Private: It's impossible to create a instance of the class.
 
 **(11) Difference Between Abstract class and Interface**
-Abstract class contains a partial implementation for a functionality that must be implemented by the inheriting entities. An abstract class declares fields too. An INTERFACE declares a contract that the implementing classes should have - may declare properties, methods and events with no access modifiers.
+Abstract class contains a partial implementation for a functionality that must be implemented by the inheriting entities - but yeah, abstract can have methods and implementations. An abstract class declares fields too. An INTERFACE declares a contract that the implementing classes should have - may declare properties, methods and events with no access modifiers. All methods of a Interface are public, on partial we can have private methods.
 
-**(12) Difference access modifiers of C#**
+**(12) Difference access modifiers of a class in C#**
+Public: There are no restrictions on accessing public members. This is the most permissive access level.
+Private: Access is limited to within the class definition. This is the "default" if none is formally defined.
+Protected: Access is limited to within the class definition and any class that inheritis from the class.
+Internal: Access is limited exclusively to classes defined within the current project assembly - only the same assembly can access the class.
+Protected Internal: Access is limited to the current assembly and types derived from containing class. All members in current project and all members in derived class can access the variables.
+
+Another Modifiers that could be mixed with those below:
+Static: A Static Class cannot be instantiated. You just need to use the classname itselft to accees it.
+Sealed: We create it when we don't want the class to be inherited by others. We Prevent it to be derivated.
 
 **(13) Difference Between IEnumerable and IEnumerator**
 IEnumerable and IEnumerator is very similar and work basically the same. But IEnumerator is more complex to deal, once you have to call "MoveNext()" method to walk thought the list. IEnumerable is most simple, has a simplier and shorter syntax. Let's Create a List<string> of months, and then load an IEnumerable and IEnumerator, to show how IEnumerable is most simple to use.
@@ -145,19 +158,11 @@ IEnumerable and IEnumerator is very similar and work basically the same. But IEn
 
 Now the most complex question: **IEnumrable x IList**
 
-**IEnumerable**: First important thing to have in mind, is that IEnumerable don't allow updates on the collection. It's Readonly, and you don't have any information about the collection, but just the necessary to run over it (foreach). Another thing is that you cannot have access to random positions, so with a IEnumerable, you cannot do: var position = IEnumerable[i]. It's a readonly simple collection of registrys.
+**IEnumerable**: First important thing to have in mind, is that IEnumerable don't allow updates on the collection. It's Readonly, and you don't have any information about the collection, but just the necessary to run over it (foreach). Another thing is that you cannot have access to random positions, so with a IEnumerable, you cannot do: var position = IEnumerable[i]. It's a readonly simple collection of registrys. If we can say a "gross" and "simple" definition, let's say that IEnumerable allow us to interact the list (foreach), but if you want more options, like add items, remove, order, count, you should use something more specific, like List.
 
 **List**: First thing here is that you can Add, Update and Remove items from a List. So the List is not readonly, but contains methods and can be manipulated. List also have another methods, like .Count(), .Any(). 
 
 **Important concept**: Another important concept to have in mind, is that IEnumerable is LAZY Loading. So IEnumerable don't contains the data in true, it just will be loaded when we need then (on demand). List (or ToList()) will LOAD all the data need into the List, because of it Lists know how to Count(), if have Any(), list can add items, remove, get by position and lot of other methods.
-
-
-
-
-
-
-
-
 
 **(15) Ref x Out Parameter**
 Both are parameters passed by REFERENCE, not by "value" like commons parameters. They are very similar, difference of "ref" and "out", is that REF parameters should be initialized BEFORE it's passed to the method.
@@ -165,6 +170,7 @@ Both are parameters passed by REFERENCE, not by "value" like commons parameters.
 If you pass a parameter by value, what happens to the parameter inside the method, will NOT reflect to the passed parameter. When you pass it by Referente, what happens inside a method, will AFFECT the original parameter. So again: When you pass by Reference, the changes made to the argument in the method will REFLECT in the variable when it returns to the calling method.
 
 **(16) Constant and Readonly**
+Constant Variables are declared and initialized at compile time, the value can't be changed afterwards. ReadOnly is used only when we want to assing value at runtime.
 
 **(17) Var and Dynamic**
 
@@ -172,14 +178,26 @@ If you pass a parameter by value, what happens to the parameter inside the metho
 
 **(19) Polymorphism (Static and Dynamic)**
 
-**(20) What is caching?**
+**(20) Difference between Structs and Classes**
+Structs are ValueType variables and will be saved in the stack, meanwhile classes are ReferenceType and will be stored on the heap. Structs cannot be inherited.
+
+**(21) Difference Between Overriding and OverLoading**
+
+**(22) Differente between AS and IS**
+Is is a operator used to check the compatibility of a object with a given type. "as" operator is used for casting a object to a type or a class.
+
+**(23) What is caching?**  
 Caching means storing the data temporarily in memory so the data can be access in a more efficiency and speed way.
 
-**(21) What is Localization and Globalization?**
+**(24) What is Localization and Globalization?**
 Localization means changing the already Globalized application to cater a specific language or culture. Globalization is the process of developing apps to suppor multi languages. One is opose other.
 
-**(22) What is a Delegate in C#?**
-Delegate is similar to the pointer to functions in C / C++ languages. A delegate allow you to make reference to a method, that will be defined in execution time. You don't have to define witch method will be called in compilation time, it could be make dynamic in execution time. You have flexibility to define any funcionality in execution time. A construction of a Delegate:
+**(25) What is a Delegate in C#?**
+Delegate is similar to the pointer to functions in C / C++ languages. A delegate allow you to make reference to a method, that will be defined in execution time. You don't have to define witch method will be called in compilation time, it could be make dynamic in execution time. You have flexibility to define any funcionality in execution time. 
+
+
+Advantages: Encapsulating the methods call from caller, effective use improves the performance of application, and it's used to call method assincronously.
+A construction of a Delegate:
 
 Delegate int SampleOfDelegate(string name, bool b);
 
@@ -209,13 +227,13 @@ namespace Macoratti.SimplesDelegate
     }
 }
 
-**(23) Whats the difference between a Stack and a Heap?**
+**(26) Whats the difference between a Stack and a Heap?**
 Stack store ValueTypes, and Heap stores ReferenceTypes (read under). Stack is more faster because will store primitive types, and Heap is more slower, but has capabilities to deal with more complex types like object or data.
 
-**(24) Different type of validators in Asp.Net?**
+**(27) Different type of validators in Asp.Net?**
 Client Side validation (normally JS) and ServerSide, that will runs on the backend.
 
-**(25) Difference between DLL and EXE?**
+**(28) Difference between DLL and EXE?**
 An EXE cannot be shared with other applications, and can run right and directly the applications. All the assemblies will be LOAD when we run the EXE. DLL otherwise, consists of code that needs to be hide. The code is encapsulated in this library, and can be shared with other N applications.
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------
