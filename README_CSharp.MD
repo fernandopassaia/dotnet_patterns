@@ -232,7 +232,7 @@ namespace Macoratti.SimplesDelegate
     // Declaração
     public delegate void SimplesDelegate();
 
-    class ExemploDeDelegate
+    class ExemploDeDelegate 
     {
         public static void minhaFuncao()
         {
