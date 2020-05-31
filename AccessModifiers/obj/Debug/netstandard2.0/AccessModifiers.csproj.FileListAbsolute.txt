@@ -1,0 +1,9 @@
+C:\Dev\dotnet_patterns\AccessModifiers\obj\Debug\netstandard2.0\AccessModifiers.AssemblyInfoInputs.cache
+C:\Dev\dotnet_patterns\AccessModifiers\obj\Debug\netstandard2.0\AccessModifiers.AssemblyInfo.cs
+C:\Dev\dotnet_patterns\AccessModifiers\obj\Debug\netstandard2.0\AccessModifiers.csproj.CoreCompileInputs.cache
+C:\Dev\dotnet_patterns\AccessModifiers\bin\Debug\netstandard2.0\AccessModifiers.deps.json
+C:\Dev\dotnet_patterns\AccessModifiers\bin\Debug\netstandard2.0\AccessModifiers.dll
+C:\Dev\dotnet_patterns\AccessModifiers\bin\Debug\netstandard2.0\AccessModifiers.pdb
+C:\Dev\dotnet_patterns\AccessModifiers\obj\Debug\netstandard2.0\AccessModifiers.dll
+C:\Dev\dotnet_patterns\AccessModifiers\obj\Debug\netstandard2.0\AccessModifiers.pdb
+C:\Dev\dotnet_patterns\AccessModifiers\obj\Debug\netstandard2.0\AccessModifiers.csprojAssemblyReference.cache

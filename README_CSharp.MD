@@ -97,15 +97,64 @@ Private: It's impossible to create a instance of the class.
 Abstract class contains a partial implementation for a functionality that must be implemented by the inheriting entities - but yeah, abstract can have methods and implementations. An abstract class declares fields too. An INTERFACE declares a contract that the implementing classes should have - may declare properties, methods and events with no access modifiers. All methods of a Interface are public, on partial we can have private methods.
 
 **(12) Difference access modifiers of a class in C#**
-Public: There are no restrictions on accessing public members. This is the most permissive access level.
-Private: Access is limited to within the class definition. This is the "default" if none is formally defined.
-Protected: Access is limited to within the class definition and any class that inheritis from the class.
-Internal: Access is limited exclusively to classes defined within the current project assembly - only the same assembly can access the class.
-Protected Internal: Access is limited to the current assembly and types derived from containing class. All members in current project and all members in derived class can access the variables.
+
+**public**: The type or member can be accessed by any other code in the same assembly or another assembly that references it.
+**protected**: The type or member can be accessed only by code in the same class, or in a class that is derived from that class.
+**internal**: The type or member can be accessed by any code in the same assembly, but not from another assembly.
+**protected internal**: The type or member can be accessed by any code in the assembly in which it is declared, or from within a derived class in another assembly. (as in protected OR internal)
+**private**: The type or member can be accessed only by code in the same class or struct.
+**private protected**: The type or member can be accessed only within its declaring assembly, by code in the same class or in a type that is derived from that class. (as in private OR protected)
+
+                                      public 	protected 	internal 	protected internal 	private 	private protected
+Entire program 	                        Yes 	    No 	        No 	        No 	                No 	        No
+Containing class 	                    Yes 	    Yes 	    Yes 	    Yes 	            Yes 	    Yes
+Current assembly 	                    Yes 	    No 	        Yes 	    Yes 	            No 	        No
+Derived types 	                        Yes 	    Yes 	    No 	        Yes 	            No      	No
+Derived types within current assembly 	Yes 	    Yes 	    No 	        Yes 	            No 	        Yes
 
 Another Modifiers that could be mixed with those below:
 Static: A Static Class cannot be instantiated. You just need to use the classname itselft to accees it.
 Sealed: We create it when we don't want the class to be inherited by others. We Prevent it to be derivated.
+
+
+Example of Internal Classes or Modifiers:
+public class MyHelper
+{
+    internal string InternalMethod()
+    {
+        return "should only be visible to the class itself & tests";
+    }
+ 
+    public string PublicMethod()
+    {
+        return "Everyone can call this method";
+    }
+ 
+    private string PrivateMethod()
+    {
+        return "you should not be able to call this directly";
+    }
+}
+
+If you instanciate this class, the only method you will see is the "PublicMethod()". But for example, if you need to TEST this helper, for sure your TEST project needs to see all the methods. To allow it, you should (1) set "InternasVisibleTo" in you AssemblyInfo.cs. Example: [assembly: InternalsVisibleTo("Logic.Tests")]. In .NET Core you don't have AssemblyInfo, so you need to update your .csproj by adding:
+
+<ItemGroup>
+  <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
+    <_Parameter1>Logic.Tests</_Parameter1>
+  </AssemblyAttribute>
+</ItemGroup>
+
+
+
+
+
+
+
+
+
+
+
+
 
 **(13) Difference Between IEnumerable and IEnumerator**
 IEnumerable and IEnumerator is very similar and work basically the same. But IEnumerator is more complex to deal, once you have to call "MoveNext()" method to walk thought the list. IEnumerable is most simple, has a simplier and shorter syntax. Let's Create a List<string> of months, and then load an IEnumerable and IEnumerator, to show how IEnumerable is most simple to use.
@@ -186,7 +235,7 @@ Entity: Car. Properties: Size, Color, Height, Weight. Actions: Accelerate, stop,
 Entity: Elevator. Properties: Size, MaxWeight. Actions: GoUp, GoDown, ChooseFloor.
 Entity: BankAccount. Properties: Value, Limit, Number. Actions: Deposit, WithDraw, GetExtract.
 
-Encapsulation is the techinique used to hide an idea, to not expose to user it details. In a process of Encapsulation, the atributes of class should be set as PRIVATE, and to access these modifiers is necessary to create setters and getters methods.
+Encapsulation is the techinique used to hide an idea, to not expose to user it details. So: You try to hide all the internal things of a class from other developers, and only offer them a subset of funcionality to use. You can achieve this by setting an appropriate acces modifier, for example: In a process of Encapsulation, the atributes of class should be set as PRIVATE, and to access these modifiers is necessary to create setters and getters methods.
 
 In Inheritance, a class can get attributes from another class. The great gain is on the Reutilization of Code. For example:
 Manager, Secretary, Techinical, different kind of professionals can make Inheritance of a "super class" called Employee.
