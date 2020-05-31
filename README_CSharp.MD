@@ -145,17 +145,6 @@ If you instanciate this class, the only method you will see is the "PublicMethod
 </ItemGroup>
 
 
-
-
-
-
-
-
-
-
-
-
-
 **(13) Difference Between IEnumerable and IEnumerator**
 IEnumerable and IEnumerator is very similar and work basically the same. But IEnumerator is more complex to deal, once you have to call "MoveNext()" method to walk thought the list. IEnumerable is most simple, has a simplier and shorter syntax. Let's Create a List<string> of months, and then load an IEnumerable and IEnumerator, to show how IEnumerable is most simple to use.
 
