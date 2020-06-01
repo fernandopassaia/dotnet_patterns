@@ -112,10 +112,11 @@ Current assembly 	                    Yes 	    No 	        Yes 	    Yes 	       
 Derived types 	                        Yes 	    Yes 	    No 	        Yes 	            No      	No
 Derived types within current assembly 	Yes 	    Yes 	    No 	        Yes 	            No 	        Yes
 
-Another Modifiers that could be mixed with those below:
-Static: A Static Class cannot be instantiated. You just need to use the classname itselft to accees it.
-Sealed: We create it when we don't want the class to be inherited by others. We Prevent it to be derivated.
-
+**Another Modifiers that could be mixed with those below**:
+**Static**: A Static Class cannot be instantiated. You just need to use the classname itselft to accees it.
+**Sealed**: We create it when we don't want the class to be inherited by others. We Prevent it to be derivated.
+**Partial**: You can "brake" your class info multiple files, and they will be compiled as "one" in compilation time. So you can create a lot of different files with name "geeks1.cs, geeks2.cs, geeks3.cs", first class can contains only properties, second and tirth containing methods and properties, once all of them starts with "public partial class Geeks" - the builder will understand it and compile as one.
+**Abstract**: Abstract classes cannot be instantied (cannot use "new"). It's designed to be inherited by subclasses that either implement or override its methods. Abstracts classes are either implemented or not at all. Abstract classes can have constructor (this is one of the major difference between interfaces). You can take advantage of abstract classes to design components and some level of common functionality that must be implemented by derived classes.
 
 Example of Internal Classes or Modifiers:
 public class MyHelper
