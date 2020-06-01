@@ -250,5 +250,50 @@ Now you can open your browser on Localhost:8080 and you will see your nginx runn
 **Important Note:** As we said Docker Images works in Layers. So if you take a look to your "docker images", not just the "passaia/img"
 will exists, but also the Debian 8 image. So your image of Debian could be SHARED between other images and containners you have. =)
 
-**Important Note2**: I can also use "docker login" and "docker push DockerFile" to push to my own container on the Docker WebSite =)
------------------------------------------------------------------------------------------------------------------------------------------
+**Important Note2**: I can also use "docker login" and "docker push DockerFile" to push to my own container on the Docker Hub WebSite =)
+
+**Second Exercise**
+We will now make a contanerization of a **Asp.Net Core MVC App**. We will use base-images of Microsoft to create our own images using Dockerfile. This image will be available on Docker > DeployAspNetCoreMvc folder.
+
+Here is the link oficial from Microsoft: https://hub.docker.com/_/microsoft-dotnet-core
+    dotnet/core/sdk: .NET Core SDK
+    dotnet/core/aspnet: ASP.NET Core Runtime
+    dotnet/core/runtime: .NET Core Runtime
+    dotnet/core/runtime-deps: .NET Core Runtime Dependencies
+    dotnet/core/samples: .NET Core Samples
+
+The Image I'll use is the Microsoft Asp.Net Core Runtime 3.1 that is smaller than the images with SDK.
+docker pull mcr.microsoft.com/dotnet/core/aspnet:3.1
+
+Now we have the following steps:
+(1) Create and Deploy an Asp.Net Core MVC.
+(2) Create a Dockerfile to create a custom image with base on Microsoft's image.
+(3) Create a Containner with base on the custom image.
+
+cd DeployAspNetCoreMvc
+mkdir src
+cd src
+dotnet new mvc
+dotnet build
+dotnet restore
+dotnet publish -o ./dist (the publish will be made on a folder called "dist" inside the mainfolder)
+
+**Importante note:** I can **run** the App by entering the Dist folder and running **"dotnet src.dll".**. Open your browser on localhost:5000/ =)
+
+**Content of the Dockerfile for this app:**
+
+FROM mcr.microsoft.com/dotnet/core/samples:aspnetapp
+LABEL version="1.0" maintainer="Passaia"
+WORKDIR /app
+COPY ./dist .
+ENTRYPOINT ["dotnet", "src.dll"]
+
+**How to Build this Image:**
+docker build -t aspmvc1-passaia:1.0 .
+
+Now if i listen my images with "docker images" I'll see the "aspmvc1-passaia" image.
+
+**How to RUN my App**:
+docker container run -p 5000:80 aspmvc1-passaia:1.0
+
+Now if you open your browser on you LocalHost Ubuntu 20.04: http://localhost:5000 - here there is =)
