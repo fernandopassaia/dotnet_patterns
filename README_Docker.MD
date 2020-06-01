@@ -250,4 +250,5 @@ Now you can open your browser on Localhost:8080 and you will see your nginx runn
 **Important Note:** As we said Docker Images works in Layers. So if you take a look to your "docker images", not just the "passaia/img"
 will exists, but also the Debian 8 image. So your image of Debian could be SHARED between other images and containners you have. =)
 
+**Important Note2**: I can also use "docker login" and "docker push DockerFile" to push to my own container on the Docker WebSite =)
 -----------------------------------------------------------------------------------------------------------------------------------------
