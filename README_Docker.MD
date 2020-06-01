@@ -91,6 +91,9 @@ To **REMOVE** containers:
 docker container rm linuxFerTest
 docker container rm 9f03
 
+To see **DETAILS** of a container:
+docker inspect ws1 (name or the keyof the container)
+
 
 **Running a Created Containner**:
 As said before, docker container RUN will always create new containers. To Run a existing container you should first:
@@ -128,3 +131,34 @@ http://localhost:8080/
 
 You'll see the First Page of Nginx: Running on your REAL Host, accessing the Nginx inside the containner. Cool.
 You can see this containner running using "docker container ps" or the "ctop" app. NICE!
+
+**Second Exercise:**
+I want to Map the Folders from my container (nginx) to be accessible on my Real Host. First thing to understand: When i did the first
+exercise, when i call the "localhost:8080", nginx goes inside the container on the folder "/usr/share/nginx/html" and opened the "index.html"
+file. So basically what i need to do is to see this folders on my LocalHost (Ubuntu) in a way i can change this files inside the container.
+
+(on the folder /home/fernandopassaia)
+mkdir html (important, stay on the folder fernandopassaia)
+docker container run -d --name ws1 -p 8080:80 -v $(pwd)/html:/usr/share/nginx/html nginx (pwd is my actual folder - home/fernandopassaia)
+
+Note that if you access the Nginx server (8080), you will see an error, because index.html don't exists on my LocalHost html folder.
+This folder is empty, so let's create the "index.html" file.
+
+<html>
+<head>
+<title>Course of Docker</title>
+</head>
+<body>
+Hello Docker!
+</body>
+</html>
+
+So just Refresh it and yupi! It's working again but now with my Index.html. MAP is done! You have a cool command to see it.
+
+**docker inspect ws1**
+
+With this command you have details of the container, on "Mounts" section you can see the details of the map.
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+**Intermediate: IMAGES of Docker**
