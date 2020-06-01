@@ -55,11 +55,15 @@ e 	Exec Shell
 S 	Save current configuration to file
 q 	Quit ctop
 
+-----------------------------------------------------------------------------------------------------------------------------------------
 **Now we go to the MAIN commands**:
 
 docker --version
 docker --help (list all commands)
 docker images (show the imagens available on system)
+
+If you want to **Remove** a Image:
+docker image rmi f09f (the first 4 digits or the name of the image)
 
 To **list** the Containers:
 docker container ps
@@ -94,7 +98,6 @@ docker container rm 9f03
 To see **DETAILS** of a container:
 docker inspect ws1 (name or the keyof the container)
 
-
 **Running a Created Containner**:
 As said before, docker container RUN will always create new containers. To Run a existing container you should first:
 docker container ps -a (then get the container ID - the first 4 letters is enought)
@@ -105,9 +108,7 @@ docker container exec 9f03 ls -l (it will run again the same command ls-l on the
 **To STOP a Containner**
 docker container stop affectionate_wescoff (this is the "random" name docker choose) OR docker container stop 9f03
 
------------------------------------------------------------------------------------------------------------------------------------------
-
-**Moving to the Exercixes and some more RealWorlds usages**
+### Moving to the Exercixes and some more RealWorlds usages
 
 **First Exercise:**
 I want to install a image called nginx - a proxy reverse opensource to protocols http, https, smtp, pop3 and imap. This app by default
@@ -162,3 +163,91 @@ With this command you have details of the container, on "Mounts" section you can
 -----------------------------------------------------------------------------------------------------------------------------------------
 
 **Intermediate: IMAGES of Docker**
+
+**What's an image**: It's a binary that contains all requisites to the creating and execution of a container on Docker, metadata that
+describes it's requirements and capacities, including the code of app inside the container, all dependencies and configurations of
+runtime. If we can do a parallel with OO: Image is a CLASS meanwhile containners is a objects of this class.
+
+**Layers**: One thing important to understand is that a Image of Docker contains 1-N layers. So for example, if you remove "nginx" image
+(docker image rmi nginx) and download again (docker image pull nginx) you will see that docker download 3 different files, so the 
+nginx image contains 3 different layers. To inspect the layers of a image use:
+
+docker image inspect nginx
+
+In your result you'll find:
+
+RootFS": {
+            "Type": "layers",
+            "Layers": [
+                "sha256:ffc9b21953f4cd7956cdf532a5db04ff0a2daa7475ad796f1bad58cfbaf77a07",
+                "sha256:2f4accd375d93db49e5a47c9bebe4e0dd3cef35f765f5cd36840a986435affc9",
+                "sha256:6c7de695ede33d90077f01d60ec29e6a51552a3e350757018ff1b1ecd6cee0bf"
+            ]
+        },
+
+For what: You have Read/Write layers and you have shared layers. So for example: Some containers can use same layers, for example, the
+layer "6c7de695ede33d90077f01d60ec29e6a51552a3e350757018ff1b1ecd6cee0bf" could be used for "Microsoft .Net Core SDK 3 Image" and at the
+same time for other images. If i already have it in my system, docker will NOT download again, and more than that, will not aloccate space
+storing 2 times (or 3, 4, 5) the same layer. So let's imagine that the 3th layer on this Microsoft image is the NGINX image, the web-server.
+
+If you already have it on your system, it will not be downloaded again, and will be shared for all the images you take that uses nginx. So shared layers will be shared between images. More than it: You have READ/Write Layers, so for example, in this container just the 2 firsts layers are write, and the other is shared. So in a "suppose" case: Docker will mount the 2 layers (write) under the existing Ngnix image.
+
+So it's importante to understand: If i have two or more Containers based on the same image, they also can share the images and the "Read-only"
+layers. By this way I'll be saving space and increasing performance on my system.
+
+**How to Create Images**:
+
+(1) **DockerFile**: is a text file with instructions, commands and steps that are executed throught the build command to generate an image.
+(2) Commit: But this is not a good practice, because don't store how did you make to build a image. So let's skip and ignore it.
+
+**Creating a Container and Building it using DockerFile:**
+So sometimes you need to build your own images, because you don't have ready images with everything you want. So basically Docker can construct images based on the DockerFile. So here it is what docker does:
+
+DockerFile > Build > Docker Image > Run > Docker Container
+
+So basically DockerFile constains in ORDER, all commands necessary to build a image. In this file we define all the rules, informations and instructions of the image.
+
+### Moving to the Exercixes for Images
+Note: I'm saving all my Files inside the "Docker" folder, so you'll find them there by number of Exercises.
+
+**First Exercise:**
+Create a image based on Debian 8 that installs and starts the server nginx. Look on Docker > 1 > DockerFile to see the result.
+So first of all we need to define the steps i need to create a image:
+
+(1) Define a base-image. (FROM)
+(2) Define the informations for image. (LABEL)
+(3) Execute the commands to install and start nginx. (RUN)
+(4) Expose witch PORT the server will attempt on containner (for default is 80, but we will change it) (EXPOSE)
+(5) Define the start point for the application (where the command of step6 will be executed). (ENTRYPOINT)
+(6) Define the execution of a command to start the server nginx. (CMD)
+
+So this is our DockerFile:
+FROM debian:8
+LABEL version="1.0" description="Debian/Nginx"
+RUN apt-get update && apt-get install -y nginx && apt-get clean
+EXPOSE 80
+ENTRYPOINT [ "/usr/sbin/nginx" ]
+CMD [ "-g", "daemon off;" ]
+
+Note to the 5 and 6 points: What docker will do is run the command: /usr/sbin/nginx -g daemon off;
+So Now I Basically needs to build the image, so i enter on the folder where the docker image is and:
+
+**Command to Build the image:** docker build -t passaia/img:1.0 .
+
+This command means:
+docker build > construct the image
+-t > inform that this image belongs to my user
+passaia/img:1.0 > name of image and tag attributed to it
+. > means the actual directory (where dockerfile is)
+
+Now that image is build, you can run "docker images" and you will see it there. Now i can create containers based on that:
+
+docker container run -d -p 8080:80 --name=ws1 passaia/img:1.0
+
+If you do "docker container ps" you will see the container in execution.
+Now you can open your browser on Localhost:8080 and you will see your nginx running inside your OWN docker container.
+
+**Important Note:** As we said Docker Images works in Layers. So if you take a look to your "docker images", not just the "passaia/img"
+will exists, but also the Debian 8 image. So your image of Debian could be SHARED between other images and containners you have. =)
+
+-----------------------------------------------------------------------------------------------------------------------------------------
