@@ -316,6 +316,8 @@ the Folder mapped on Docker Host (my Ubuntu 20.04 in this case). So what's the m
 (2) Share data between the host files and the container.
 (3) To share data with another containers of docker.
 
+**You have TWO WAYS to Create Volumes and to Keep data after you remove the container. FIRST ONE:**
+
 **The systax of the command is:**
 
 docker container run -v <folder_host>:<folder_container> image
@@ -331,3 +333,47 @@ Note that now, you are on the Terminal of the NEW Container. If you ENTER on **u
 here are reflected on your **local folder** on Ubuntu "maptest" (this folder is inside the Docker folder of the project). Cool not? =)
 
 If i do "docker container inspect alp1" I'll see the in MOUNTS section the maps i did. =)
+
+**SECOND WAY to Keep data after REMOVE the Container, is to Creating a Volume in fact**:
+
+**docker volume create <name_volume>**
+This command will create a new volume that containers can consume and where can store data. If a name is not specified, docker will generate a random name.
+
+**docker volume ls**
+Docker will show names of volumes and drivers where they are (usually your local driver).
+
+**docker voume rm teste** to remove volumes or **docker volume prune** to remove all.
+
+
+**First Exercise:**
+Wow, that will be good: I want to create a volume called "sqldata". Then I'll download the image from MYSQL, and yeah, wow, I want MySql to store it data (dbs) inside this Volume called "sqldata". That's impressing no? Let's move ahead. https://hub.docker.com/_/mysql
+
+Note: I'll use MySQL 5.7 image, and MySQL contains some options to include a configuration file or also to pass some parameters (environment variables). In this case my command line will include a parameter to change root password.
+
+docker image pull mysql:5.7
+docker image inspect mysql:5.7
+
+On the first inspect, I'll see that this image uses the VOLUME (volumes) directory "/var/lib/mysql" where SQL Server store it's data. Now that i know the volume where SQL store it's data, and i want to change it to my "sqldata" volume instead. So your command is:
+
+**docker container run -d --name mysql -v sqldata:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=@1234Fd# mysql:5.7**
+
+Now if i RUN "docker container inspect mysql" and check the mounts, I'll see that this container is mapping the folder of it's data (/var/lib/mysql) to my Ubuntu Host 20.04 on (/var/lib/docker/volumes/sqldata/_data)
+
+Now that it's create what i need to do. I'll connect interactively on container and connect to bash. Yeah, wow. My point now is to create a new DataBase on MySQL and then I'll see it reflecting on my Ubuntu host.
+
+docker container exec -it mysql /bin/bash
+
+Now I'm on bash of container, I'll open MySql Command Line:
+mysql -u root -p (you need to enter your pass)
+show databases; (will list all databases)
+create database testedb;
+show databases; (will list all databases, testedb should appears)
+
+Now this database "testedb" is inside my volume called sqldata. If i remove the "mysql" container, data will be still there, and even if i create a NEW container using this volume, data will still be there. So let's try it, ugye?
+
+docker container stop mysql
+docker container rm mysql
+docker container run -d --name mysql2 -v sqldata:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=@1234Fd# mysql:5.7
+docker container exec -it mysql2 /bin/bash
+mysql -u root -p
+show databases; (you'll see that database testedb is still alive, because the volume)
