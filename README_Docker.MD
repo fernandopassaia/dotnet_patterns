@@ -377,3 +377,20 @@ docker container run -d --name mysql2 -v sqldata:/var/lib/mysql -e MYSQL_ROOT_PA
 docker container exec -it mysql2 /bin/bash
 mysql -u root -p
 show databases; (you'll see that database testedb is still alive, because the volume)
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+**LAST Level Advanced: Docker Compose**:
+
+Docker Compose comes to solve a complexity problemas, let's suppose that i have 3 containners: An Application Asp.Net MVC Razor, an containner with an Application WebApi and a 3th containner with MySQL Database. Let's imagine that this 3 containners depends on each other: Razor is calling the API, and API is calling the DataBase, this is an entire application and they work together.
+
+The combination between containners, volumes and networks in a creation where each step is made manually (so i create the 3 containners separately) is a process that can contain errors. All commands should be inserted correctly and the steps should be executed in the right order to works.
+
+To Solve it: Docker componse is a tool used to describe applications and manage containers, networks and volumes that this applications needs to work. Compose simplify the process of configuration and execution of apps in a way you don't need to input complex commands that could take you to errors of config.
+
+Compose is used to describe complex applications in consistent form using a composition file (extension .yml) that contains all the details of all volumes, networks and containers that compound an application and all information of relationship between then. Docker Compose will agilize the process of deploy of your envoirnment in a simple and patternized way =)
+
+On Linux, first of all i need to INSTALL Docker Compose: https://docs.docker.com/compose/install/
+sudo curl -L "https://github.com/docker/compose/releases/download/1.25.5/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+docker-compose --version
