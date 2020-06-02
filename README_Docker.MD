@@ -297,3 +297,37 @@ Now if i listen my images with "docker images" I'll see the "aspmvc1-passaia" im
 docker container run -p 5000:80 aspmvc1-passaia:1.0
 
 Now if you open your browser on you LocalHost Ubuntu 20.04: http://localhost:5000 - here there is =)
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+**Intermediate: VOLUMES of Docker**
+
+When you remove a Container, Docker will remove the "Write" layers, and keep the read-only layers (images) on the system. So for example:
+If i remove my Container "aspmvc1-passaia" created on the steps before, Docker will remove my information, but the "aspnet runtime" image
+will still stay in the system. That's OK. But what about my information inside the container? My Logs, Files, where are they now?
+
+This is the questions Volumes comes to solve. Volumes separates the DATA that are generate by apps or databases from the rest of the
+containers data. They allow that data exists outsite of containner, what means that you can replace a container without losing it data.
+
+When you create a volume and define the MAP, all the information that will be stored on container will be not made on container, but on
+the Folder mapped on Docker Host (my Ubuntu 20.04 in this case). So what's the main reason for Volumes:
+
+(1) Keep the data when a container is removed.
+(2) Share data between the host files and the container.
+(3) To share data with another containers of docker.
+
+**The systax of the command is:**
+
+docker container run -v <folder_host>:<folder_container> image
+where -v : $(pwd)/teste:/usr/share (pwd gets the folder where i am)
+
+So let's make a sample. I'll create a container of alpine, and map the folder share to my local/maptest folder.
+
+docker container run -it --name alp1 -v $(pwd)/maptest:/usr/share alpine
+
+(it is interative, it will create a new container)
+
+Note that now, you are on the Terminal of the NEW Container. If you ENTER on **usr/share** folder, you'll see that all the changes you made
+here are reflected on your **local folder** on Ubuntu "maptest" (this folder is inside the Docker folder of the project). Cool not? =)
+
+If i do "docker container inspect alp1" I'll see the in MOUNTS section the maps i did. =)
