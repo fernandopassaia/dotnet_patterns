@@ -503,8 +503,75 @@ The combination between containners, volumes and networks in a creation where ea
 To Solve it: Docker componse is a tool used to describe applications and manage containers, networks and volumes that this applications needs to work. Compose simplify the process of configuration and execution of apps in a way you don't need to input complex commands that could take you to errors of config.
 
 Compose is used to describe complex applications in consistent form using a composition file (extension .yml) that contains all the details of all volumes, networks and containers that compound an application and all information of relationship between then. Docker Compose will agilize the process of deploy of your envoirnment in a simple and patternized way =)
-
+ 
 On Linux, first of all i need to INSTALL Docker Compose: https://docs.docker.com/compose/install/
 sudo curl -L "https://github.com/docker/compose/releases/download/1.25.5/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 docker-compose --version
+
+Nothing better than an **EXERCISE** right?
+My point here is simple: We will get the exercise made on last class, the complex exercise of integration between an AspNet Mvc Core App and MySQL Container, and now I'm gonna do it using a DockerCompose strategy.
+
+First thing I'm gonna do is to create a **CUSTOM NETWORK** for this Containers. I can addopt the strategy of connect them using the Bridge and IP adress like i did, but here I'll do something better that is connect then using a Private Network specially created for them - by this way i don't need to know IP Addresses or if they change or something like this:
+
+**docker create network backend**
+
+**So instead of create networks, volumes, containers in a manual form, I'll use DOCKER COMPOSE now. =)**
+So here are my steps brou:
+
+(1) Defne the envoirnment necessary to make my app works using Dockerfile.
+(2) Create the composition file "Docker-compose.yml" (or .yaml) and define witch networks, volumes and services are essentials to your app works and the relationship between them.
+(3) Process the file .yml by execution the command docker-compose making your envoirnment and configuring it.
+
+Yml or Yaml is a format used to create config files of easy read and organizing the file into sections using space-formating to express the structure of file. So My Composition file is composed of 4 principal sessions:
+
+version: "3" (specify the version of schema for dockercompose, acctualy 3 is the most newer)
+volumes: studentsdata (used to configure the volumes that will be used by containers to compose the file. We define this studentsdata)
+networks: backend (used to configure the networks that will be used by the containers on file - we define the backend network)
+services: (define the containers that will be used - images, contexts, etc)
+
+References:
+https://docs.docker.com/compose/compose-file
+https://yaml.org/spec/1.2/spec.html
+
+Let's move ahead:
+Note: You need to be on the folder of PROJECT, so in our case, DeployAspNetCoreMvcConnectedMySql. Let's create our yml file - take care - identation in this file is important.
+
+version: "3"
+volumes:
+    studentsdata:
+networks:
+    backend:
+
+services:
+    mysql:
+        image: "mysql:5.7"
+        volumes:
+            - studentsdata:/var/lib/mysql
+        networks:
+            - backend
+        environment: 
+            - MYSQL_ROOT_PASSWORD=@1234Fd#
+            - bind-address=0.0.0.0
+
+
+services: descibe services used to create the container.
+mysql - indicates start of description for a service that will creates a container mysql.
+image - define the image docker will uses to create this container.
+volumes - specify the volumes used by container and directories envolved.
+networks - specify the networks witch container will be connected on.
+environment - define envoirnment variables that will be used when container is created.
+
+
+Note that basically this container will do the SAME that i did in commands/terminal, but in a compose file. So now i have 3 commands that i can run using this compose file, let's move ahead:
+
+docker-compose build (process the file and check sintaxe)
+docker-compose up -d (process the file and start app)
+docker-compose ps (will show me containers created)
+docker-compose down -v (remove the containers, networks and volumes described on composition file)
+
+So after run the command UP let's check what this compose command did to my system (note: the NAME docker takes from my FOLDER of project - but yeah, i can also specify the name for all those):
+docker volume ls (I'll see my "deployaspnetcoremvconnectedtomysql_studentsdata volume)
+docker network ls (I'll see my "deployaspnetcoremvconnectedtomysql_backend network)
+
+Note: You'll see that this container is working, and this **compose file is right**! But, **we need to Create the Tables and Populate Data**, yet, and we also need to Insert the **AspNet Core MVC App**. So let's move ahead:
