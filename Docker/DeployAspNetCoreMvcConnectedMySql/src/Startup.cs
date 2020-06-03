@@ -31,7 +31,7 @@ namespace src
             var password = Configuration["DBPASSWORD"] ?? "@1234Fd#";
 
             services.AddDbContext<AppDbContext>(options =>
-            options.UseMySql($"server={host}; userid=root;pwd={password}; port={port};database=Studentsdb☻"));
+            options.UseMySql($"server={host}; userid=root;pwd={password}; port={port};database=Studentsdb"));
 
             services.AddControllersWithViews();
         }

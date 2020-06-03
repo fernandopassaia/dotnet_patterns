@@ -470,6 +470,28 @@ code .
 To Deploy the App (on src folder):
 dotnet publish --configuration Release --output ../dist
 
+Yeah, now the App is inside the dist folder, so i need to go back to VS Code and Create my Dockerfile.
+
+FROM mcr.microsoft.com/dotnet/core/samples:aspnetapp
+LABEL version="1.0" maintainer="Passaia"
+COPY dist /app
+WORKDIR /app
+ENTRYPOINT ["dotnet", "src.dll"]
+
+And Run the command to build the image (surrely):
+docker build -t mvcstudents/app:1.0 .
+
+Anow now that i have the image, let's create the container pointing to my MySQL:
+docker container run -d --name mvc1 -p 5000:80 -e DBHOST=172.17.0.2 mvcstudents/app:1.0 (don't forget your MySql image should be running UP)
+docker container ps (both containers should be running here =)
+
+
+Now Let's **TEST it**:
+On your console RUN: docker logs -f mvc1 (to watch the mvc app)
+
+If you Access your browser on localhost:5000 you'll see the app.
+If you Access your **http://localhost:5000/students** - Whoala: Your data. Nice! No HTML code and Layout, but there! =)
+
 -----------------------------------------------------------------------------------------------------------------------------------------
 
 **LAST Level Advanced: Docker Compose**:
