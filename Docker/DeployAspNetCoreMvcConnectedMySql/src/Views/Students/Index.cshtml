@@ -1,0 +1,23 @@
+@model IEnumerable<src.Models.Student>
+    @{
+        Layout = null;
+    }
+
+<html>
+    <head>
+        <meta name="viewport" content="width=device=width" />
+        <title>Students</title>
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    </head>
+</html>
+
+<body>
+    @foreach (var _student in Model)
+    {
+        <tr>
+            <td>@_student.StudentId</td>
+            <td>@_student.Name</td>
+            <td>@_student.Email</td>
+        </tr>
+    }
+</body>

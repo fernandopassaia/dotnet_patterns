@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "5KRHO6W9spdYtj89/NPrK1Y4/nXFzPt52EThFNrSRC0bAxUoa/kcjcwbufglSNUDpTMsOR0NU+a1HIve7ruIkA==",
+  "dgSpecHash": "zZS3SI4gVl45Eqg4tj2VICL+vpqHGFYLvFPuHa2R+P1JRGhGdS2lXPisek6P333AxzdrtiSK5CzAnC2CI99CxA==",
   "success": true,
-  "projectFilePath": "/home/fernandopassaia/Dev/dotnet_patterns/Docker/DeployAspNetCoreMvc/src/src.csproj",
+  "projectFilePath": "C:\\Dev\\dotnet_patterns\\Docker\\DeployAspNetCoreMvc\\src\\src.csproj",
   "expectedPackageFiles": [
-    "/home/fernandopassaia/.nuget/packages/microsoft.aspnetcore.app.ref/3.1.2/microsoft.aspnetcore.app.ref.3.1.2.nupkg.sha512"
+    "C:\\Users\\FernandoPassaia\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.2\\microsoft.aspnetcore.app.ref.3.1.2.nupkg.sha512"
   ],
   "logs": []
 }

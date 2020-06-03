@@ -294,7 +294,7 @@ docker build -t aspmvc1-passaia:1.0 .
 Now if i listen my images with "docker images" I'll see the "aspmvc1-passaia" image.
 
 **How to RUN my App**:
-docker container run -p 5000:80 aspmvc1-passaia:1.0
+docker container run -p 5000:80 --name appmvc aspmvc1-passaia:1.0
 
 Now if you open your browser on you LocalHost Ubuntu 20.04: http://localhost:5000 - here there is =)
 
@@ -377,6 +377,98 @@ docker container run -d --name mysql2 -v sqldata:/var/lib/mysql -e MYSQL_ROOT_PA
 docker container exec -it mysql2 /bin/bash
 mysql -u root -p
 show databases; (you'll see that database testedb is still alive, because the volume)
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+**ADVANCED: NetWork on Docker and Connecting Two Containners**:
+Now we want to Connect Two Containners: I have a Containner called "aspmvc1-passaia:1.0" that contains my App Deployed in Asp.Net Core. And i Have a Containner called "mysql" that i have a DataBase that stores it's data on My Host Machine (the DataBase itself on a Volume called sqldata). What I want to Do is Connect this Two Containers, so the AspNet Core App can use the DataBase on the MySQL Container over network. I Have a Image explaining it on Docker > img folder called "1 - Architecture of Apps".
+
+My **AspNetMvc** container is called "appmvc" and have in mind that you need to create and have it:
+docker container run -d --name mysql -v sqldata:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=@1234Fd# mysql:5.7
+
+My **MySql** container is called "mysql" and also ahve in mind that you need to create it before go ahead.
+docker container run -d --name mysql -v sqldata:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=@1234Fd# mysql:5.7
+docker container exec -it mysql /bin/bash
+mysql -u root -p
+create database testedb;
+show databases;
+
+Networks Defined by Software (SDN) or virtual networks.
+When you start a container, docker connects to a virtual internal network and gave a IP Address, by this way the container can communicate with the Host and with other Containers on same network. To the Container MVC communicate with the Container MySQL, we need to know what's the IP of the MySQL Container. Yeah, cool =)
+
+**docker network inspect bridge**
+
+The answer of this command will show how Docker configurates the virtual network and will show a section "containers" that show containers connected to network and the IP address of them. So based on my containers, when i run the command what i could check is:
+
+appmvc: 172.17.0.2
+mysql: 172.17.0.3
+
+Now we have to connect this two networks, to make appmvc talk with mysql. Docker create virtual networks (managed by an internal software) to manage data-traffic. You can see those networks by running the command **docker network ls**.
+
+(1) Host: Is the Network of the Server Host.
+(2) None: Is a Network without connectivity and can be used to isolate the containers.
+(3) Bridge: This is the one that we want, because docker adds all containers to this network when we create a new container (by default). So all the containers will be added to "Bridge", except if we explicity change it while creation. So by Default, my two containers are on this Bridge Network. So by Default: The containers on this network (Bridge) could communicate between them using TCP/IP. So if i add new containers, basically docker will give IP 172.17.0.4, 172.17.0.5 ... and they can communicate between then.
+
+Now that we have all Theory, let's go to the **EXERCISE**:
+### NOTE: This exercise is a kind of REVIEW of Everything that we learned until now. So it's one of the most important...
+
+This Exercise is entirely stored on the folder DeployAspNetCoreMvcConnectedMySql.
+
+I need to create a Container to my MySql, mapping the storage to my LocalHost to save the database on my host. Then I'll create a Database "Studentsdb" and inside this database I'll populate some data on a table called "students". Then I'll create an AspNet Core MVC app using DockerFile, based on my image, and then this container will communicate with MySql - inside the mvc app I'll create a variable "DbHost" where I'll store the IP of my MySql App. Details of this Exercise on "2 - Exercise using Network". So here are our steps (before that, REMOVE all containers and all the images will be used is just "mysql 5.7" and "aspnetcore_runtime"):
+
+MySql:
+(1) Create a Volume called alunosdata.
+(2) Create a container using the image mysql5.7
+(3) Create a Database called Studentsdb.
+(4) Create a Table Students and add some data.
+(5) Discover the IP address of this container.
+
+Let's go:
+docker volume create --name studentsdata
+docker container run -d --name mysql -v studentsdata:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=@1234Fd# -e bind-address=0.0.0.0 mysql:5.7
+(note: -v make the container runs on background, bin-address makes mysql accepts connections from everywhere)
+
+After create, i need to run **"docker logs -f mysql"** and check if "mysqld: ready for connections" is printed, so mysql is working and ready!
+If everything OK, now you need to open the terminal on this container, to create the database.
+
+docker container exec -it mysql /bin/bash (note: "i" is for interative, "t" is for terminal)
+mysql -u root -p (enter the password)
+create database Studentsdb;
+use Studentsdb;
+Create Table Students(StudentId smallint unsigned not null auto_increment, Name varchar(50) not null, Email varchar(80) not null, constraint pk_student primary key (StudentId));
+insert into Students(Name, Email) Values ('Fernando Passaia', 'fernandopassaia@futuradata.com.br');
+insert into Students(Name, Email) Values ('Jaqueline Guimaraes', 'jaque@futuradata.com.br');
+insert into Students(Name, Email) Values ('Hubinha Guimaraes Passaia', 'hubinha@ossinho.com');
+select * from Students;
+exit
+exit
+
+
+Now you need to Check if your container is still running OK and what's the IP:
+docker container ps -a (ok, Up for 11 minutes)
+docker network inspect bridge (now i know that my IP is 172.17.0.2 - this is the IP I'll use on .Net Core App)
+
+=) MySQL Part is over. Now let's move ahead to AspNet Core App =)
+
+AspNet Core Mvc App:
+(1) Create a application AspNet Core MVC using EF Core to access the DataBases.
+(2) Do The Deploy of the App: dotnet publish --configuration Release --output dist
+(3) Create a image: docker build -t mvcstudents/app:1.0 .
+(4) Create a container using this custom image and made the connection to MySql:
+docker container run -d --name mvc1 -p 5000:80 -e DBHOST=17.17.0.2 mvcstudents/app:1.0
+
+So here we go again:
+mkdir DeployAspNetCoreMvcConnectedMySql
+cd DeployAspNetCoreMvcConnectedMySql
+mkdir src
+cd src
+dotnet new mvc
+code .
+
+(note: this app has some models, api controllers and EF Core configurations, check inside the project to see the code...)
+
+To Deploy the App (on src folder):
+dotnet publish --configuration Release --output ../dist
 
 -----------------------------------------------------------------------------------------------------------------------------------------
 
