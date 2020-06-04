@@ -575,3 +575,120 @@ docker volume ls (I'll see my "deployaspnetcoremvconnectedtomysql_studentsdata v
 docker network ls (I'll see my "deployaspnetcoremvconnectedtomysql_backend network)
 
 Note: You'll see that this container is working, and this **compose file is right**! But, **we need to Create the Tables and Populate Data**, yet, and we also need to Insert the **AspNet Core MVC App**. So let's move ahead:
+
+First Drawback all changes you made: docker-compose down -v
+
+First Step: Inside folder MySQL_Init_Script I'll add a Script to Create and Populate My Database:
+
+create database Studentsdb;
+use Studentsdb;
+DROP TABLE IF EXISTS `Students`;
+Create Table `Students`
+(
+    `StudentId` INT AUTO_INCREMENT,
+    `Name` varchar(80) NOT NULL,
+    `Email` varchar(100) NOT NULL,
+    PRIMARY KEY (`StudentId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+    
+LOCK TABLES `Students` WRITE;
+    insert into `Students` Values ('Fernando Passaia', 'fernandopassaia@futuradata.com.br');
+    insert into `Students` Values ('Jaqueline Guimaraes', 'jaque@futuradata.com.br');
+    insert into `Students` Values ('Hubinha Guimaraes Passaia', 'hubinha@ossinho.com');
+UNLOCK TABLES;
+
+
+**And Here there is my final docker-compose now calling my Script SQL and also my AspNet Core Mvc Project**:
+
+version: "3"
+volumes:
+    studentsdata:
+networks:
+    backend:
+
+services:
+    mysql:
+        image: "mysql:5.7"
+        volumes:
+            - studentsdata:/var/lib/mysql
+            - ./MySqlInitScript:/docker-entrypoint-initdb.d
+        networks:
+            - backend
+        environment: 
+            - MYSQL_ROOT_PASSWORD=@1234Fd#
+            - bind-address=0.0.0.0
+
+**Note:** I know that all this docker-entrypoint sound stranges, because do not point right to the ".sql" file, but if you look for the oficial image of MySql on DockerHub, this information is available on "Initializing a fresh instance" part. This command will process the files on the folder (in this case the init.sql on folder).
+
+Now let's move ahead and **create again**:
+docker-compose build
+docker-compose up -d --build 
+docker-compose ps (check if the container is running UP on 3306)
+docker-compose logs (check if ready for connections)
+
+Now Let's **test** the container again to see if the SQL Script works on...
+
+docker container exec -it deployaspnetcoremvcconnectedmysql_mysql_1 /bin/bash
+mysql -u root -p (password)
+show databases;
+use Studentsdb;
+select * from Students;
+
+
+**NICE!** Now I see that i have my database with data. This is cool not? =). Now I need my Service that will start my container of AspNetCore MVC. Note that now I'll add to DockerCompose my DOCKERFILE archive of the AspNetMVC Project, passing my network (to communicate with MySql), and asking it to build the file. Look that the lines pass all the parameters that i use before on the TERMINAL command line, but now on the compose file:
+
+version: "3"
+volumes:
+    studentsdata:
+networks:
+    backend:
+
+services:
+    mysql:
+        image: "mysql:5.7"
+        volumes:
+            - studentsdata:/var/lib/mysql
+            - ./MySqlInitScript:/docker-entrypoint-initdb.d
+        networks:
+            - backend
+        environment: 
+            - MYSQL_ROOT_PASSWORD=@1234Fd#
+            - bind-address=0.0.0.0
+    
+    mvc:
+        build :
+            context: .
+            dockerfile: Dockerfile
+        networks :
+            - backend            
+        ports :
+            - 5000:80
+        environment :
+            - DBHOST=mysql
+            - ASPNETCORE_ENVIRONMENT=Development
+        depends_on :
+            - mysql
+
+mvc - name of my service
+build - indicates the start of section build that tells Docker how to create the image to the container of this service.
+context - define the directory of context used to create the image. Because the . it will take the actual directory.
+dockerfile - define the file used to create the image.
+ports - define the mapping of ports.
+DBHOST - name of host
+depends_on - Tells docker the order to witch the containers will be created. Here "mysql" container will be created before mvc.
+
+
+Now we have our final docker-compose. Let's Run:
+docker-compose down -v
+docker-compose build
+docker-compose up -d
+docker-compose ps (check if both containers are executing, mvc and mysql are running)
+docker-compose logs (check log, if both aspnet core mvc and mysql are running)
+
+Now, just go ahead:
+localhost:5000/
+localhost:5000/students
+
+IT's Working. WELL DONE! =)
+
+-----------------------------------------------------------------------------------------------------------------------------------------
