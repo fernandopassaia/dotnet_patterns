@@ -689,6 +689,19 @@ Now, just go ahead:
 localhost:5000/
 localhost:5000/students
 
-IT's Working. WELL DONE! =)
+IT's Working. WELL DONE! =) . Macoratti course is OVER.
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+**Level Supreme - I'll containarize my AppFullStackDemo - An AspNet API + SQL Server Express + Angular App**:
+
+First of All, let's pull the **SQL Server Image** using Ubuntu 16.04: https://hub.docker.com/_/microsoft-mssql-server
+
+docker pull mcr.microsoft.com/mssql/server:2017-CU20-ubuntu-16.04
+
+You can for test create a container and see if it's running:
+docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=@1234Fd#' -e 'MSSQL_PID=Express' --name sqlserver -p 1433:1433 -d mcr.microsoft.com/mssql/server:2017-CU20-ubuntu-16.04
+
+
 
 -----------------------------------------------------------------------------------------------------------------------------------------
