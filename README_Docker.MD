@@ -703,5 +703,62 @@ You can for test create a container and see if it's running:
 docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=@1234Fd#' -e 'MSSQL_PID=Express' --name sqlserver -p 1433:1433 -d mcr.microsoft.com/mssql/server:2017-CU20-ubuntu-16.04
 
 
+But yeah, I'll not install it using Terminal, so here are my Dockerfile and Docker-Compse file. Both of Them are in BackEnd Folder with .sln Files. Here we go:
+
+
+
+**docker-compose**:
+version: "3.6"
+
+networks:
+    appfullstackdemo:
+        driver: bridge
+
+services:
+    appfullstackdemo.sqlserver:
+        container_name: appfullstackdemo.sqlserver
+        image: microsoft/mssql-server-linux:2017-latest
+        networks:
+        - appfullstackdemo
+        environment:
+            SA_PASSWORD: "@1234Fd#"
+            ACCEPT_EULA: "Y"
+        ports:
+            - "1433:1433"
+    
+    appfullstackdemo.backend:
+        container_name: appfullstackdemo.backend
+        build :
+            context: .
+            dockerfile: Dockerfile
+        networks :
+            - appfullstackdemo
+        ports :
+            - 4001:4001
+        environment :            
+            - ASPNETCORE_ENVIRONMENT=Development
+        depends_on :
+            - appfullstackdemo.sqlserver
+
+**Dockerfile:**
+FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS base
+LABEL version="1.0" maintainer="AppFullStackDemoBackEnd"
+EXPOSE 4001
+
+FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS build
+WORKDIR /src
+ADD / ./
+RUN dotnet restore
+COPY . .
+WORKDIR /src/AppFullStackDemo.Api
+RUN dotnet build -c Release -o /app
+
+FROM build AS publish
+RUN dotnet publish -c Release -o /app
+
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app .
+ENTRYPOINT ["dotnet", "AppFullStackDemo.Api.dll"]
 
 -----------------------------------------------------------------------------------------------------------------------------------------
