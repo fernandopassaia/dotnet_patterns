@@ -680,6 +680,7 @@ depends_on - Tells docker the order to witch the containers will be created. Her
 
 Now we have our final docker-compose. Let's Run:
 docker-compose down -v
+docker-compose down -v --remove
 docker-compose build
 docker-compose up -d
 docker-compose ps (check if both containers are executing, mvc and mysql are running)
@@ -703,6 +704,7 @@ You can for test create a container and see if it's running:
 docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=@1234Fd#' -e 'MSSQL_PID=Express' --name sqlserver -p 1433:1433 -d mcr.microsoft.com/mssql/server:2017-CU20-ubuntu-16.04
 
 
+To connect to this instance of SQL Server you can use Azure Data Studio and: localhost, 1433 as SERVER, sa as user, as @1234Fd# as password. Yeah it works! =)
 But yeah, I'll not install it using Terminal, so here are my Dockerfile and Docker-Compse file. Both of Them are in BackEnd Folder with .sln Files. Here we go:
 
 
@@ -715,9 +717,8 @@ networks:
         driver: bridge
 
 services:
-    appfullstackdemo.sqlserver:
-        container_name: appfullstackdemo.sqlserver
-        image: microsoft/mssql-server-linux:2017-latest
+    appfullstackdemo.database:
+        image: mcr.microsoft.com/mssql/server:2017-CU20-ubuntu-16.04
         networks:
         - appfullstackdemo
         environment:
@@ -727,7 +728,6 @@ services:
             - "1433:1433"
     
     appfullstackdemo.backend:
-        container_name: appfullstackdemo.backend
         build :
             context: .
             dockerfile: Dockerfile
@@ -738,7 +738,7 @@ services:
         environment :            
             - ASPNETCORE_ENVIRONMENT=Development
         depends_on :
-            - appfullstackdemo.sqlserver
+            - appfullstackdemo.database
 
 **Dockerfile:**
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS base
@@ -760,5 +760,23 @@ FROM base AS final
 WORKDIR /app
 COPY --from=publish /app .
 ENTRYPOINT ["dotnet", "AppFullStackDemo.Api.dll"]
+
+
+**Annottations:**
+Workdir /src (here I'm creating a folder called /src inside the container)
+ADD / ./ (here I'm copy ALL my actual folder (backEnd) to this folder src inside the container - so my entire solution will be copied to the container)
+
+
+
+**How to RUN my compose and create everything:**
+docker-compose build
+docker-compose up -d
+docker-compose ps (will check if the two containers are running)
+
+**How to REMOVE my compose and delete everything:**
+docker-compose down -v --remove (remove will force the stop the containers running)
+docker images (will list the images)
+docker image rmi 80c9 (there are two images - one for SQL and other for backend) (*80c9 is the first 4 digits of the IMAGE ID)
+
 
 -----------------------------------------------------------------------------------------------------------------------------------------
