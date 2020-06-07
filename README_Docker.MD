@@ -766,7 +766,23 @@ ENTRYPOINT ["dotnet", "AppFullStackDemo.Api.dll"]
 Workdir /src (here I'm creating a folder called /src inside the container)
 ADD / ./ (here I'm copy ALL my actual folder (backEnd) to this folder src inside the container - so my entire solution will be copied to the container)
 
+Note: Because the DataBase will run in a separated container, we cannot run the MIGRATION process while building the APP. Yeah, but we found a way to solve it,
+inside the backend I've Updated the Startup class adding on Configure the constructor (injecting context) and updating the method to call the migraiton on RUN:
 
+Constructor: public void Configure(IApplicationBuilder app, IWebHostEnvironment env, AppFullStackDemoContext context)
+Inside the Method: context.Database.Migrate();
+
+**NETWORK PRoblem:**
+For some reason, .NET CORE app cannot RUN because during migration, localhost,1433 was not found. So I've changed the approach (to test) changing my connection
+string to the CONTAINER SQL SERVER IP Address. So First of All, run:
+
+docker network ls
+docker inspect 9acd (where this 4 digits is the start of backend_appfullstackdemo)
+
+Then i see that my connection string is 172.19.0.2, so i've changed it on my backend SOURCE on appsettings.json AND AppFullStackDemoContext.cs:
+Data Source=172.19.0.2,1433;Initial Catalog=AppFullStackDemo;Persist Security Info=True;User ID=sa;Password=@1234Fd#
+
+Don't forget to save everything, REMOVE the containers and images, and build it and UP again. =)
 
 **How to RUN my compose and create everything:**
 docker-compose build
