@@ -701,10 +701,10 @@ First of All, let's pull the **SQL Server Image** using Ubuntu 16.04: https://hu
 docker pull mcr.microsoft.com/mssql/server:2017-CU20-ubuntu-16.04
 
 You can for test create a container and see if it's running:
-docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=@1234Fd#' -e 'MSSQL_PID=Express' --name sqlserver -p 1433:1433 -d mcr.microsoft.com/mssql/server:2017-CU20-ubuntu-16.04
+docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=@1234Fd#' -e 'MSSQL_PID=Express' --name sqlserver -p 4002:1433 -d mcr.microsoft.com/mssql/server:2017-CU20-ubuntu-16.04
 
 
-To connect to this instance of SQL Server you can use Azure Data Studio and: localhost, 1433 as SERVER, sa as user, as @1234Fd# as password. Yeah it works! =)
+To connect to this instance of SQL Server you can use Azure Data Studio and: localhost,4002 as SERVER, sa as user, as @1234Fd# as password. Yeah it works! =)
 But yeah, I'll not install it using Terminal, so here are my Dockerfile and Docker-Compse file. Both of Them are in BackEnd Folder with .sln Files. Here we go:
 
 
@@ -725,7 +725,7 @@ services:
             SA_PASSWORD: "@1234Fd#"
             ACCEPT_EULA: "Y"
         ports:
-            - "1433:1433"
+            - "4002:1433"
     
     appfullstackdemo.backend:
         build :
@@ -763,14 +763,17 @@ ENTRYPOINT ["dotnet", "AppFullStackDemo.Api.dll"]
 
 
 **Annottations:**
-Workdir /src (here I'm creating a folder called /src inside the container)
-ADD / ./ (here I'm copy ALL my actual folder (backEnd) to this folder src inside the container - so my entire solution will be copied to the container)
+(1) Workdir /src (here I'm creating a folder called /src inside the container)
+(2) ADD / ./ (here I'm copy ALL my actual folder (backEnd) to this folder src inside the container - so my entire solution will be copied to the container)
 
-Note: Because the DataBase will run in a separated container, we cannot run the MIGRATION process while building the APP. Yeah, but we found a way to solve it,
+(3) Note: Because the DataBase will run in a separated container, we cannot run the MIGRATION process while building the APP. Yeah, but we found a way to solve it,
 inside the backend I've Updated the Startup class adding on Configure the constructor (injecting context) and updating the method to call the migraiton on RUN:
 
 Constructor: public void Configure(IApplicationBuilder app, IWebHostEnvironment env, AppFullStackDemoContext context)
 Inside the Method: context.Database.Migrate();
+
+(4) I've changed the port of SQL from 1433 to 4002 on my local machine, basically because SQL Server is Running on My LocalHost (Windows / Linux), and yeah,
+I'll have conflicts with it. So i have to change, so basically my container is running on 4002, and i need to connect it by this way.
 
 **NETWORK PRoblem:**
 For some reason, .NET CORE app cannot RUN because during migration, localhost,1433 was not found. So I've changed the approach (to test) changing my connection
@@ -779,8 +782,8 @@ string to the CONTAINER SQL SERVER IP Address. So First of All, run:
 docker network ls
 docker inspect 9acd (where this 4 digits is the start of backend_appfullstackdemo)
 
-Then i see that my connection string is 172.19.0.2, so i've changed it on my backend SOURCE on appsettings.json AND AppFullStackDemoContext.cs:
-Data Source=172.19.0.2,1433;Initial Catalog=AppFullStackDemo;Persist Security Info=True;User ID=sa;Password=@1234Fd#
+Then i see that my connection string is 172.18.0.2, so i've changed it on my backend SOURCE on appsettings.json AND AppFullStackDemoContext.cs:
+Data Source=172.18.0.2,4002;Initial Catalog=AppFullStackDemo;Persist Security Info=True;User ID=sa;Password=@1234Fd#
 
 Don't forget to save everything, REMOVE the containers and images, and build it and UP again. =)
 
