@@ -252,6 +252,8 @@ will exists, but also the Debian 8 image. So your image of Debian could be SHARE
 
 **Important Note2**: I can also use "docker login" and "docker push DockerFile" to push to my own container on the Docker Hub WebSite =)
 
+**Important Note3**: To see the logs of a container (specially in case of errors) use "docker logs --follow c201".
+
 **Second Exercise**
 We will now make a contanerization of a **Asp.Net Core MVC App**. We will use base-images of Microsoft to create our own images using Dockerfile. This image will be available on Docker > DeployAspNetCoreMvc folder.
 
@@ -775,12 +777,22 @@ Inside the Method: context.Database.Migrate();
 (4) I've changed the port of SQL from 1433 to 4002 on my local machine, basically because SQL Server is Running on My LocalHost (Windows / Linux), and yeah,
 I'll have conflicts with it. So i have to change, so basically my container is running on 4002, and i need to connect it by this way.
 
-**NETWORK PRoblem:**
+**NETWORK Problem:**
 For some reason, .NET CORE app cannot RUN because during migration, localhost,1433 was not found. So I've changed the approach (to test) changing my connection
 string to the CONTAINER SQL SERVER IP Address. So First of All, run:
 
 docker network ls
-docker inspect 9acd (where this 4 digits is the start of backend_appfullstackdemo)
+docker network inspect 9acd (where this 4 digits is the start of backend_appfullstackdemo)
+OR docker network inspect bridge
+
+IF you want to inspect a IMAGE (if the image don't enter on the Network):
+docker image inspect 8c2e (will inspect the IMAGE created by the build)
+docker container inspect 8c2e (will inspect the CONTAINER running)
+
+docker logs --follow 8c2e (will inspect the errors)
+
+To Check IP Address: 
+docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' 517b
 
 Then i see that my connection string is 172.18.0.2, so i've changed it on my backend SOURCE on appsettings.json AND AppFullStackDemoContext.cs:
 Data Source=172.18.0.2,4002;Initial Catalog=AppFullStackDemo;Persist Security Info=True;User ID=sa;Password=@1234Fd#
@@ -796,6 +808,11 @@ docker-compose ps (will check if the two containers are running)
 docker-compose down -v --remove (remove will force the stop the containers running)
 docker images (will list the images)
 docker image rmi 80c9 (there are two images - one for SQL and other for backend) (*80c9 is the first 4 digits of the IMAGE ID)
+
+**How to DEBUG and see OUTPUTS in case of errors:**
+docker-compose logs
+docker logs -f mysql (or the 4 first digits of a container - docker logs -f 89c2)
+docker run -it --entrypoint /bin/bash <image> (here if i put the IMAGE of my AspNet Core App, i can enter on the console)
 
 
 -----------------------------------------------------------------------------------------------------------------------------------------
