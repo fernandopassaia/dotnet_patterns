@@ -815,5 +815,11 @@ docker-compose logs
 docker logs -f mysql (or the 4 first digits of a container - docker logs -f 89c2)
 docker run -it --entrypoint /bin/bash <image> (here if i put the IMAGE of my AspNet Core App, i can enter on the console)
 
+To install **Tools** on the Containers and Use for Tests:
+
+**PING** Tool:
+apt-get update
+apt-get install iputils-ping
+
 
 -----------------------------------------------------------------------------------------------------------------------------------------
