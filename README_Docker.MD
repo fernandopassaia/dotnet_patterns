@@ -806,6 +806,7 @@ docker-compose ps (will check if the two containers are running)
 
 **How to REMOVE my compose and delete everything:**
 docker-compose down -v --remove (remove will force the stop the containers running)
+docker-compose down --remove-orphans (remove and force to remove the containers - better)
 docker images (will list the images)
 docker image rmi 80c9 (there are two images - one for SQL and other for backend) (*80c9 is the first 4 digits of the IMAGE ID)
 
