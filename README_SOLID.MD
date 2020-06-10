@@ -123,8 +123,8 @@ fazer uma classe JuniorEmployee (implementando IEmployee) e a calculadora pra Ju
 
 **L**: Barbara Liskov LSP Principle: Se 'S' é um subtipo de 'T', então objetos do tipo 'T' podem ser substituídos por
 objetos do tipo 'S' sem que essa substituição gere efeitos colaterais na nossa aplicação. Para essa regra usaremos o
-exemplo clássico de Barbara Liskov: O Quadrado e Retângulo. Só lembrando: Um retângulo é um quadrado, porém os lados
-(altura e largura) não são iguais.
+exemplo clássico de Barbara Liskov: O Quadrado (square) e Retângulo (rectangle). Só lembrando: Um retângulo é um quadrado,
+porém os lados (altura e largura) não são iguais.
 
 Se eu tentar fazer uma herança (por exemplo quadrado herdar de retângulo) isso não daria certo, uma vez que apesar deles
 serem iguais, o quadrado tem os 4 lados iguais, logo o cálculo de Area é diferente, e o quadrado não precisa saber da
