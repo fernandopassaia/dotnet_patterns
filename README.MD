@@ -10,13 +10,13 @@ some info about what I'm studying, and also to serve me as a reference in the fu
 C# TOP Questions/Principles (Done) <br>
 C# Review for Async/Await (Done) <br>
 C# first app for RABBITMQ and Messaging (To-Do) <br>
-Unit Tests (Re-escrevendo Testes Unidade - curso Balta) (Eduardo Pires Cursto também) (To-Do) <br>
+Unit Tests (Re-escrevendo Testes Unidade - curso Balta) (Eduardo Pires Cursto também) (Done Unit Testing and AAA, go on TDD?) <br>
 MicroServices (To-Do) (ver vídeo Eduardo) <br>
 
 **OOP, Architecture, Design Patterns, Principles**: <br>
 SOLID Principles (Done) <br>
-Rest and Restful principles <br>
-Agile <br>
+Rest and Restful principles (Done) <br>
+Agile (Done)<br>
 
 **Angular**: <br>
 Angular Redux / Promisses (Async/Await) (To-Do) <br>
@@ -24,4 +24,4 @@ Angular TOP Questions/Principles (To-Do) <br>
 
 **DevOps**: <br>
 Azure Serverless (Live Balta Youtube) (To-Do) (study Azure, see some course) <br>
-Docker Envoirnment for AppFullStackDemo (To-Do) <br>
+Docker Envoirnment for AppFullStackDemo (Under Dev...) <br>
