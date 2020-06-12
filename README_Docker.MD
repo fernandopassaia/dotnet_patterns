@@ -905,9 +905,7 @@ services:
         environment:
             POSTGRES_USER: "postgres"
             POSTGRES_PASSWORD: "@1234Fd#"
-            PGDATA: /data/postgres
-        volumes:
-            - postgres:/data/postgres
+            PGDATA: /data/postgres        
         ports:
             - "5432:5432"
         networks:
@@ -919,9 +917,7 @@ services:
         image: dpage/pgadmin4
         environment:
             PGADMIN_DEFAULT_EMAIL: "pgadmin4@pgadmin.org"
-            PGADMIN_DEFAULT_PASSWORD: "@1234Fd#"
-        volumes:
-            - pgadmin:/root/.pgadmin
+            PGADMIN_DEFAULT_PASSWORD: "@1234Fd#"        
         ports:
             - "5050:80"
         networks:
@@ -957,10 +953,6 @@ services:
 networks:
   postgres:
     driver: bridge
-
-volumes:
-    postgres:
-    pgadmin: 
 
 **DockerFile for FrontEnd (DockerfileBackEnd)**:
 
