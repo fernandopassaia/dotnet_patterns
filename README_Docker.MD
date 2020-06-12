@@ -698,6 +698,11 @@ IT's Working. WELL DONE! =) . Macoratti course is OVER.
 
 **Level Supreme - I'll containarize my AppFullStackDemo - An AspNet API + SQL Server Express + Angular App**:
 
+**NOTE HERE ON 11062020**: I've archived this DockerFile and DockerCompose here because basically the .NET Core Docker Image don't work good with the SQL
+Server Docker Image. Yeah, sounds crazy, but those images of MS is bugged. So I'll switch the DataBase to POSTGRESQL giving a better solution.
+
+
+
 First of All, let's pull the **SQL Server Image** using Ubuntu 16.04: https://hub.docker.com/_/microsoft-mssql-server
 
 docker pull mcr.microsoft.com/mssql/server:2017-CU20-ubuntu-16.04
@@ -710,57 +715,83 @@ To connect to this instance of SQL Server you can use Azure Data Studio and: loc
 But yeah, I'll not install it using Terminal, so here are my Dockerfile and Docker-Compse file. Both of Them are in BackEnd Folder with .sln Files. Here we go:
 
 
-
 **docker-compose**:
 version: "3.6"
 
-networks:
-    appfullstackdemo:
-        driver: bridge
-
 services:
     appfullstackdemo.database:
-        image: mcr.microsoft.com/mssql/server:2017-CU20-ubuntu-16.04
-        networks:
-        - appfullstackdemo
+        container_name: mssqlserver
+        image: mcr.microsoft.com/mssql/server:2019-CU4-ubuntu-16.04        
         environment:
             SA_PASSWORD: "@1234Fd#"
             ACCEPT_EULA: "Y"
+        networks:
+            testing_net:
+                ipv4_address: 198.162.1.5
         ports:
-            - "4002:1433"
+            - "4002:1433"    
     
     appfullstackdemo.backend:
+        container_name: webapi
         build :
             context: .
             dockerfile: Dockerfile
-        networks :
-            - appfullstackdemo
+        networks:
+            testing_net:
+                ipv4_address: 198.162.1.10
         ports :
             - 4001:4001
-        environment :            
+        environment :
             - ASPNETCORE_ENVIRONMENT=Development
         depends_on :
-            - appfullstackdemo.database
+            - appfullstackdemo.database        
+
+    appfullstackdemo.sqltools:
+        container_name: mssqlservertools
+        image: mcr.microsoft.com/mssql-tools
+        networks:
+            testing_net:
+                ipv4_address: 198.162.1.15
+
+networks:
+    testing_net:
+        ipam:
+            driver: default
+            config:
+                - subnet: 198.162.1.0/16
 
 **Dockerfile:**
-FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS base
+FROM mcr.microsoft.com/dotnet/core/aspnet:3.1-bionic AS base
 LABEL version="1.0" maintainer="AppFullStackDemoBackEnd"
 EXPOSE 4001
 
-FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS build
+#this port is very important to expose, because it's the SQL Server
+EXPOSE 4002
+
+FROM mcr.microsoft.com/dotnet/core/sdk:3.1-bionic AS build
 WORKDIR /src
 ADD / ./
+RUN sed -i 's/DEFAULT@SECLEVEL=2/DEFAULT@SECLEVEL=1/g' /etc/ssl/openssl.cnf
+RUN sed -i 's/DEFAULT@SECLEVEL=2/DEFAULT@SECLEVEL=1/g' /usr/lib/ssl/openssl.cnf
 RUN dotnet restore
 COPY . .
 WORKDIR /src/AppFullStackDemo.Api
 RUN dotnet build -c Release -o /app
 
 FROM build AS publish
+RUN sed -i 's/DEFAULT@SECLEVEL=2/DEFAULT@SECLEVEL=1/g' /etc/ssl/openssl.cnf
+RUN sed -i 's/DEFAULT@SECLEVEL=2/DEFAULT@SECLEVEL=1/g' /usr/lib/ssl/openssl.cnf
 RUN dotnet publish -c Release -o /app
 
-FROM base AS final
+FROM mcr.microsoft.com/dotnet/core/aspnet:3.1-bionic AS final
 WORKDIR /app
+RUN sed -i 's/DEFAULT@SECLEVEL=2/DEFAULT@SECLEVEL=1/g' /etc/ssl/openssl.cnf
+RUN sed -i 's/DEFAULT@SECLEVEL=2/DEFAULT@SECLEVEL=1/g' /usr/lib/ssl/openssl.cnf
 COPY --from=publish /app .
+#for the API
+EXPOSE 4001
+#for the SQL Server
+EXPOSE 4002
 ENTRYPOINT ["dotnet", "AppFullStackDemo.Api.dll"]
 
 
@@ -821,5 +852,126 @@ To install **Tools** on the Containers and Use for Tests:
 apt-get update
 apt-get install iputils-ping
 
-
 -----------------------------------------------------------------------------------------------------------------------------------------
+
+**New Version of DockerFile and DockerCompose with PostgreSQL for AppFullStackDemo**:
+
+First **Pull** the first two images:
+docker pull postgres:10.13-alpine
+docker pull adminer
+
+**Compile and Run**:
+docker-compose build
+docker-compose up -d
+
+**Check** it by:
+docker container ps
+docker container ps -a
+docker-compose logs
+
+**Accesses to the Container**:
+**To access the Pgadmin** use: localhost:5000
+Create a Connection with: postgres_container (host name is always the container name, also in connectionstring inside .NetApp)
+UserName: postgres - password: @1234Fd#
+
+Sample of Connection String: "ServerLocalConnection": "server=postgres_container;port=5432;userid=postgres;database=AppFullStackDemo;password=@1234Fd#;"
+
+**URL for the BackEnd**: http://localhost:4001/api/User/v1/test
+
+**To ShutDown everything**:
+docker-compose down --remove-orphans
+docker images
+docker image rmi 34cc (and the number of the respective images)
+
+
+And here there's my **FINAL** Docker-compose and DockerFile:
+
+
+version: '3.6'
+
+services:
+    postgres:
+        container_name: postgres_container
+        image: postgres:10.13-alpine
+        environment:
+            POSTGRES_USER: "postgres"
+            POSTGRES_PASSWORD: "@1234Fd#"
+            PGDATA: /data/postgres
+        volumes:
+            - postgres:/data/postgres
+        ports:
+            - "5432:5432"
+        networks:
+            - postgres
+        restart: unless-stopped
+  
+    pgadmin:
+        container_name: pgadmin_container
+        image: dpage/pgadmin4
+        environment:
+            PGADMIN_DEFAULT_EMAIL: "pgadmin4@pgadmin.org"
+            PGADMIN_DEFAULT_PASSWORD: "@1234Fd#"
+        volumes:
+            - pgadmin:/root/.pgadmin
+        ports:
+            - "5050:80"
+        networks:
+            - postgres
+        restart: unless-stopped
+
+    backend:
+        container_name: backend_container
+        build :
+            context: .
+            dockerfile: Dockerfile        
+        ports:
+            - "4001:4001"
+        environment :
+            - ASPNETCORE_ENVIRONMENT=Production
+        networks:
+            - postgres
+        restart: unless-stopped
+        depends_on :
+            - postgres
+
+networks:
+  postgres:
+    driver: bridge
+
+volumes:
+    postgres:
+    pgadmin: 
+
+
+
+
+
+
+
+FROM mcr.microsoft.com/dotnet/core/aspnet:3.1-bionic AS base
+LABEL version="1.0" maintainer="AppFullStackDemoBackEnd"
+EXPOSE 4001
+
+FROM mcr.microsoft.com/dotnet/core/sdk:3.1-bionic AS build
+WORKDIR /src
+ADD / ./
+RUN sed -i 's/DEFAULT@SECLEVEL=2/DEFAULT@SECLEVEL=1/g' /etc/ssl/openssl.cnf
+RUN sed -i 's/DEFAULT@SECLEVEL=2/DEFAULT@SECLEVEL=1/g' /usr/lib/ssl/openssl.cnf
+RUN dotnet restore
+COPY . .
+WORKDIR /src/AppFullStackDemo.Api
+RUN dotnet build -c Release -o /app
+
+FROM build AS publish
+RUN sed -i 's/DEFAULT@SECLEVEL=2/DEFAULT@SECLEVEL=1/g' /etc/ssl/openssl.cnf
+RUN sed -i 's/DEFAULT@SECLEVEL=2/DEFAULT@SECLEVEL=1/g' /usr/lib/ssl/openssl.cnf
+RUN dotnet publish -c Release -o /app
+
+FROM mcr.microsoft.com/dotnet/core/aspnet:3.1-bionic AS final
+WORKDIR /app
+RUN sed -i 's/DEFAULT@SECLEVEL=2/DEFAULT@SECLEVEL=1/g' /etc/ssl/openssl.cnf
+RUN sed -i 's/DEFAULT@SECLEVEL=2/DEFAULT@SECLEVEL=1/g' /usr/lib/ssl/openssl.cnf
+COPY --from=publish /app .
+#for the API
+EXPOSE 4001
+ENTRYPOINT ["dotnet", "AppFullStackDemo.Api.dll"]
