@@ -854,11 +854,16 @@ apt-get install iputils-ping
 
 -----------------------------------------------------------------------------------------------------------------------------------------
 
-**New Version of DockerFile and DockerCompose with PostgreSQL for AppFullStackDemo**:
+
+### New Version of DockerFile and DockerCompose with PostgreSQL for AppFullStackDemo:
 
 First **Pull** the first two images:
 docker pull postgres:10.13-alpine
 docker pull adminer
+docker pull mcr.microsoft.com/dotnet/core/sdk:3.1-bionic
+docker pull mcr.microsoft.com/dotnet/core/aspnet:3.1-bionic
+docker pull node:14.4.0-alpine3.12
+docker pull nginx:1.19.0-alpine
 
 **Compile and Run**:
 docker-compose build
@@ -868,6 +873,9 @@ docker-compose up -d
 docker container ps
 docker container ps -a
 docker-compose logs
+
+To **ENTER** on a container Linux:
+docker run -it --entrypoint /bin/bash <image>
 
 **Accesses to the Container**:
 **To access the Pgadmin** use: localhost:5000
@@ -884,8 +892,9 @@ docker images
 docker image rmi 34cc (and the number of the respective images)
 
 
-And here there's my **FINAL** Docker-compose and DockerFile:
+And here there's my **FINAL** Docker-compose and DockerFiles for the BackEnd and the Angular Projects:
 
+**Docker-compose File**:
 
 version: '3.6'
 
@@ -923,7 +932,7 @@ services:
         container_name: backend_container
         build :
             context: .
-            dockerfile: Dockerfile        
+            dockerfile: DockerfileBackEnd
         ports:
             - "4001:4001"
         environment :
@@ -934,6 +943,17 @@ services:
         depends_on :
             - postgres
 
+    frontend:
+        container_name: frontend_container
+        build :
+            context: .
+            dockerfile: DockerfileFrontEnd
+        ports:
+            - "4200:80"
+        networks:
+            - postgres
+        restart: unless-stopped        
+
 networks:
   postgres:
     driver: bridge
@@ -942,11 +962,7 @@ volumes:
     postgres:
     pgadmin: 
 
-
-
-
-
-
+**DockerFile for FrontEnd (DockerfileBackEnd)**:
 
 FROM mcr.microsoft.com/dotnet/core/aspnet:3.1-bionic AS base
 LABEL version="1.0" maintainer="AppFullStackDemoBackEnd"
@@ -954,7 +970,7 @@ EXPOSE 4001
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-bionic AS build
 WORKDIR /src
-ADD / ./
+ADD /BackEnd/ ./
 RUN sed -i 's/DEFAULT@SECLEVEL=2/DEFAULT@SECLEVEL=1/g' /etc/ssl/openssl.cnf
 RUN sed -i 's/DEFAULT@SECLEVEL=2/DEFAULT@SECLEVEL=1/g' /usr/lib/ssl/openssl.cnf
 RUN dotnet restore
@@ -975,3 +991,19 @@ COPY --from=publish /app .
 #for the API
 EXPOSE 4001
 ENTRYPOINT ["dotnet", "AppFullStackDemo.Api.dll"]
+
+**DockerFile for FrontEnd (DockerfileFrontEnd)**:
+
+FROM node:14.4.0-alpine3.12 AS build
+WORKDIR /src
+ADD ./FrontEnd/ ./
+RUN npm install
+COPY . .
+RUN npm run build --prod
+
+### STAGE 2: Run ###
+FROM nginx:1.19.0-alpine
+COPY --from=build /src/dist/demo /usr/share/nginx/html
+EXPOSE 4200
+EXPOSE 80
+EXPOSE 8080
