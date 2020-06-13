@@ -25,25 +25,14 @@ Tem serviços de redundância integrados - ou seja, você pode fazer armazenamen
 Storage é dívidido em 4 serviços: Blob, Table, Queue e File. Veja as imagens na pasta para saber a diferença.
 
 
-**Indo pra parte prática do curso** (minuto 01:30:30):
-
-
-
-
+**Indo pra parte prática do curso** (minuto 01:30:30): Nota, a partir de agora documentarei tudo em imagens, na pasta Azure > azureNaPratica_P1Curso_Storage. Nessa pasta tem várias imagens explicando e também o projeto que tem no GitHub deles, com um BackEnd e um FrontEnd em Angular, o Front consome o Back que usa o Storage do Azure. Show demais!
 
 
 ## Parte 2 Curso Azure na Prática Gratuíto 2 - Docker do Canal DotNet:
 
 
 
-
-
-
 ## Parte 3 Curso Azure na Prática Gratuíto 3 - GitHub Actions build e deploy automarizados - Docker do Canal DotNet:
-
-
-
-
 
 
 
