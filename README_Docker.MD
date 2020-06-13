@@ -862,7 +862,7 @@ docker pull postgres:10.13-alpine
 docker pull adminer
 docker pull mcr.microsoft.com/dotnet/core/sdk:3.1-bionic
 docker pull mcr.microsoft.com/dotnet/core/aspnet:3.1-bionic
-docker pull node:14.4.0-alpine3.12
+docker pull node:14.4.0-buster
 docker pull nginx:1.19.0-alpine
 
 **Compile and Run**:
@@ -986,9 +986,14 @@ ENTRYPOINT ["dotnet", "AppFullStackDemo.Api.dll"]
 
 **DockerFile for FrontEnd (DockerfileFrontEnd)**:
 
-FROM node:14.4.0-alpine3.12 AS build
+FROM node:14.4.0-buster AS build
 WORKDIR /src
 ADD ./FrontEnd/ ./
+RUN apt-get update && apt-get install -y apt-utils
+RUN apt-get install -y sudo
+RUN apt-get install -y curl && apt-get install -y ssh
+RUN apt-get install -y build-essential
+RUN npm install -g -save @angular/cli @angular/core @angular/material @angular/cdk @angular/animations
 RUN npm install
 COPY . .
 RUN npm run build --prod
