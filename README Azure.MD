@@ -115,4 +115,4 @@ Então ele listou todos meus projetos, e eu selecionei o aspnet-env-sample. Lega
 Meu GitHub fará o Deploy da aplicação e tudo mais, clicando sobre o Job terei todos os detalhes. Veja as imagens de 8 a 10.
 
 É preciso esperar um pouco, dá pra acompanhar em tempo REAL a compilação, deploy e publicação do site, mas depois de 5 minutos no endereço o meu site estava lá. SHOW DEMAIS!
-Veja a imagem 12 pra Entender.
+Veja a imagem 12 pra Entender. Agora vamos voltar aquela nossa variável de ambiente "Ambiente" (onde estava PROD ou DEV) e vamos mexer nela via Painel do Azure - A partir Imagem 13, irei documentar TUDO via imagens por que é muito mais fácil.
