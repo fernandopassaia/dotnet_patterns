@@ -88,6 +88,7 @@ git remote add origin https://github.com/fernandopassaia/aspnet-env-sample.git (
 git commit -m "Iniciando repo"
 git push -u origin master
 
+Nota: A partir desse momento eu REMOVI a pasta eShop de dentro da Pasta dotnet_patterns por que é um repositório novo, ficará na minha pasta principal.
 Pronto, basta consultar o projeto online e lá está. Agora vamos acessar o Azure e configurar um deployment a partir do repositório do github:
 
 portal.azure.com
