@@ -31,11 +31,23 @@ Storage é dívidido em 4 serviços: Blob, Table, Queue e File. Veja as imagens 
 **Nota**: a ultima 1h do curso fala de serviços grátis, publicação, escalamento de aplicações e várias outras coisas. Todavia é um assunto bem teórico e ele vai mostrando no painel, eu não vou printar tudo pois não faz parte de desenvolvimento, então é melhor assistir.
 
 ## Parte 2 Curso Azure na Prática Gratuíto 2 - Docker do Canal DotNet:
+Já salvei o PDF e os Slides dentro da pasta, como nos outros. Documentei tudo nas imagems, fica bem mais fácil. O xemplo 04 eu vou FAZER, a partir das 01:36 do vídeo, pois ele irá fazer um projeto em Docker + RabbitMQ. Como isso me interessa, irei criar o projeto de fato. O código fonte inteiro do repositório está na pasta do curso.
 
+
+O projeto usará uma imagem do RabbitMQ e duas imagens do SQL Server, uma de cada versão. Então cá estamos:
+docker run --name testerabbitmq -e "RABBITMQ_DEFAULT_USER=testes" -e "RABBITMQ_DEFAULT_PASS=RabbitMQ2020!" -p 5672:5672 -p 15672:15672 -d rabbitmq:3-management-alpine
+
+docker pull mcr.microsoft.com/mssql/server:2017-latest
+docker pull mcr.microsoft.com/mssql/server:2019-GA-ubuntu-16.04
+
+docker run --name sqlserver2017anp -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=@2017#' -p 1433:1433 -d mcr.microsoft.com/mssql/server:2017-latest
+docker run --name sqlserver2019anp -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=@2019#' -p 21433:1433 -d mcr.microsoft.com/mssql/server:2019-GA-ubuntu-16.04
+
+
+Para fazer esse exemplo tenho que ter os 3 containers rodando: RabbitMQ, SQL 2019 e SQL 2017.
 
 
 ## Parte 3 Curso Azure na Prática Gratuíto 3 - GitHub Actions build e deploy automarizados - Docker do Canal DotNet:
-
 
 
 ## Curso do André Baltieri sobre GitHub Actions:

@@ -875,6 +875,7 @@ docker container ps -a
 docker-compose logs
 
 To **ENTER** on a container Linux:
+docker exec -it <container> bash
 docker run -it --entrypoint /bin/bash <image>
 
 **Accesses to the Container**:
