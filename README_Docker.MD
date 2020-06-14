@@ -878,6 +878,9 @@ To **ENTER** on a container Linux:
 docker exec -it <container> bash
 docker run -it --entrypoint /bin/bash <image>
 
+If i want to **GENERATE THE IMAGE based on the Dockerfile**, just one image (not based on compose):
+docker build . -t nomedaimagem:1.0
+
 **Accesses to the Container**:
 **To access the Pgadmin** use: localhost:5000
 Create a Connection with: postgres_container (host name is always the container name, also in connectionstring inside .NetApp)

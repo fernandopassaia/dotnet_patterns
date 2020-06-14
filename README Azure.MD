@@ -56,7 +56,16 @@ Você tem 4 tipos de suportes no Azure: Azure Container Instances, Azure Contain
 
 **Azure Kubernetes Services (AKS)**: **Kubernetes**: Você só irá usar quando tiver centenas, milhares de instâncias pra escalar sua aplicação - . Serviço gerenciado na núvem, alocação da infraestrutura necessária para criação de nós - necessidade de uso do Azure CLI para liberar o acesso ao cluster Kubernetes via kubectl. Quando usar: Projetos críticos e de grande porte, grande número de acessos simultâneos, ecommerce - soluções na área financeira.
 
-**Demo**: Publicação de imagem 02 (no fonte do git). É uma imagem SUPER SIMPLES de um site estático, mas iremos fazer o publish dela no Azure.
+**Demo**: Publicação de imagem 02 (no fonte do git). É uma imagem SUPER SIMPLES de um site estático, mas iremos fazer o publish dela no Azure. Eu criei uma pasta chamada "MyPublish" e irei documentar tudo dentro dela. Dentro da pasta "imagem" tem um DockerFile e u msite estático bem simples que é o qual irei publicar. Eis o comando pra gerar a imagem:
+
+docker build . -t site-passaia-azuredevops-t3:1.0 (com isso será gerada a imagem no meu images)
+
+Então darei um "Docker Login" pra me logar, pois preciso subir pro Docker Hub: "docker login" (entrar user e senha). Então preciso criar uma TAG pra imagem:
+docker tag site-passaia-azuredevops-t3:1.0 fernandopassaia/site-passaia-azuredevops-t3:0.1
+docker tag site-passaia-azuredevops-t3:1.0 fernandopassaia/site-passaia-azuredevops-t3:latest (criei duas imagens)
+
+Agora eu vou dar um **PUSH** e ele vai subir as duas tags geradas:
+docker push fernandopassaia/site-passaia-azuredevops-t3
 
 ## Parte 3 Curso Azure na Prática Gratuíto 3 - GitHub Actions build e deploy automarizados - Docker do Canal DotNet:
 
