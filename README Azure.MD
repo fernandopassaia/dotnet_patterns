@@ -44,8 +44,19 @@ docker run --name sqlserver2017anp -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=@2017#' -p
 docker run --name sqlserver2019anp -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=@2019#' -p 21433:1433 -d mcr.microsoft.com/mssql/server:2019-GA-ubuntu-16.04
 
 
-Para fazer esse exemplo tenho que ter os 3 containers rodando: RabbitMQ, SQL 2019 e SQL 2017.
+**Suporte a Docker no Azure**:
 
+Você tem 4 tipos de suportes no Azure: Azure Container Instances, Azure Container Registry, Azure WebApps for Containers, Azure Kubernetes Service (AKS). Eu inseri imagens sobre eles na pasta "teoria" dentro da oasta P2 do curso.
+
+**Azure container instances**: Criação de containers de forma descomplicada. Projetos de pequeno porte, provas de conceito (POCs), execução de jobs e tarefas de processamento contínuo. Não vem com HTTPS (precisa configurar), não é escalável. Serviço barato.
+
+**Azure container registry**: Armazenamento de imagens docker privadas na nuvem. Use esse serviço ao invés de usar o dockerhub e pagar por ele. Diminui a latência menor por estar no Datacenter da MS. Publique suas imagens no Azure container registry - alternativa ao DockerHub.
+
+**Azure App Service**: Voltado a Hospedagem de WebApps (mesmo que usei no exemplo do Balta). Permite publicar pelo Git, e também pelo Docker - nesse caso o serviço também é conhecido como Azure Web App for Containers. Suporte publicações em Windows e Linux, stacks .Net Core, Asp.NET, Java, NodeJs, Python, Php, Ruby. Usar em Projetos Web e você tem a possibilidade de escalar a aplicação em até 100 instâncias.
+
+**Azure Kubernetes Services (AKS)**: **Kubernetes**: Você só irá usar quando tiver centenas, milhares de instâncias pra escalar sua aplicação - . Serviço gerenciado na núvem, alocação da infraestrutura necessária para criação de nós - necessidade de uso do Azure CLI para liberar o acesso ao cluster Kubernetes via kubectl. Quando usar: Projetos críticos e de grande porte, grande número de acessos simultâneos, ecommerce - soluções na área financeira.
+
+**Demo**: Publicação de imagem 02 (no fonte do git). É uma imagem SUPER SIMPLES de um site estático, mas iremos fazer o publish dela no Azure.
 
 ## Parte 3 Curso Azure na Prática Gratuíto 3 - GitHub Actions build e deploy automarizados - Docker do Canal DotNet:
 
