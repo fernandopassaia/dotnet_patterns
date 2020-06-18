@@ -10,7 +10,8 @@ C# TOP Questions/Principles (**Done**)<br>
 C# Review for Async/Await (**Done**)<br>
 UnitTests (Re-escrevendo Testes Unidade - curso Balta e Pires Completo) <br>
 MicroServices (To-Do) (ver vídeo Eduardo) <br>
-Derivco: RabbitMQ, ElasticSearch, CreateNuget, DockerFarm, TerraForm - Indexes DB (clustered and non-clustered) and Profiler<br>
+Derivco: RabbitMQ, ElasticSearch, CreateNuget, DockerFarm, TerraForm - Indexes DB (clustered and non-clustered), Profiler, Normatization of Data<br>
+Azure Pipeline <br>
 **Baltieri TOP 20 interview questions to solve:** <br>
 Cache and Data Compression <br>
 IoC, DI, DIP e Service Locator(pergunta mais técnica e mais difícil)<br>
