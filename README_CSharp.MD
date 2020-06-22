@@ -1,90 +1,13 @@
-### C# Questions/Principles Review:
+## C# Questions/Principles Review:
 
-**(1) What is .Net Framework?**
-A Platform to build object-oriented applications multiplatform. It supports languages like C#, VB, Cobol, Perl, etc. It has a wide variety of tools and functionalities like class, library, APIs that can be used to build, deploy and run web servicies and different applications.
-
-**(2) Explain the different components of the .NET platform and how it works:**
-C# Programs don't run right on the Operational System, but, in a Virtual Machine, likes Java. So the Programs made in C# will not affect the operational system, or even the other applications, making it more stable and safe.
-
-
-Common Intermediate Language (CIL) (or MSIL - Microsoft Intermediate Language):
-Because the CLR should works with lot of different languages (C#, VB...) - CLR needs a common "intermediate" language to all the languages of .NET. This is a compiler that will get the C# code (or other language) and turns to CLR. It's the "csc.exe" (the compiler) that will generate CLR. The Compiler will "transform" the CLI to CRL. All the .NET codes are first compiled to Microsoft intermediate language.
-
-Common Language Runtime (CLR)
-CLR is the execution envoirnment for all .NET languages. It's responsible to manage memory, threads, GC and everything. Is the most vital part. It's the layer between the Operating System and your APP, that handles the execution of the .Net Applications. Our Apps do not speaks right to the Operational System, but through the CLR. CLR will also manage memory, load assemblies used in the assembly, manage garbage collector and more. See below how a .Net Program is executed to understand the work of CLR.
-
-Just in Time (JIT):
-To Run the C# Application, we need to convert the CIL to CLR, the virtual machine of C#. The CLR needs to be executed into the Operational System of the user, and do to it, needs to generate machine-code to the operational system where the program will be executed. CLR instead of "interpretate" the CLI code (that will be slow) - compile its to machinecode using a CLR internal JIT (just in time) compiler. So basically: CLR will generate machine-code and allocate the whole program on memory, making C# run faster as any other language.
-
-**So basically to Execute a .Net Program we have this architecture (note that program will be compiled 2 times)**
-(1) Your C#/VB code (or other) needs to be compiled to CIL, using csc.exe or another compiler (like dotnet, on .net core).
-(2) When you Run the Program and Open It, CLR will get this CIL and pass into a JIT compiler to generate machine-code.
-
-Framework Class Library (FCL):
-Here we are: The Main Librarys, Packages and APIs of .Net Platform, the ones you'll see on Visual Studio, and you will use to develop your program. Entrance to Windows Api, string manipulation, common data structures, IO, streams, threads, security, windows-web-networking programming, data access and go on.
-
-Base Class Library (BCL):
-The Base Class Library BCL is literally the basic, fundamental types like System.String, System.DateTime...
-
-Common Type System (CTS):
-Is the Types that is a common for any language. Let's imagine that you have an integer, or a string. This should be the SAME, with same bytes in C# or VB. Using this principle, you don't have to worry about converting types when you integrate C# and VB code. We can even make our own classes and functions with the rules in CTS, it helps in calling the data type declared in one program language by other programming language.
-
-Common Language Specification (CLS):
-Common language specification help the developers to use the components that are inter-language compatible with certain rules. It helps in reusing the code in other .Net compatible language. Express all .NET Consistent dialects can make utilization of CLR and FCL. It's the specification and determination of every dialect a language should meet to qualify as a .NET Compliant Language. 
-
-Assembly:
-It's the group of all code in a logical file, your .EXE or DLL.
-
-Garbagy Collector (GC):
-CLR contains the GC that will keeps your app running in low-need and check for unferenced poerfully dispensed memory space. It basically discovers some information that is not referenced anymore, and re-claim it spaces to returns the ilvolved memory back to OS. The main point is to liberates the software enginners from monitoring dangling information.
-
-Profiling:
-We can use to improve memory usage and program performance ajusting specific details.
-
-**(3) Difference between Managed and Unmamaged Code**
-All the Code of .Net Platform is MANAGED code. .NET Framework is necessary to execute managed code, and managed code is managed by CLR, that will make memory management, garbage collection and so on... Unmanaged code is that independent of .Net Framework, not managed by CLR. Remember some times when you have to integrate to 3th Dlls components (like Daruma, Bematech) or even call right System32.dll.
-
-**(4) Difference between Classes and Objects**
-Class is the DEFINITION of a object. It's a template of the object that describes all methods, properties. OBJECT is a instance of a classes, that needs to be instancied, and it's used to access all the properties from a class.
-
-**(5) Boxing and Unboxing - Type of Value and Types of Reference**
-Everything on .Net Platform is a OBJECT, so we can say that ALL the types on the platform derivates from System.Object. So basically if we want to do an OPERATION like 1 + 2, we will need 3 Objects, one to allocate 1, a second to allocate 2, and a thirt to put the result in. This is a big complex solution. To avoid all this problem, Java solve this questions by creatint primitive types (int, char, boolean, byte). Because they are primitive types, they don't have methods, they just allocate values in memory. The New Versions of Java also addopt Box and Unboxing as solution.
-
-And How C# solves this question? Types of Reference, and Type of Values.
-
-ValueTypes are the primitive types that will be stored on the stack (a variable that will be structured on memory to contains a direct value). So basically ValueTypes will be stored right to the memory. Example: Byte, Integer, Single, Double, Decimal, Float, Uint, ULong, Boolean, Char, Struct, Enum and etc... This most primitive type are references of "System.ValueType" and don't contains methods, are the most primitive types.
-
-ReferenceTypes are stored on the heap. A ReferenceType doesn't store it's value directly, instead, stores the address where the value is being store: a reference type contains a pointer to another memory location that holds the data. All "Classes" that we create, all the "new" and instances, are ReferenceType. ReferenceTypes are derivated from System.Object. Example: String, All Arrays (even if their elements are value types), Class, Delegates.
-
-Boxing is the Conversion of a ValueType to a ReferenceType. Unboxing is the conversion back of ReferenceType to ValueType.
-Boxing occurs when you convert a Int to a Object, for example. Unboxing is the opositive, the process of converting a Object to a Primitive ValueType.
-
-Exempla of boxing:
-int i = 10;
-object o = i; //boxing - a conversion of valuetype (integer) to object
-double d = (double)(int)o; //unboxing a object o (of type int) to a double
-
-Example of Unboxing:
-object o = 10;
-int i = (int)o; //you're unboxing an object to a integer
-
-OR
-int y = Convert.ToInt32(o); //this is also unboxing
-
-**(6) Difference between constants and readonly variables**
-Constants support ValueType variables. Cannot be initialized in a constructor or declaration.
-ReadOnly variables can hold ReferenceType variables. Can be initialized in a constructor or declaration.
-
-**(7) What is LINQ**
-Linq is a set of features that extend query capabilities to the .NET framework language that allows data manipulation irrespective of the data source. Linq bridges the gap between the world of objects and the world of data. You can use it with Xml, DataBases and Collections.
-
-**(8) What is the different parts of an Assembly**
-Manifest (information about the assembly). Type Metadata (binary information of the program). MSIL (Microsoft intermediate language) and the Resources (files, images).
-
-**(9) How to prevent a class from being inherited?**
+### OOP:
+**(1) How to prevent a class from being inherited?**
 Using the "sealed" keyword. This is how you can prevent it from inheritance.
 
-**(10) What Are the Different Constructors in C#**
+**(2) Difference between Classes and Objects**
+Class is the DEFINITION of a object. It's a template of the object that describes all methods, properties. OBJECT is a instance of a classes, that needs to be instancied, and it's used to access all the properties from a class.
+
+**(3) What Are the Different Constructors in C#**
 Default, Parameterized, Copy, Static, Private.
 
 Default: with no parameters. Should initialize numeric fields with 0, strings and classes to null.
@@ -93,10 +16,10 @@ Copy: This constructor initialize variables from copying data from another objec
 Static: will inicialize data on the class only once. User has no control and it have no parameter as well.
 Private: It's impossible to create a instance of the class.
 
-**(11) Difference Between Abstract class and Interface**
+**(4) Difference Between Abstract class and Interface**
 Abstract class contains a partial implementation for a functionality that must be implemented by the inheriting entities - but yeah, abstract can have methods and implementations. An abstract class declares fields too. An INTERFACE declares a contract that the implementing classes should have - may declare properties, methods and events with no access modifiers. All methods of a Interface are public, on partial we can have private methods.
 
-**(12) Difference access modifiers of a class in C#**
+**(5) Difference access modifiers of a class in C#**
 
 **public**: The type or member can be accessed by any other code in the same assembly or another assembly that references it.
 **protected**: The type or member can be accessed only by code in the same class, or in a class that is derived from that class.
@@ -145,8 +68,36 @@ If you instanciate this class, the only method you will see is the "PublicMethod
   </AssemblyAttribute>
 </ItemGroup>
 
+**(6) Encapsulation and Abstractionm, Inheritance, Polymorphism (difference)**
+Abstraction is used to map the entities on the real world, understanding it reasons, caracteristics and actions. Abstraction is about to hide the complexity and provide set of interfaces to consume the funcionality. A Method is a good example of abstraction: When we call a method, we never knows the logic behind it, we know just how to call it, but not how it works inside. For example: If i want to call someone, i know how i can do it and where i need to go, but i don't know how it works inside, between the mobilephone and the operator.
 
-**(13) Difference Between IEnumerable and IEnumerator**
+Entity: Car. Properties: Size, Color, Height, Weight. Actions: Accelerate, stop, start, ends (engineOn).
+Entity: Elevator. Properties: Size, MaxWeight. Actions: GoUp, GoDown, ChooseFloor.
+Entity: BankAccount. Properties: Value, Limit, Number. Actions: Deposit, WithDraw, GetExtract.
+
+Encapsulation is the techinique used to hide an idea, to not expose to user it details. So: You try to hide all the internal things of a class from other developers, and only offer them a subset of funcionality to use. You can achieve this by setting an appropriate acces modifier, for example: In a process of Encapsulation, the atributes of class should be set as PRIVATE, and to access these modifiers is necessary to create setters and getters methods.
+
+In Inheritance, a class can get attributes from another class. The great gain is on the Reutilization of Code. For example:
+Manager, Secretary, Techinical, different kind of professionals can make Inheritance of a "super class" called Employee.
+To make inheritance you need to use the keyword EXTENDS on C#.
+
+Inheritance is the ability to create a classe from another class, extending the functionality and state of the parent in the derived (or child). In "simple way" we can say that parent child between classes is inheritance. It allows derived classes to overload methods (polymorphism) from their parent classes.
+
+Polymorphism: Polimorphism means that one name can have many forms. One object behaving as multiple forms, one function behaves in different forms. For example: A Object of type "Fernando" at the company will be an Employee. But when he arrives at home, now he's a husband, a father. It will change it's behavior according to conditions. So in other words, Many Forms of a single object is called polimorphism. We can have Polimorphism in two situations:
+
+Method overloading and Method Overriding (now with examples became easier, huh?)
+
+**(7) Polymorphism (Static and Dynamic)**
+On the Polymophism static the decision about witch method will be called is made in compilation time. The Dynamic, this decision is made during the execution time.
+
+**(8) Difference between Structs and Classes**
+Structs are ValueType variables and will be saved in the stack, meanwhile classes are ReferenceType and will be stored on the heap. Structs cannot be inherited.
+
+**(9) Difference Between Overriding and OverLoading**
+Overriding is when you "rewrite" a Method that came from a class that you make herance. Overloading is when you have differente constructors/parameters for methods with same names.
+
+### LISTS:
+**(10) Difference Between IEnumerable and IEnumerator**
 IEnumerable and IEnumerator is very similar and work basically the same. But IEnumerator is more complex to deal, once you have to call "MoveNext()" method to walk thought the list. IEnumerable is most simple, has a simplier and shorter syntax. Let's Create a List<string> of months, and then load an IEnumerable and IEnumerator, to show how IEnumerable is most simple to use.
 
    List<string> Month = new List<string>();  
@@ -180,7 +131,7 @@ IEnumerable and IEnumerator is very similar and work basically the same. But IEn
     }  
 
 
-**(14) When to use IDictionary, Hashtable, IEnumerable x IList x IQueryable**
+**(11) When to use IDictionary, Hashtable, IEnumerable x IList x IQueryable**
 **IDictionary** could be use to store a simple relationship, a key/value pair collection. For example:
 
         IDictionary<int, string> dic = new Dictionary<int, string>();
@@ -207,57 +158,64 @@ Now the most complex question: **IEnumrable x IList**
 
 **Important concept**: Another important concept to have in mind, is that IEnumerable is LAZY Loading. So IEnumerable don't contains the data in true, it just will be loaded when we need then (on demand). List (or ToList()) will LOAD all the data need into the List, because of it Lists know how to Count(), if have Any(), list can add items, remove, get by position and lot of other methods.
 
-**(15) Ref x Out Parameter**
+**(12) What is LINQ**
+Linq is a set of features that extend query capabilities to the .NET framework language that allows data manipulation irrespective of the data source. Linq bridges the gap between the world of objects and the world of data. You can use it with Xml, DataBases and Collections.
+
+### VARIABLES: 
+**(13) Ref x Out Parameter**
 Both are parameters passed by REFERENCE, not by "value" like commons parameters. They are very similar, difference of "ref" and "out", is that REF parameters should be initialized BEFORE it's passed to the method.
 
 If you pass a parameter by value, what happens to the parameter inside the method, will NOT reflect to the passed parameter. When you pass it by Referente, what happens inside a method, will AFFECT the original parameter. So again: When you pass by Reference, the changes made to the argument in the method will REFLECT in the variable when it returns to the calling method.
 
-**(16) Constant and Readonly**
-Constant Variables are declared and initialized at compile time, the value can't be changed afterwards. ReadOnly is used only when we want to assing value at runtime.
+**(14) Constant and Readonly**
+Constants support ValueType variables. Cannot be initialized in a constructor or declaration. 
+ReadOnly variables can hold ReferenceType variables. Can be initialized in a constructor or declaration.
 
-**(17) Var and Dynamic**
+**(15) Var and Dynamic**
 When we define a variable as VAR, we cannot change it type after the first initialization. A variable Dynamic can have it's type changed after first initialization.
 
-**(18) Encapsulation and Abstractionm, Inheritance, Polymorphism (difference)**
-Abstraction is used to map the entities on the real world, understanding it reasons, caracteristics and actions. Abstraction is about to hide the complexity and provide set of interfaces to consume the funcionality. A Method is a good example of abstraction: When we call a method, we never knows the logic behind it, we know just how to call it, but not how it works inside. For example: If i want to call someone, i know how i can do it and where i need to go, but i don't know how it works inside, between the mobilephone and the operator.
-
-Entity: Car. Properties: Size, Color, Height, Weight. Actions: Accelerate, stop, start, ends (engineOn).
-Entity: Elevator. Properties: Size, MaxWeight. Actions: GoUp, GoDown, ChooseFloor.
-Entity: BankAccount. Properties: Value, Limit, Number. Actions: Deposit, WithDraw, GetExtract.
-
-Encapsulation is the techinique used to hide an idea, to not expose to user it details. So: You try to hide all the internal things of a class from other developers, and only offer them a subset of funcionality to use. You can achieve this by setting an appropriate acces modifier, for example: In a process of Encapsulation, the atributes of class should be set as PRIVATE, and to access these modifiers is necessary to create setters and getters methods.
-
-In Inheritance, a class can get attributes from another class. The great gain is on the Reutilization of Code. For example:
-Manager, Secretary, Techinical, different kind of professionals can make Inheritance of a "super class" called Employee.
-To make inheritance you need to use the keyword EXTENDS on C#.
-
-Inheritance is the ability to create a classe from another class, extending the functionality and state of the parent in the derived (or child). In "simple way" we can say that parent child between classes is inheritance. It allows derived classes to overload methods (polymorphism) from their parent classes.
-
-Polymorphism: Polimorphism means that one name can have many forms. One object behaving as multiple forms, one function behaves in different forms. For example: A Object of type "Fernando" at the company will be an Employee. But when he arrives at home, now he's a husband, a father. It will change it's behavior according to conditions. So in other words, Many Forms of a single object is called polimorphism. We can have Polimorphism in two situations:
-
-Method overloading and Method Overriding (now with examples became easier, huh?)
-
-**(19) Polymorphism (Static and Dynamic)**
-On the Polymophism static the decision about witch method will be called is made in compilation time. The Dynamic, this decision is made during the execution time.
-
-**(20) Difference between Structs and Classes**
-Structs are ValueType variables and will be saved in the stack, meanwhile classes are ReferenceType and will be stored on the heap. Structs cannot be inherited.
-
-**(21) Difference Between Overriding and OverLoading**
-Overriding is when you "rewrite" a Method that came from a class that you make herance. Overloading is when you have differente constructors/parameters for methods with same names.
-
-**(22) Differente between AS and IS**
+**(16) Differente between AS and IS**
 Is is a operator used to check the compatibility of a object with a given type. "as" operator is used for casting a object to a type or a class.
 
-**(23) What is caching?**  
-Caching means storing the data temporarily in memory so the data can be access in a more efficiency and speed way.
+**(17) Boxing and Unboxing - Type of Value and Types of Reference**
+Everything on .Net Platform is a OBJECT, so we can say that ALL the types on the platform derivates from System.Object. So basically if we want to do an OPERATION like 1 + 2, we will need 3 Objects, one to allocate 1, a second to allocate 2, and a thirt to put the result in. This is a big complex solution. To avoid all this problem, Java solve this questions by creatint primitive types (int, char, boolean, byte). Because they are primitive types, they don't have methods, they just allocate values in memory. The New Versions of Java also addopt Box and Unboxing as solution.
 
-**(24) What is Localization and Globalization?**
-Localization means changing the already Globalized application to cater a specific language or culture. Globalization is the process of developing apps to suppor multi languages. One is opose other.
+And How C# solves this question? Types of Reference, and Type of Values.
 
-**(25) What is a Delegate in C#?**
+ValueTypes are the primitive types that will be stored on the stack (a variable that will be structured on memory to contains a direct value). So basically ValueTypes will be stored right to the memory. Example: Byte, Integer, Single, Double, Decimal, Float, Uint, ULong, Boolean, Char, Struct, Enum and etc... This most primitive type are references of "System.ValueType" and don't contains methods, are the most primitive types.
+
+ReferenceTypes are stored on the heap. A ReferenceType doesn't store it's value directly, instead, stores the address where the value is being store: a reference type contains a pointer to another memory location that holds the data. All "Classes" that we create, all the "new" and instances, are ReferenceType. ReferenceTypes are derivated from System.Object. Example: String, All Arrays (even if their elements are value types), Class, Delegates.
+
+Boxing is the Conversion of a ValueType to a ReferenceType. Unboxing is the conversion back of ReferenceType to ValueType.
+Boxing occurs when you convert a Int to a Object, for example. Unboxing is the opositive, the process of converting a Object to a Primitive ValueType.
+
+Exempla of boxing:
+int i = 10;
+object o = i; //boxing - a conversion of valuetype (integer) to object
+double d = (double)(int)o; //unboxing a object o (of type int) to a double
+
+Example of Unboxing:
+object o = 10;
+int i = (int)o; //you're unboxing an object to a integer
+
+OR
+int y = Convert.ToInt32(o); //this is also unboxing
+
+**(18) Whats the difference between a Stack and a Heap?**
+Stack store ValueTypes, and Heap stores ReferenceTypes (read under). Stack is more faster because will store primitive types, and Heap is more slower, but has capabilities to deal with more complex types like object or data.
+
+**(19) Difference between String and StringBuilder**
+The First one is that with StringBuilder you can use Append method (like i did in the past) to organize better the code, you can store queries and everthing else. But there are more than this that you need to catch:
+
+Strings are immutable. So basically you cannot modify a value of a string, and everytime you did it, C# will always create a New Object with TypeString in memory. Example:
+string str = "Hello";
+str += "Hello?";
+str += "How are you?".
+
+It will creates 3 strings on memory. StringBuilder is mutable, so here i can perform insert, replace, apprend without creating new instances for everytime, it will update the space in memory without creating new spaces.
+
+**(20) What is a Delegate in C#?**
 Delegate is similar to the pointer to functions in C / C++ languages. A delegate allow you to make reference to a method, that will be defined in execution time. You don't have to define witch method will be called in compilation time, it could be make dynamic in execution time. You have flexibility to define any funcionality in execution time. 
-
 
 Advantages: Encapsulating the methods call from caller, effective use improves the performance of application, and it's used to call method assincronously.
 A construction of a Delegate:
@@ -290,31 +248,62 @@ namespace Macoratti.SimplesDelegate
     }
 }
 
-**(26) Whats the difference between a Stack and a Heap?**
-Stack store ValueTypes, and Heap stores ReferenceTypes (read under). Stack is more faster because will store primitive types, and Heap is more slower, but has capabilities to deal with more complex types like object or data.
-
-**(27) Different type of validators in Asp.Net?**
-Client Side validation (normally JS) and ServerSide, that will runs on the backend.
-
-**(28) Difference between DLL and EXE?**
-An EXE cannot be shared with other applications, and can run right and directly the applications. All the assemblies will be LOAD when we run the EXE. DLL otherwise, consists of code that needs to be hide. The code is encapsulated in this library, and can be shared with other N applications.
-
-**(29) Difference between String and StringBuilder**
-The First one is that with StringBuilder you can use Append method (like i did in the past) to organize better the code, you can store queries and everthing else. But there are more than this that you need to catch:
-
-Strings are immutable. So basically you cannot modify a value of a string, and everytime you did it, C# will always create a New Object with TypeString in memory. Example:
-string str = "Hello";
-str += "Hello?";
-str += "How are you?".
-
-It will creates 3 strings on memory. StringBuilder is mutable, so here i can perform insert, replace, apprend without creating new instances for everytime, it will update the space in memory without creating new spaces.
-
-**(30) Difference between Dispose() and Finalize()**
+**(21) Difference between Dispose() and Finalize()**
 Dispose is called when we want an object to release any unmanaged resources with them. OtherHand, Finalize() is used for the same purpose, but it doens't assure the garbage collection of an object. So Dispose is more accertive and will force the GB.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------
+### THEORICAL PART:
+**(22) What is .Net Framework?**
+A Platform to build object-oriented applications multiplatform. It supports languages like C#, VB, Cobol, Perl, etc. It has a wide variety of tools and functionalities like class, library, APIs that can be used to build, deploy and run web servicies and different applications.
 
-### ASYNC and AWAIT Review
+**(23) Explain the different components of the .NET platform and how it works:**
+C# Programs don't run right on the Operational System, but, in a Virtual Machine, likes Java. So the Programs made in C# will not affect the operational system, or even the other applications, making it more stable and safe.
+
+
+Common Intermediate Language (CIL) (or MSIL - Microsoft Intermediate Language):
+Because the CLR should works with lot of different languages (C#, VB...) - CLR needs a common "intermediate" language to all the languages of .NET. This is a compiler that will get the C# code (or other language) and turns to CLR. It's the "csc.exe" (the compiler) that will generate CLR. The Compiler will "transform" the CLI to CRL. All the .NET codes are first compiled to Microsoft intermediate language.
+
+Common Language Runtime (CLR)
+CLR is the execution envoirnment for all .NET languages. It's responsible to manage memory, threads, GC and everything. Is the most vital part. It's the layer between the Operating System and your APP, that handles the execution of the .Net Applications. Our Apps do not speaks right to the Operational System, but through the CLR. CLR will also manage memory, load assemblies used in the assembly, manage garbage collector and more. See below how a .Net Program is executed to understand the work of CLR.
+
+Just in Time (JIT):
+To Run the C# Application, we need to convert the CIL to CLR, the virtual machine of C#. The CLR needs to be executed into the Operational System of the user, and do to it, needs to generate machine-code to the operational system where the program will be executed. CLR instead of "interpretate" the CLI code (that will be slow) - compile its to machinecode using a CLR internal JIT (just in time) compiler. So basically: CLR will generate machine-code and allocate the whole program on memory, making C# run faster as any other language.
+
+**So basically to Execute a .Net Program we have this architecture (note that program will be compiled 2 times)**
+(1) Your C#/VB code (or other) needs to be compiled to CIL, using csc.exe or another compiler (like dotnet, on .net core).
+(2) When you Run the Program and Open It, CLR will get this CIL and pass into a JIT compiler to generate machine-code.
+
+Framework Class Library (FCL):
+Here we are: The Main Librarys, Packages and APIs of .Net Platform, the ones you'll see on Visual Studio, and you will use to develop your program. Entrance to Windows Api, string manipulation, common data structures, IO, streams, threads, security, windows-web-networking programming, data access and go on.
+
+Base Class Library (BCL):
+The Base Class Library BCL is literally the basic, fundamental types like System.String, System.DateTime...
+
+Common Type System (CTS):
+Is the Types that is a common for any language. Let's imagine that you have an integer, or a string. This should be the SAME, with same bytes in C# or VB. Using this principle, you don't have to worry about converting types when you integrate C# and VB code. We can even make our own classes and functions with the rules in CTS, it helps in calling the data type declared in one program language by other programming language.
+
+Common Language Specification (CLS):
+Common language specification help the developers to use the components that are inter-language compatible with certain rules. It helps in reusing the code in other .Net compatible language. Express all .NET Consistent dialects can make utilization of CLR and FCL. It's the specification and determination of every dialect a language should meet to qualify as a .NET Compliant Language. 
+
+Assembly:
+It's the group of all code in a logical file, your .EXE or DLL.
+
+Garbagy Collector (GC):
+CLR contains the GC that will keeps your app running in low-need and check for unferenced poerfully dispensed memory space. It basically discovers some information that is not referenced anymore, and re-claim it spaces to returns the ilvolved memory back to OS. The main point is to liberates the software enginners from monitoring dangling information.
+
+Profiling:
+We can use to improve memory usage and program performance ajusting specific details.
+
+**(24) Difference between Managed and Unmamaged Code**
+All the Code of .Net Platform is MANAGED code. .NET Framework is necessary to execute managed code, and managed code is managed by CLR, that will make memory management, garbage collection and so on... Unmanaged code is that independent of .Net Framework, not managed by CLR. Remember some times when you have to integrate to 3th Dlls components (like Daruma, Bematech) or even call right System32.dll.
+
+**(25) What is the different parts of an Assembly**
+Manifest (information about the assembly). Type Metadata (binary information of the program). MSIL (Microsoft intermediate language) and the Resources (files, images).
+
+**(26) Difference between DLL and EXE?**
+An EXE cannot be shared with other applications, and can run right and directly the applications. All the assemblies will be LOAD when we run the EXE. DLL otherwise, consists of code that needs to be hide. The code is encapsulated in this library, and can be shared with other N applications.
+
+### MultiParallel Programming - Task, Async, Await**
+**(27) ASYNC and AWAIT Review**:
 In "general" words, you should use async when you have IO operations, and you want to increase the performance and scability of your app. In the Sincronous programming you will have an ORDER and the things will happen in the order you defined. In Assincronous programming you will allow your application to do lot of things at same time, without blocking or waiting for other operations.
 
 In the Development of Desktop, ClientSide, like WindowsForms, Mobile or FrontEnd Web the most benefit of async is to keep the UI responsible meanwhile operations are being executed in background. In BackEnd Development, the principal reason to use Async is scability.
@@ -338,3 +327,15 @@ When the Async method finish (so the 8 seconds to DataBase response an operation
 
 Fonts:
 EXCELENT Article: https://www.brunobrito.net.br/asp-net-e-iis-anatomia-de-uma-aplicacao-web-parte-ii/ 
+
+
+### WEB PARTS (old, more relative to classic AspNet WebForms):
+**(28) What is caching?**  
+Caching means storing the data temporarily in memory so the data can be access in a more efficiency and speed way.
+
+**(29) What is Localization and Globalization?**
+Localization means changing the already Globalized application to cater a specific language or culture. Globalization is the process of developing apps to suppor multi languages. One is opose other.
+
+**(30) Different type of validators in Asp.Net?**
+Client Side validation (normally JS) and ServerSide, that will runs on the backend.
+----------------------------------------------------------------------------------------------------------------------------------------------------
