@@ -338,4 +338,5 @@ Localization means changing the already Globalized application to cater a specif
 
 **(30) Different type of validators in Asp.Net?**
 Client Side validation (normally JS) and ServerSide, that will runs on the backend.
+
 ----------------------------------------------------------------------------------------------------------------------------------------------------

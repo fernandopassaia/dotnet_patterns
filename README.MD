@@ -8,7 +8,7 @@ some info about what I'm studying, and also to serve me as a reference in the fu
 **C#**: <br>
 C# TOP Questions/Principles (**Done**)<br>
 C# Review for Async/Await (**Done**)<br>
-UnitTests (Re-escrevendo Testes Unidade - curso Balta e Pires Completo) <br>
+UnitTests (Re-escrevendo Testes Unidade - curso Balta e Pires Completo) (**Progress**) <br>
 MicroServices (Mediatr - Mediators) (To-Do) (ver vídeo Eduardo) <br>
 Derivco: RabbitMQ, ElasticSearch, CreateNuget, DockerFarm, TerraForm - Indexes DB (clustered and non-clustered), Profiler, Normatization of Data<br>
 Azure Pipeline <br>
