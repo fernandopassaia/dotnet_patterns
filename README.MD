@@ -32,6 +32,12 @@ Angular TOP Questions/Principles (To-Do) <br>
 Azure Serverless (Live Balta Youtube) (**Done**)<br>
 Docker Envoirnment for AppFullStackDemo (**Done**)<br>
 
+**Books** <br>
+Should Read Book 1 CleanCode and 2 Domain Driven Design.
+
 **Exercise**: <br>
 (1) AzureFunctions+Mongo+RabbitMQ: 2 WebApis using Servelesses - one to record a message on RabbitMQ and other to process it - APIs with MongoDB.
 (2) After watch the TESTS Refactory vídeos: Apply it on AppFullStackDemo.
+
+### Sprints and Studies orders:
+**Sprint1 22062020-24062020**: Microservices with SignalR, MediatR and RabbitMQ. Review SQL Server Patterns, Refactory UnitTesting (Balta).
