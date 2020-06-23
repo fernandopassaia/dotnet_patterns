@@ -8,7 +8,6 @@ some info about what I'm studying, and also to serve me as a reference in the fu
 **C#**: <br>
 C# TOP Questions/Principles (**Done**)<br>
 C# Review for Async/Await (**Done**)<br>
-UnitTests (pesquisar Jest/Mocha) (Re-escrevendo Testes Unidade - curso Balta e Pires Completo) (**Progress**) <br>
 MicroServices (Mediatr - Mediators) (To-Do) (ver vídeo Eduardo) <br>
 Derivco: RabbitMQ, ElasticSearch, CreateNuget, DockerFarm, TerraForm - Indexes DB (clustered and non-clustered), Profiler, Normatization of Data<br>
 Azure Pipeline <br>
@@ -29,6 +28,10 @@ Angular Redux / Promisses (Async/Await) (To-Do) <br>
 Angular TOP Questions/Principles (To-Do) <br>
 Progressive WebApps (To-Do) <br>
 
+**Unit-Testing**:
+UnitTests (pesquisar Jest/Mocha) (Re-escrevendo Testes Unidade - curso Balta e Pires Completo) (**Progress**) <br>
+Thyiago Falconi - MochaTs to Test the API ItSelf
+
 **DevOps**: <br>
 Azure Serverless (Live Balta Youtube) (**Done**)<br>
 Docker Envoirnment for AppFullStackDemo (**Done**)<br>
@@ -41,5 +44,5 @@ Should Read Book 1 CleanCode and 2 Domain Driven Design.
 (2) After watch the TESTS Refactory vídeos: Apply it on AppFullStackDemo.
 
 ### Sprints and Studies orders:
-**Sprint1 23062020-24062020**: Unit Testing, xUnit, Jest/Mocha.
+**Sprint1 23062020-24062020**: Unit Testing, xUnit, Jest/Mocha - SQL Server Reviews of Queries, Index, Profile and Normatization of Data.
 **Sprint2 24062020-26062020**: Microservices with SignalR, MediatR and RabbitMQ. Review SQL Server Patterns, Refactory UnitTesting (Balta).
