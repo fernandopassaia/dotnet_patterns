@@ -146,7 +146,7 @@ LEFT JOIN TB_VENDEDORES222 VEN ON VEN.PK_CODIGO = ORC.FK_NUMVENDEDOR
 
 This query takes 00:09s to RUN returning 555,793 rows, so ok, here we have how to analise data. Check the images to see info.
 
-**DataBase Engine Tuning Advisor**: SQL Server also has a tool to inspect SQL Server, and supply the following information:
+**DTA - DataBase Engine Tuning Advisor**: SQL Server also has a tool to inspect SQL Server, and supply the following information:
 
     Troubleshoot the performance of a specific problem query
     Tune a large set of queries across one or more databases
