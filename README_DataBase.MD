@@ -1,15 +1,16 @@
 ### Review for SQL Server, Queries, Profiler and other
 
 **Difference between Indexes - Clustered and NonClustered**:
-When you create a table, for DEFAULT SQL Server will create a clustered index.
+When you create a table, for DEFAULT SQL Server will create a clustered index. Clustered indexes are stored physically on the table. This means they are the fastest and you can only have one clustered index per table - usually the PK. Non-clustered indexes are stored separately, and you can have as many as you want. It could be other indexes on same table.
 
 **Query Tests**: Note: I'm running queries on JK DataBase because it has a lot of information. Please take the Backup from 062020 and use it to RUN those queries - I've saved this Database inside the folder "DataBase" as well. Before comment the commands, let's clarify what we have in this database at this moment.
 
 (PED) Pedidos: 2869.
 (ORC) Orcamentos: 273,924.
-(ITE) Item Orcamento: 555,793. (will be used on Profiler)
 (CLI) Clientes: 8.
 (VEN) Vendedores: 6.
+(ITE) Item Orcamento: 555,793. (will be used on Profiler)
+(PRO) Products: 20,693. (will be used on Profiler)
 
 
 **Inner Join**:
@@ -129,3 +130,27 @@ INSERT INTO ISORCAM765
 
     SELECT  @ultimoOrcamento = @@Identity
 GO
+
+**SQL Profile**: Here I'll mount a "Heavy" SQL Query based on the "ITE" (ItemOrcamento) that has 555,793 items. I'll also bring "PRO" fields (that have 26,693 registers), and also bring the fields of other queries from ORC, PED, CLI, VEN. So It will be a complex query. All images are saved on "Profiler" folder, about how to RUN the profiler, how to configure it, the query itself.
+
+SELECT ITO.CODIGOFABRIC AS ITOCODFABR, ITO.DESCRICAOAPLICACAO AS ITODESCAPLIC, ITO.VALORUNITARIO AS ITOVALUNIT, ITO.QUANTIDADE AS ITOQUANT, ITO.VALORTOTAL AS ITOVALTOTAL,
+PRO.CODIGOFABRIC AS PROCODFABR, PRO.NCM AS PRONCM, PRO.DESCRICAO AS PRODESC, PRO.APLICACAO AS PROAPLIC, PRO.QTD_ATUAL AS PROQTD,
+CLI.CODIGO AS CLICODIGO, CLI.NOME AS CLINOME, CLI.RAZAOSOCIAL AS CLIRAZAO, ORC.CODIGO AS ORCCOD, ORC.VALORFINAL AS ORCVALOR, ORC.FK_NUMVENDEDOR AS ORCVEND,
+PED.CODIGO AS PEDCOD, PED.VALORFINALPAGO AS PEDVALORPAGO, PED.IDENTIFICACAO_CAIXA AS PEDCAIXA, VEN.NOMEFANTASIA AS VENDNOME
+FROM ISITEMORCAM567 ITO
+LEFT JOIN ISPRO101 PRO ON ITO.FK_NUMPRODUTO = PRO.PK_CODIGOSIST
+LEFT JOIN ISORCAM765 ORC ON ITO.FK_NUMORCAMENTO = ORC.CODIGO
+LEFT JOIN ISPEDIDO332 PED ON PED.FK_CODIGOORC = ORC.CODIGO
+LEFT JOIN ISCLIE876 CLI ON ORC.FK_NUMVENDEDOR = CLI.CODIGO
+LEFT JOIN TB_VENDEDORES222 VEN ON VEN.PK_CODIGO = ORC.FK_NUMVENDEDOR
+
+This query takes 00:09s to RUN returning 555,793 rows, so ok, here we have how to analise data. Check the images to see info.
+
+**DataBase Engine Tuning Advisor**: SQL Server also has a tool to inspect SQL Server, and supply the following information:
+
+    Troubleshoot the performance of a specific problem query
+    Tune a large set of queries across one or more databases
+    Perform an exploratory what-if analysis of potential physical design changes
+    Manage storage space
+
+This tool does not comes with FREE Express editions. I've saved a PDF showing a lot of optimizations tips this tools gives, take a look in respective folder. The article shows recomendations the Tool gives to create indexes, and improve queries for example.
