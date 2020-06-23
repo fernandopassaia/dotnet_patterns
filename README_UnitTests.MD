@@ -8,3 +8,5 @@
 **Principle of Fail-Fast Validations**:
 When I start a validation, before go to bank, check stock, check client and other operations that will need I/O (bank actions): I need to do things that will fail fast, like check the COMMANDS, if commands is invalid, I'll send back messages (validations) to API and stop the operation, avoiding go to and hit database and other operations. I've already did it - always, but cool to know it has a name.
 
+**Note**:
+I wrote a BAD Application inside the folder UnitTests. Then I compromisse myself to rewrite it using DDD, SOLID and all unit-testing techniquies. On a Second folder I've rewrite the entire APP and the Whole Tests for it.
