@@ -43,6 +43,11 @@ Should Read Book 1 CleanCode and 2 Domain Driven Design.
 (1) AzureFunctions+Mongo+RabbitMQ: 2 WebApis using Servelesses - one to record a message on RabbitMQ and other to process it - APIs with MongoDB.
 (2) After watch the TESTS Refactory vídeos: Apply it on AppFullStackDemo.
 
-### Sprints and Studies orders:
-**Sprint1 23062020-24062020**: Unit Testing, xUnit, Jest/Mocha - SQL Server Reviews of Queries, Index, Profile and Normatization of Data.
-**Sprint2 24062020-26062020**: Microservices with SignalR, MediatR and RabbitMQ. Review SQL Server Patterns, Refactory UnitTesting (Balta).
+----------------------------------------------------------------------------------------------------------------------------------------------
+### Sprints Organization and Studies orders (i did some sprints in past days but unfortunelly do not organize them, but now, we go):
+**Sprint1**:
+Unit Testing, xUnit, Jest/Mocha
+SQL Server Reviews of Queries, Index, Profile and Normatization of Data.
+Review Interview questions of Angular.
+
+**Sprint2**: Microservices with SignalR, MediatR and RabbitMQ.
