@@ -1,4 +1,5 @@
 ### Hi There. I did this repository on 05/2020 during the Corona Times (quarantine) when i've stayed most of the times at home.
+
 Basically I've decided to make a big review regarding the Technologies I work with (C#, Angular...) and the Methodologies like
 OOP, DDD, SOLID, Design Patterns. Sometimes it's good to take some time to review what you are doing ;)
 
@@ -26,7 +27,7 @@ Agile (**Done**)<br>
 **Angular**: <br>
 Angular Redux / Promisses (Async/Await) (To-Do) <br>
 Angular TOP Questions/Principles (To-Do) <br>
-Progressive WebApps (To-Do) <br>
+Angular NgRx/Redux (Store) <br>
 
 **Unit-Testing**:
 UnitTests (pesquisar Jest/Mocha) (Re-escrevendo Testes Unidade - curso Balta e Pires Completo) (**Progress**) <br>
@@ -43,8 +44,10 @@ Should Read Book 1 CleanCode and 2 Domain Driven Design.
 (1) AzureFunctions+Mongo+RabbitMQ: 2 WebApis using Servelesses - one to record a message on RabbitMQ and other to process it - APIs with MongoDB.
 (2) After watch the TESTS Refactory vídeos: Apply it on AppFullStackDemo.
 
-----------------------------------------------------------------------------------------------------------------------------------------------
+---
+
 ### Sprints Organization and Studies orders (i did some sprints in past days but unfortunelly do not organize them, but now, we go):
+
 **Sprint1**:
 Unit Testing, xUnit, Jest/Mocha
 SQL Server Reviews of Queries, Index, Profile and Normatization of Data.

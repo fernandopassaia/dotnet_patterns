@@ -1,6 +1,7 @@
 ## C# Questions/Principles Review:
 
 ### OOP:
+
 **(1) How to prevent a class from being inherited?**
 Using the "sealed" keyword. This is how you can prevent it from inheritance.
 
@@ -21,19 +22,20 @@ Abstract class contains a partial implementation for a functionality that must b
 
 **(5) Difference access modifiers of a class in C#**
 
-**public**: The type or member can be accessed by any other code in the same assembly or another assembly that references it.
-**protected**: The type or member can be accessed only by code in the same class, or in a class that is derived from that class.
-**internal**: The type or member can be accessed by any code in the same assembly, but not from another assembly.
+**public**: The type or member can be accessed by any other code in the same assembly or another assembly that references it. (todo o projeto, dentro e fora do assembly)
+**protected**: The type or member can be accessed only by code in the same class, or in a class that is derived from that class. (apenas pelo código na mesma classe ou classes derivadas)
+**internal**: The type or member can be accessed by any code in the same assembly, but not from another assembly. (pode ser acessada no mesmo assembly, mas não fora dele)
 **protected internal**: The type or member can be accessed by any code in the assembly in which it is declared, or from within a derived class in another assembly. (as in protected OR internal)
-**private**: The type or member can be accessed only by code in the same class or struct.
-**private protected**: The type or member can be accessed only within its declaring assembly, by code in the same class or in a type that is derived from that class. (as in private OR protected)
+**private**: The type or member can be accessed only by code in the same class or struct. (pode ser acessado pelo código na mesma classe ou estrutura)
+**private protected**: The type or member can be accessed only within its declaring assembly, by code in the same class or in a type that is derived from that class. (as in private OR protected) (igual o protected, mas nesse caso só no mesmo assembly)
 
                                       public 	protected 	internal 	protected internal 	private 	private protected
-Entire program 	                        Yes 	    No 	        No 	        No 	                No 	        No
-Containing class 	                    Yes 	    Yes 	    Yes 	    Yes 	            Yes 	    Yes
-Current assembly 	                    Yes 	    No 	        Yes 	    Yes 	            No 	        No
-Derived types 	                        Yes 	    Yes 	    No 	        Yes 	            No      	No
-Derived types within current assembly 	Yes 	    Yes 	    No 	        Yes 	            No 	        Yes
+
+Entire program Yes No No No No No
+Containing class Yes Yes Yes Yes Yes Yes
+Current assembly Yes No Yes Yes No No
+Derived types Yes Yes No Yes No No
+Derived types within current assembly Yes Yes No Yes No Yes
 
 **Another Modifiers that could be mixed with those below**:
 **Static**: A Static Class cannot be instantiated. You just need to use the classname itselft to accees it.
@@ -44,20 +46,21 @@ Derived types within current assembly 	Yes 	    Yes 	    No 	        Yes 	      
 Example of Internal Classes or Modifiers:
 public class MyHelper
 {
-    internal string InternalMethod()
-    {
-        return "should only be visible to the class itself & tests";
-    }
- 
+internal string InternalMethod()
+{
+return "should only be visible to the class itself & tests";
+}
+
     public string PublicMethod()
     {
         return "Everyone can call this method";
     }
- 
+
     private string PrivateMethod()
     {
         return "you should not be able to call this directly";
     }
+
 }
 
 If you instanciate this class, the only method you will see is the "PublicMethod()". But for example, if you need to TEST this helper, for sure your TEST project needs to see all the methods. To allow it, you should (1) set "InternasVisibleTo" in you AssemblyInfo.cs. Example: [assembly: InternalsVisibleTo("Logic.Tests")]. In .NET Core you don't have AssemblyInfo, so you need to update your .csproj by adding:
@@ -97,39 +100,39 @@ Structs are ValueType variables and will be saved in the stack, meanwhile classe
 Overriding is when you "rewrite" a Method that came from a class that you make herance. Overloading is when you have differente constructors/parameters for methods with same names.
 
 ### LISTS:
+
 **(10) Difference Between IEnumerable and IEnumerator**
 IEnumerable and IEnumerator is very similar and work basically the same. But IEnumerator is more complex to deal, once you have to call "MoveNext()" method to walk thought the list. IEnumerable is most simple, has a simplier and shorter syntax. Let's Create a List<string> of months, and then load an IEnumerable and IEnumerator, to show how IEnumerable is most simple to use.
 
-   List<string> Month = new List<string>();  
-   Month.Add("January");  
-   Month.Add("February");  
-   Month.Add("March");  
-   Month.Add("April");  
-   Month.Add("May");  
-   Month.Add("June");  
-   Month.Add("July");  
-   Month.Add("August");  
-   Month.Add("September");  
-   Month.Add("October");  
-   Month.Add("November");  
-   Month.Add("December");   
+List<string> Month = new List<string>();  
+ Month.Add("January");  
+ Month.Add("February");  
+ Month.Add("March");  
+ Month.Add("April");  
+ Month.Add("May");  
+ Month.Add("June");  
+ Month.Add("July");  
+ Month.Add("August");  
+ Month.Add("September");  
+ Month.Add("October");  
+ Month.Add("November");  
+ Month.Add("December");
 
-   //create IEnumerable of string 
-   IEnumerable<string> iEnumerableOfString = (IEnumerable<string>)Month;      
-   //If we want to retrieve all the items from this IEnumerable object, we can use a foreach loop. 
-   foreach(string AllMonths in iEnumerableOfString)
-   {  
-    Console.WriteLine(AllMonths);  
-   }  
+//create IEnumerable of string
+IEnumerable<string> iEnumerableOfString = (IEnumerable<string>)Month;  
+ //If we want to retrieve all the items from this IEnumerable object, we can use a foreach loop.
+foreach(string AllMonths in iEnumerableOfString)
+{  
+ Console.WriteLine(AllMonths);  
+ }
 
-    //Create IEnumerator of string. 
-    IEnumerator<string> iEnumeratorOfString = Month.GetEnumerator();//to convert list into IEnumerator we can invoke the GetEnumerator method      
-    //To retrieve all the items from the above IEnumerator object, we cannot use foreach loop instead of that we need to invoke MoveNext() Boolean method.  
+    //Create IEnumerator of string.
+    IEnumerator<string> iEnumeratorOfString = Month.GetEnumerator();//to convert list into IEnumerator we can invoke the GetEnumerator method
+    //To retrieve all the items from the above IEnumerator object, we cannot use foreach loop instead of that we need to invoke MoveNext() Boolean method.
     while(iEnumeratorOfString.MoveNext())
-    {  
+    {
         //as you can see, iEnumerator is more complex, you have to invoke moveNext
-    }  
-
+    }
 
 **(11) When to use IDictionary, Hashtable, IEnumerable x IList x IQueryable**
 **IDictionary** could be use to store a simple relationship, a key/value pair collection. For example:
@@ -149,26 +152,26 @@ The Values in Dictionary is stored as values, so they do not need to be Box/Unbo
 
 **IQueryable** is a specific interface that contains a provedor of query, like LINQ-TO-SQL. It's a special object, where you can use filters and apply queries. IQueryable makes inheritance of IEnumerable, so basically everything IEnumerable can do, IQueryable also can.
 
-
 Now the most complex question: **IEnumrable x IList**
 
 **IEnumerable**: First important thing to have in mind, is that IEnumerable don't allow updates on the collection. It's Readonly, and you don't have any information about the collection, but just the necessary to run over it (foreach). Another thing is that you cannot have access to random positions, so with a IEnumerable, you cannot do: var position = IEnumerable[i]. It's a readonly simple collection of registrys. If we can say a "gross" and "simple" definition, let's say that IEnumerable allow us to interact the list (foreach), but if you want more options, like add items, remove, order, count, you should use something more specific, like List.
 
-**List**: First thing here is that you can Add, Update and Remove items from a List. So the List is not readonly, but contains methods and can be manipulated. List also have another methods, like .Count(), .Any(). 
+**List**: First thing here is that you can Add, Update and Remove items from a List. So the List is not readonly, but contains methods and can be manipulated. List also have another methods, like .Count(), .Any().
 
 **Important concept**: Another important concept to have in mind, is that IEnumerable is LAZY Loading. So IEnumerable don't contains the data in true, it just will be loaded when we need then (on demand). List (or ToList()) will LOAD all the data need into the List, because of it Lists know how to Count(), if have Any(), list can add items, remove, get by position and lot of other methods.
 
 **(12) What is LINQ**
 Linq is a set of features that extend query capabilities to the .NET framework language that allows data manipulation irrespective of the data source. Linq bridges the gap between the world of objects and the world of data. You can use it with Xml, DataBases and Collections.
 
-### VARIABLES: 
+### VARIABLES:
+
 **(13) Ref x Out Parameter**
 Both are parameters passed by REFERENCE, not by "value" like commons parameters. They are very similar, difference of "ref" and "out", is that REF parameters should be initialized BEFORE it's passed to the method.
 
 If you pass a parameter by value, what happens to the parameter inside the method, will NOT reflect to the passed parameter. When you pass it by Referente, what happens inside a method, will AFFECT the original parameter. So again: When you pass by Reference, the changes made to the argument in the method will REFLECT in the variable when it returns to the calling method.
 
 **(14) Constant and Readonly**
-Constants support ValueType variables. Cannot be initialized in a constructor or declaration. 
+Constants support ValueType variables. Cannot be initialized in a constructor or declaration.
 ReadOnly variables can hold ReferenceType variables. Can be initialized in a constructor or declaration.
 
 **(15) Var and Dynamic**
@@ -215,7 +218,7 @@ str += "How are you?".
 It will creates 3 strings on memory. StringBuilder is mutable, so here i can perform insert, replace, apprend without creating new instances for everytime, it will update the space in memory without creating new spaces.
 
 **(20) What is a Delegate in C#?**
-Delegate is similar to the pointer to functions in C / C++ languages. A delegate allow you to make reference to a method, that will be defined in execution time. You don't have to define witch method will be called in compilation time, it could be make dynamic in execution time. You have flexibility to define any funcionality in execution time. 
+Delegate is similar to the pointer to functions in C / C++ languages. A delegate allow you to make reference to a method, that will be defined in execution time. You don't have to define witch method will be called in compilation time, it could be make dynamic in execution time. You have flexibility to define any funcionality in execution time.
 
 Advantages: Encapsulating the methods call from caller, effective use improves the performance of application, and it's used to call method assincronously.
 A construction of a Delegate:
@@ -226,10 +229,10 @@ Delegate int SampleOfDelegate(string name, bool b);
 
 namespace Macoratti.SimplesDelegate
 {
-    // Declaração
-    public delegate void SimplesDelegate();
+// Declaração
+public delegate void SimplesDelegate();
 
-    class ExemploDeDelegate 
+    class ExemploDeDelegate
     {
         public static void minhaFuncao()
         {
@@ -246,18 +249,19 @@ namespace Macoratti.SimplesDelegate
             Console.ReadKey();
         }
     }
+
 }
 
 **(21) Difference between Dispose() and Finalize()**
 Dispose is called when we want an object to release any unmanaged resources with them. OtherHand, Finalize() is used for the same purpose, but it doens't assure the garbage collection of an object. So Dispose is more accertive and will force the GB.
 
 ### THEORICAL PART:
+
 **(22) What is .Net Framework?**
 A Platform to build object-oriented applications multiplatform. It supports languages like C#, VB, Cobol, Perl, etc. It has a wide variety of tools and functionalities like class, library, APIs that can be used to build, deploy and run web servicies and different applications.
 
 **(23) Explain the different components of the .NET platform and how it works:**
 C# Programs don't run right on the Operational System, but, in a Virtual Machine, likes Java. So the Programs made in C# will not affect the operational system, or even the other applications, making it more stable and safe.
-
 
 Common Intermediate Language (CIL) (or MSIL - Microsoft Intermediate Language):
 Because the CLR should works with lot of different languages (C#, VB...) - CLR needs a common "intermediate" language to all the languages of .NET. This is a compiler that will get the C# code (or other language) and turns to CLR. It's the "csc.exe" (the compiler) that will generate CLR. The Compiler will "transform" the CLI to CRL. All the .NET codes are first compiled to Microsoft intermediate language.
@@ -282,7 +286,7 @@ Common Type System (CTS):
 Is the Types that is a common for any language. Let's imagine that you have an integer, or a string. This should be the SAME, with same bytes in C# or VB. Using this principle, you don't have to worry about converting types when you integrate C# and VB code. We can even make our own classes and functions with the rules in CTS, it helps in calling the data type declared in one program language by other programming language.
 
 Common Language Specification (CLS):
-Common language specification help the developers to use the components that are inter-language compatible with certain rules. It helps in reusing the code in other .Net compatible language. Express all .NET Consistent dialects can make utilization of CLR and FCL. It's the specification and determination of every dialect a language should meet to qualify as a .NET Compliant Language. 
+Common language specification help the developers to use the components that are inter-language compatible with certain rules. It helps in reusing the code in other .Net compatible language. Express all .NET Consistent dialects can make utilization of CLR and FCL. It's the specification and determination of every dialect a language should meet to qualify as a .NET Compliant Language.
 
 Assembly:
 It's the group of all code in a logical file, your .EXE or DLL.
@@ -302,7 +306,8 @@ Manifest (information about the assembly). Type Metadata (binary information of 
 **(26) Difference between DLL and EXE?**
 An EXE cannot be shared with other applications, and can run right and directly the applications. All the assemblies will be LOAD when we run the EXE. DLL otherwise, consists of code that needs to be hide. The code is encapsulated in this library, and can be shared with other N applications.
 
-### MultiParallel Programming - Task, Async, Await**
+### MultiParallel Programming - Task, Async, Await\*\*
+
 **(27) ASYNC and AWAIT Review**:
 In "general" words, you should use async when you have IO operations, and you want to increase the performance and scability of your app. In the Sincronous programming you will have an ORDER and the things will happen in the order you defined. In Assincronous programming you will allow your application to do lot of things at same time, without blocking or waiting for other operations.
 
@@ -316,7 +321,7 @@ Now Let's explain how it works on IIS:
 
 Syncronous Process: When IIS receives a Request, it takes a Thread in the Thread Pool and put this request. So IIS will process this request using this Thread, do all the process (including database operations, I/O, anything else) until the process is over, giving an answer to the user. Now let's imagine that you have a DataBase Operation that will take 8 seconds to Run: The Thread will get stuck waiting for database.
 
- The problem is: If you have a LOT of requests, if there's not Thread in the Thread Pool, IIS will put the request into Queue to wait for a chance to get a thread to process it... Depending on time, Request will give user a 503 (Service Unavailable) to the user.
+The problem is: If you have a LOT of requests, if there's not Thread in the Thread Pool, IIS will put the request into Queue to wait for a chance to get a thread to process it... Depending on time, Request will give user a 503 (Service Unavailable) to the user.
 
 Asyncronous Process: Now looking for the Syncronous Process and the problem there (Thread will have to wait 8 seconds the operation on database finish) - Async comes to solve it. When you use Async, Windows/IIS will put the Operation in a TASK, and will run it in a Parallel processing. The Thread will RETURN to IIS Thread Pool, and will be available to IIS. So Basically what happens is that during this 8 seconds of database processing, the Thread will be available on the Pool, to receive more and more Requests. Basically you will have more "scability" and you will attempt to more and more requests at the same time, with the same number of Threads.
 
@@ -324,12 +329,11 @@ When the Async method finish (so the 8 seconds to DataBase response an operation
 
 **Note**: When you use the keyword "async", the compilator will generate a "status-machine" (called TAP) on background. It's an extra code, so you have to take it in mind, you'll have an "small aditional" processor cost on it, so have in mind that your should use it when it needs. Don't use async in everything... If your operation depends on CPU operations for example (not I/O), don't use async operations, you can loose performance and async could be a problem instead of solution. Same thing for DataBase problems: Performance problems on your database will NOT be solved by Async in BackEnd.
 
-
 Fonts:
-EXCELENT Article: https://www.brunobrito.net.br/asp-net-e-iis-anatomia-de-uma-aplicacao-web-parte-ii/ 
-
+EXCELENT Article: https://www.brunobrito.net.br/asp-net-e-iis-anatomia-de-uma-aplicacao-web-parte-ii/
 
 ### WEB PARTS (old, more relative to classic AspNet WebForms):
+
 **(28) What is caching?**  
 Caching means storing the data temporarily in memory so the data can be access in a more efficiency and speed way.
 
@@ -339,4 +343,4 @@ Localization means changing the already Globalized application to cater a specif
 **(30) Different type of validators in Asp.Net?**
 Client Side validation (normally JS) and ServerSide, that will runs on the backend.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------
+---
