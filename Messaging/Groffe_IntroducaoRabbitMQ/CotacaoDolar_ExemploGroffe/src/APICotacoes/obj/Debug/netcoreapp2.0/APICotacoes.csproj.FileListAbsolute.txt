@@ -1,0 +1,15 @@
+C:\Dev\dotnet_patterns\Messaging\Groffe_IntroducaoRabbitMQ\CotacaoDolar_ExemploGroffe\src\APICotacoes\bin\Debug\netcoreapp2.0\APICotacoes.dll
+C:\Dev\dotnet_patterns\Messaging\Groffe_IntroducaoRabbitMQ\CotacaoDolar_ExemploGroffe\src\APICotacoes\bin\Debug\netcoreapp2.0\appsettings.Development.json
+C:\Dev\dotnet_patterns\Messaging\Groffe_IntroducaoRabbitMQ\CotacaoDolar_ExemploGroffe\src\APICotacoes\bin\Debug\netcoreapp2.0\appsettings.json
+C:\Dev\dotnet_patterns\Messaging\Groffe_IntroducaoRabbitMQ\CotacaoDolar_ExemploGroffe\src\APICotacoes\bin\Debug\netcoreapp2.0\Properties\launchSettings.json
+C:\Dev\dotnet_patterns\Messaging\Groffe_IntroducaoRabbitMQ\CotacaoDolar_ExemploGroffe\src\APICotacoes\bin\Debug\netcoreapp2.0\APICotacoes.deps.json
+C:\Dev\dotnet_patterns\Messaging\Groffe_IntroducaoRabbitMQ\CotacaoDolar_ExemploGroffe\src\APICotacoes\bin\Debug\netcoreapp2.0\APICotacoes.runtimeconfig.json
+C:\Dev\dotnet_patterns\Messaging\Groffe_IntroducaoRabbitMQ\CotacaoDolar_ExemploGroffe\src\APICotacoes\bin\Debug\netcoreapp2.0\APICotacoes.runtimeconfig.dev.json
+C:\Dev\dotnet_patterns\Messaging\Groffe_IntroducaoRabbitMQ\CotacaoDolar_ExemploGroffe\src\APICotacoes\bin\Debug\netcoreapp2.0\APICotacoes.pdb
+C:\Dev\dotnet_patterns\Messaging\Groffe_IntroducaoRabbitMQ\CotacaoDolar_ExemploGroffe\src\APICotacoes\obj\Debug\netcoreapp2.0\APICotacoes.AssemblyInfoInputs.cache
+C:\Dev\dotnet_patterns\Messaging\Groffe_IntroducaoRabbitMQ\CotacaoDolar_ExemploGroffe\src\APICotacoes\obj\Debug\netcoreapp2.0\APICotacoes.AssemblyInfo.cs
+C:\Dev\dotnet_patterns\Messaging\Groffe_IntroducaoRabbitMQ\CotacaoDolar_ExemploGroffe\src\APICotacoes\obj\Debug\netcoreapp2.0\APICotacoes.csproj.CoreCompileInputs.cache
+C:\Dev\dotnet_patterns\Messaging\Groffe_IntroducaoRabbitMQ\CotacaoDolar_ExemploGroffe\src\APICotacoes\obj\Debug\netcoreapp2.0\APICotacoes.dll
+C:\Dev\dotnet_patterns\Messaging\Groffe_IntroducaoRabbitMQ\CotacaoDolar_ExemploGroffe\src\APICotacoes\obj\Debug\netcoreapp2.0\APICotacoes.pdb
+C:\Dev\dotnet_patterns\Messaging\Groffe_IntroducaoRabbitMQ\CotacaoDolar_ExemploGroffe\src\APICotacoes\obj\Debug\netcoreapp2.0\APICotacoes.genruntimeconfig.cache
+C:\Dev\dotnet_patterns\Messaging\Groffe_IntroducaoRabbitMQ\CotacaoDolar_ExemploGroffe\src\APICotacoes\obj\Debug\netcoreapp2.0\APICotacoes.csprojAssemblyReference.cache
