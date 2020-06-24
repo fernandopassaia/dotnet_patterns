@@ -9,3 +9,4 @@ C:\Dev\dotnet_patterns\Messaging\Groffe_IntroducaoRabbitMQ\CotacaoDolar_ExemploG
 C:\Dev\dotnet_patterns\Messaging\Groffe_IntroducaoRabbitMQ\CotacaoDolar_ExemploGroffe\src\CarregarCotacoes\obj\Debug\netcoreapp2.0\CarregarCotacoes.dll
 C:\Dev\dotnet_patterns\Messaging\Groffe_IntroducaoRabbitMQ\CotacaoDolar_ExemploGroffe\src\CarregarCotacoes\obj\Debug\netcoreapp2.0\CarregarCotacoes.pdb
 C:\Dev\dotnet_patterns\Messaging\Groffe_IntroducaoRabbitMQ\CotacaoDolar_ExemploGroffe\src\CarregarCotacoes\obj\Debug\netcoreapp2.0\CarregarCotacoes.genruntimeconfig.cache
+C:\Dev\dotnet_patterns\Messaging\Groffe_IntroducaoRabbitMQ\CotacaoDolar_ExemploGroffe\src\CarregarCotacoes\obj\Debug\netcoreapp2.0\CarregarCotacoes.csprojAssemblyReference.cache
