@@ -32,32 +32,50 @@ namespace CarregarCotacoes
 
         public List<Cotacao> ObterCotacoes()
         {
-            // NOTA BY FERNANDO: A PÁGINA DE COTAÇÕES DO UOL QUE O GROFFE USOU ERA DE 2018. ENTÃO DEIXOU DE FUNCIONAR POR QUE MUDARAM O LAYOUT
-            // AGORA EU ESTOU ATUALIZANDO O CÓDIGO PARA QUE POSSA LER A NOVA PÁGINA DE 2020 - https://economia.uol.com.br/cotacoes/
+            // NOTA BY FERNANDO: A PÁGINA DE COTAÇÕES DO UOL QUE O GROFFE USOU ERA DE 2018. MUDOU BASTANTE! O Driver até tenta ler, mas dá pau.
+            // Eu NÃO irei corrigir a página, mas sim gerar alguns números randômicos e adicionar na tabela, só pra simular... https://economia.uol.com.br/cotacoes/
             List<Cotacao> cotacoes = new List<Cotacao>();
-            var tableCotacoes = _driver.FindElement(
-                By.ClassName("quatro-colunas"));
-            var rowsCotacoes = tableCotacoes.FindElement(By.TagName("tbody"))
-                .FindElements(By.TagName("tr"));
-            foreach (var rowCotacao in rowsCotacoes)
-            {
-                var dadosCotacao =
-                    rowCotacao.FindElements(By.TagName("td"));
+            //var tableCotacoes = _driver.FindElement(
+            //    By.ClassName("quatro-colunas"));
+            //var rowsCotacoes = tableCotacoes.FindElement(By.TagName("tbody"))
+            //    .FindElements(By.TagName("tr"));
+            //foreach (var rowCotacao in rowsCotacoes)
+            //{
+            //    var dadosCotacao =
+            //        rowCotacao.FindElements(By.TagName("td"));
 
-                Cotacao cotacao = new Cotacao();
-                cotacao.NomeMoeda =
-                    dadosCotacao[0].FindElement(
-                        By.TagName("a")).GetAttribute("innerHTML");
-                cotacao.DtUltimaCarga = DateTime.Now;
-                cotacao.ValorCompra = Convert.ToDouble(
-                    dadosCotacao[1].GetAttribute("innerHTML"));
-                cotacao.ValorVenda = Convert.ToDouble(
-                    dadosCotacao[2].GetAttribute("innerHTML"));
-                cotacao.Variacao =
-                    dadosCotacao[3].FindElement(By.TagName("span")).Text;
+            //    Cotacao cotacao = new Cotacao();
+            //    cotacao.NomeMoeda =
+            //        dadosCotacao[0].FindElement(
+            //            By.TagName("a")).GetAttribute("innerHTML");
+            //    cotacao.DtUltimaCarga = DateTime.Now;
+            //    cotacao.ValorCompra = Convert.ToDouble(
+            //        dadosCotacao[1].GetAttribute("innerHTML"));
+            //    cotacao.ValorVenda = Convert.ToDouble(
+            //        dadosCotacao[2].GetAttribute("innerHTML"));
+            //    cotacao.Variacao =
+            //        dadosCotacao[3].FindElement(By.TagName("span")).Text;
 
-                cotacoes.Add(cotacao);
-            }
+            int segDigDolar = new Random().Next(0, 9);
+            int terDigDolar = new Random().Next(0, 9);
+            int segDigEuro = new Random().Next(0, 9);
+            int terDigEuro = new Random().Next(0, 9);
+
+            Cotacao cotacao = new Cotacao();
+            cotacao.NomeMoeda = "Dólar";
+            cotacao.DtUltimaCarga = DateTime.Now;
+            cotacao.ValorCompra = Convert.ToDouble("4," + segDigDolar + terDigDolar);
+            cotacao.ValorVenda = cotacao.ValorCompra + 0.32;
+            cotacao.Variacao = "4,32%";
+            cotacoes.Add(cotacao);
+
+            Cotacao cotacao2 = new Cotacao();
+            cotacao2.NomeMoeda = "Euro";
+            cotacao2.DtUltimaCarga = DateTime.Now;
+            cotacao2.ValorCompra = Convert.ToDouble("5," + segDigEuro + terDigEuro);
+            cotacao2.ValorVenda = cotacao2.ValorCompra + 0.41;
+            cotacao2.Variacao = "5,12%";
+            cotacoes.Add(cotacao2);
 
             return cotacoes;
         }
