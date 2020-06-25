@@ -50,6 +50,6 @@ namespace Publisher.Console.Dto
             this.PedValorPago = PedValorPago;
             this.PedCaixa = PedCaixa;
             this.VendNome = VendNome;
-    }
+        }
     }
 }

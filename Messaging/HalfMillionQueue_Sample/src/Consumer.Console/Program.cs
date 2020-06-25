@@ -1,6 +1,14 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Consumer.Console.Dto;
+using Consumer.Console.Repository;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Options;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using RabbitMQ.Client;
+using RabbitMQ.Client.Events;
 using System;
 using System.IO;
+using System.Text;
 
 namespace Consumer.Console
 {
@@ -13,20 +21,11 @@ namespace Consumer.Console
                .SetBasePath(Directory.GetCurrentDirectory())
                .AddJsonFile($"appsettings.json");
             _configuration = builder.Build();
-
-            // Para este exemplo foi criado um container Docker baseado
-            // em uma imagem do RabbitMQ. Segue o comando para geração
-            // desta estrutura:
-            // docker run -d --hostname rabbit-local --name testes-rabbitmq -p 6672:5672 -p 15672:15672 -e RABBITMQ_DEFAULT_USER=testes -e RABBITMQ_DEFAULT_PASS=Testes2018! rabbitmq:3-management-alpine
+                        
             var rabbitMQConfigurations = new RabbitMQConfigurations();
             new ConfigureFromConfigurationOptions<RabbitMQConfigurations>(
                 _configuration.GetSection("RabbitMQConfigurations"))
-                    .Configure(rabbitMQConfigurations);
-
-            _seleniumConfigurations = new SeleniumConfigurations();
-            new ConfigureFromConfigurationOptions<SeleniumConfigurations>(
-                _configuration.GetSection("SeleniumConfigurations"))
-                    .Configure(_seleniumConfigurations);
+                    .Configure(rabbitMQConfigurations);            
 
             var factory = new ConnectionFactory()
             {
@@ -47,17 +46,21 @@ namespace Consumer.Console
 
                 var consumer = new EventingBasicConsumer(channel);
                 consumer.Received += Consumer_Received;
-                channel.BasicConsume(queue: "CarregarCotacoes",
+                channel.BasicConsume(queue: "HalfMillionQueue",
                      autoAck: true,
                      consumer: consumer);
+            }            
+        }
 
-                Console.WriteLine("Aguardando mensagens para processamento");
-                Console.WriteLine("Pressione uma tecla para encerrar...");
-                Console.ReadKey();
-
-
-
-                System.Console.WriteLine("Hello World!");
+        private static void Consumer_Received(object sender, BasicDeliverEventArgs e)
+        {
+            var body = e.Body.ToArray();
+            var message = Encoding.UTF8.GetString(body);
+            var jsonMessage = JObject.Parse(message);
+            ItemOrcResult orcItem = JsonConvert.DeserializeObject<ItemOrcResult>(jsonMessage.ToString());            
+            ItemOrcRepository itemRepo = new ItemOrcRepository(_configuration.GetConnectionString("JkDataBase"));
+            itemRepo.Create(orcItem);
+            System.Console.WriteLine("Nova Mensagem Recebida - gravando no banco: " + orcItem.ItoPk);
         }
     }
 }

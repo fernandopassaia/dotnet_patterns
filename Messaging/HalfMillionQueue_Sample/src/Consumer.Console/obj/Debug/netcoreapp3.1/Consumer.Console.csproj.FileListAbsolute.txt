@@ -22,4 +22,17 @@ C:\Dev\dotnet_patterns\Messaging\HalfMillionQueue_Sample\src\Consumer.Console\bi
 C:\Dev\dotnet_patterns\Messaging\HalfMillionQueue_Sample\src\Consumer.Console\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 C:\Dev\dotnet_patterns\Messaging\HalfMillionQueue_Sample\src\Consumer.Console\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
 C:\Dev\dotnet_patterns\Messaging\HalfMillionQueue_Sample\src\Consumer.Console\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.ConfigurationExtensions.dll
+C:\Dev\dotnet_patterns\Messaging\HalfMillionQueue_Sample\src\Consumer.Console\obj\Debug\netcoreapp3.1\Consumer.Console.csprojAssemblyReference.cache
+C:\Dev\dotnet_patterns\Messaging\HalfMillionQueue_Sample\src\Consumer.Console\bin\Debug\netcoreapp3.1\RabbitMQ.Client.dll
+C:\Dev\dotnet_patterns\Messaging\HalfMillionQueue_Sample\src\Consumer.Console\bin\Debug\netcoreapp3.1\System.Threading.Channels.dll
+C:\Dev\dotnet_patterns\Messaging\HalfMillionQueue_Sample\src\Consumer.Console\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Dev\dotnet_patterns\Messaging\HalfMillionQueue_Sample\src\Consumer.Console\bin\Debug\netcoreapp3.1\Dapper.dll
+C:\Dev\dotnet_patterns\Messaging\HalfMillionQueue_Sample\src\Consumer.Console\bin\Debug\netcoreapp3.1\appsettings.json
+C:\Dev\dotnet_patterns\Messaging\HalfMillionQueue_Sample\src\Consumer.Console\bin\Debug\netcoreapp3.1\Dapper.Contrib.dll
+C:\Dev\dotnet_patterns\Messaging\HalfMillionQueue_Sample\src\Consumer.Console\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
+C:\Dev\dotnet_patterns\Messaging\HalfMillionQueue_Sample\src\Consumer.Console\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+C:\Dev\dotnet_patterns\Messaging\HalfMillionQueue_Sample\src\Consumer.Console\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+C:\Dev\dotnet_patterns\Messaging\HalfMillionQueue_Sample\src\Consumer.Console\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+C:\Dev\dotnet_patterns\Messaging\HalfMillionQueue_Sample\src\Consumer.Console\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Dev\dotnet_patterns\Messaging\HalfMillionQueue_Sample\src\Consumer.Console\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Dev\dotnet_patterns\Messaging\HalfMillionQueue_Sample\src\Consumer.Console\obj\Debug\netcoreapp3.1\Consumer.Console.csproj.CoreCompileInputs.cache
