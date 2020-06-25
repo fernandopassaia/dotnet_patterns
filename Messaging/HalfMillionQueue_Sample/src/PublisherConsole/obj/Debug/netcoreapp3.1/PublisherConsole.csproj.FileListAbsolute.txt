@@ -1,0 +1,13 @@
+C:\Dev\dotnet_patterns\Messaging\HalfMillionQueue_Sample\src\PublisherConsole\bin\Debug\netcoreapp3.1\PublisherConsole.exe
+C:\Dev\dotnet_patterns\Messaging\HalfMillionQueue_Sample\src\PublisherConsole\bin\Debug\netcoreapp3.1\PublisherConsole.deps.json
+C:\Dev\dotnet_patterns\Messaging\HalfMillionQueue_Sample\src\PublisherConsole\bin\Debug\netcoreapp3.1\PublisherConsole.runtimeconfig.json
+C:\Dev\dotnet_patterns\Messaging\HalfMillionQueue_Sample\src\PublisherConsole\bin\Debug\netcoreapp3.1\PublisherConsole.runtimeconfig.dev.json
+C:\Dev\dotnet_patterns\Messaging\HalfMillionQueue_Sample\src\PublisherConsole\bin\Debug\netcoreapp3.1\PublisherConsole.dll
+C:\Dev\dotnet_patterns\Messaging\HalfMillionQueue_Sample\src\PublisherConsole\bin\Debug\netcoreapp3.1\PublisherConsole.pdb
+C:\Dev\dotnet_patterns\Messaging\HalfMillionQueue_Sample\src\PublisherConsole\obj\Debug\netcoreapp3.1\PublisherConsole.csprojAssemblyReference.cache
+C:\Dev\dotnet_patterns\Messaging\HalfMillionQueue_Sample\src\PublisherConsole\obj\Debug\netcoreapp3.1\PublisherConsole.AssemblyInfoInputs.cache
+C:\Dev\dotnet_patterns\Messaging\HalfMillionQueue_Sample\src\PublisherConsole\obj\Debug\netcoreapp3.1\PublisherConsole.AssemblyInfo.cs
+C:\Dev\dotnet_patterns\Messaging\HalfMillionQueue_Sample\src\PublisherConsole\obj\Debug\netcoreapp3.1\PublisherConsole.csproj.CoreCompileInputs.cache
+C:\Dev\dotnet_patterns\Messaging\HalfMillionQueue_Sample\src\PublisherConsole\obj\Debug\netcoreapp3.1\PublisherConsole.dll
+C:\Dev\dotnet_patterns\Messaging\HalfMillionQueue_Sample\src\PublisherConsole\obj\Debug\netcoreapp3.1\PublisherConsole.pdb
+C:\Dev\dotnet_patterns\Messaging\HalfMillionQueue_Sample\src\PublisherConsole\obj\Debug\netcoreapp3.1\PublisherConsole.genruntimeconfig.cache

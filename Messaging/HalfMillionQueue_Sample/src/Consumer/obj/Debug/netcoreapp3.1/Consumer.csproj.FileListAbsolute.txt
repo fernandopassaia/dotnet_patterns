@@ -1,0 +1,13 @@
+C:\Dev\dotnet_patterns\Messaging\HalfMillionQueue_Sample\src\HalfMillionQueue\Consumer\bin\Debug\netcoreapp3.1\Consumer.exe
+C:\Dev\dotnet_patterns\Messaging\HalfMillionQueue_Sample\src\HalfMillionQueue\Consumer\bin\Debug\netcoreapp3.1\Consumer.deps.json
+C:\Dev\dotnet_patterns\Messaging\HalfMillionQueue_Sample\src\HalfMillionQueue\Consumer\bin\Debug\netcoreapp3.1\Consumer.runtimeconfig.json
+C:\Dev\dotnet_patterns\Messaging\HalfMillionQueue_Sample\src\HalfMillionQueue\Consumer\bin\Debug\netcoreapp3.1\Consumer.runtimeconfig.dev.json
+C:\Dev\dotnet_patterns\Messaging\HalfMillionQueue_Sample\src\HalfMillionQueue\Consumer\bin\Debug\netcoreapp3.1\Consumer.dll
+C:\Dev\dotnet_patterns\Messaging\HalfMillionQueue_Sample\src\HalfMillionQueue\Consumer\bin\Debug\netcoreapp3.1\Consumer.pdb
+C:\Dev\dotnet_patterns\Messaging\HalfMillionQueue_Sample\src\HalfMillionQueue\Consumer\obj\Debug\netcoreapp3.1\Consumer.csprojAssemblyReference.cache
+C:\Dev\dotnet_patterns\Messaging\HalfMillionQueue_Sample\src\HalfMillionQueue\Consumer\obj\Debug\netcoreapp3.1\Consumer.AssemblyInfoInputs.cache
+C:\Dev\dotnet_patterns\Messaging\HalfMillionQueue_Sample\src\HalfMillionQueue\Consumer\obj\Debug\netcoreapp3.1\Consumer.AssemblyInfo.cs
+C:\Dev\dotnet_patterns\Messaging\HalfMillionQueue_Sample\src\HalfMillionQueue\Consumer\obj\Debug\netcoreapp3.1\Consumer.csproj.CoreCompileInputs.cache
+C:\Dev\dotnet_patterns\Messaging\HalfMillionQueue_Sample\src\HalfMillionQueue\Consumer\obj\Debug\netcoreapp3.1\Consumer.dll
+C:\Dev\dotnet_patterns\Messaging\HalfMillionQueue_Sample\src\HalfMillionQueue\Consumer\obj\Debug\netcoreapp3.1\Consumer.pdb
+C:\Dev\dotnet_patterns\Messaging\HalfMillionQueue_Sample\src\HalfMillionQueue\Consumer\obj\Debug\netcoreapp3.1\Consumer.genruntimeconfig.cache

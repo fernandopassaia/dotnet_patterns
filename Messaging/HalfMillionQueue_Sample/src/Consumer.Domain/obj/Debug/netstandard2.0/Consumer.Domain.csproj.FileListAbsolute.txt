@@ -1,0 +1,9 @@
+C:\Dev\dotnet_patterns\Messaging\HalfMillionQueue_Sample\src\Consumer.Domain\bin\Debug\netstandard2.0\Consumer.Domain.deps.json
+C:\Dev\dotnet_patterns\Messaging\HalfMillionQueue_Sample\src\Consumer.Domain\bin\Debug\netstandard2.0\Consumer.Domain.dll
+C:\Dev\dotnet_patterns\Messaging\HalfMillionQueue_Sample\src\Consumer.Domain\bin\Debug\netstandard2.0\Consumer.Domain.pdb
+C:\Dev\dotnet_patterns\Messaging\HalfMillionQueue_Sample\src\Consumer.Domain\obj\Debug\netstandard2.0\Consumer.Domain.csprojAssemblyReference.cache
+C:\Dev\dotnet_patterns\Messaging\HalfMillionQueue_Sample\src\Consumer.Domain\obj\Debug\netstandard2.0\Consumer.Domain.AssemblyInfoInputs.cache
+C:\Dev\dotnet_patterns\Messaging\HalfMillionQueue_Sample\src\Consumer.Domain\obj\Debug\netstandard2.0\Consumer.Domain.AssemblyInfo.cs
+C:\Dev\dotnet_patterns\Messaging\HalfMillionQueue_Sample\src\Consumer.Domain\obj\Debug\netstandard2.0\Consumer.Domain.csproj.CoreCompileInputs.cache
+C:\Dev\dotnet_patterns\Messaging\HalfMillionQueue_Sample\src\Consumer.Domain\obj\Debug\netstandard2.0\Consumer.Domain.dll
+C:\Dev\dotnet_patterns\Messaging\HalfMillionQueue_Sample\src\Consumer.Domain\obj\Debug\netstandard2.0\Consumer.Domain.pdb

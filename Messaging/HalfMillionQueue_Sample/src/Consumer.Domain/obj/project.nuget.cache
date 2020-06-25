@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "+8av7uWjlVzj3euohyW0PAr1Vr5Zw5GPDcTLb1z+/K9T82Lej3vGoj5YqXO3FPhklq5DS6VZnqhgXGP2AO9fWw==",
+  "success": true,
+  "projectFilePath": "C:\\Dev\\dotnet_patterns\\Messaging\\HalfMillionQueue_Sample\\src\\Consumer.Domain\\Consumer.Domain.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\FernandoPassaia\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\FernandoPassaia\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

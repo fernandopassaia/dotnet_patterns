@@ -1,8 +1,0 @@
-{
-  "version": 2,
-  "dgSpecHash": "jhM1PLXvlndwpE6qXSZA5HWsoaUpYxi3HSVp2Dap6Io15H8d6dUpp+hIzjF/iVtUVQ3h5STPl+lwX7r5fIlkGQ==",
-  "success": true,
-  "projectFilePath": "C:\\Dev\\dotnet_patterns\\Messaging\\HalfMillionQueue_Sample\\src\\HalfMillionQueue\\Publisher\\Publisher.csproj",
-  "expectedPackageFiles": [],
-  "logs": []
-}

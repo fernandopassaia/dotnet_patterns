@@ -255,12 +255,15 @@ public delegate void SimplesDelegate();
 **(21) Difference between Dispose() and Finalize()**
 Dispose is called when we want an object to release any unmanaged resources with them. OtherHand, Finalize() is used for the same purpose, but it doens't assure the garbage collection of an object. So Dispose is more accertive and will force the GB.
 
+**(22) Difference between String and string, or Int32 and int**
+string is just an aliass for System.String. So there's no difference, it's just an "apelido" to make it easier of write code, on compilation time, it will always be String.
+
 ### THEORICAL PART:
 
-**(22) What is .Net Framework?**
+**(23) What is .Net Framework?**
 A Platform to build object-oriented applications multiplatform. It supports languages like C#, VB, Cobol, Perl, etc. It has a wide variety of tools and functionalities like class, library, APIs that can be used to build, deploy and run web servicies and different applications.
 
-**(23) Explain the different components of the .NET platform and how it works:**
+**(24) Explain the different components of the .NET platform and how it works:**
 C# Programs don't run right on the Operational System, but, in a Virtual Machine, likes Java. So the Programs made in C# will not affect the operational system, or even the other applications, making it more stable and safe.
 
 Common Intermediate Language (CIL) (or MSIL - Microsoft Intermediate Language):
@@ -297,18 +300,18 @@ CLR contains the GC that will keeps your app running in low-need and check for u
 Profiling:
 We can use to improve memory usage and program performance ajusting specific details.
 
-**(24) Difference between Managed and Unmamaged Code**
+**(25) Difference between Managed and Unmamaged Code**
 All the Code of .Net Platform is MANAGED code. .NET Framework is necessary to execute managed code, and managed code is managed by CLR, that will make memory management, garbage collection and so on... Unmanaged code is that independent of .Net Framework, not managed by CLR. Remember some times when you have to integrate to 3th Dlls components (like Daruma, Bematech) or even call right System32.dll.
 
-**(25) What is the different parts of an Assembly**
+**(26) What is the different parts of an Assembly**
 Manifest (information about the assembly). Type Metadata (binary information of the program). MSIL (Microsoft intermediate language) and the Resources (files, images).
 
-**(26) Difference between DLL and EXE?**
+**(27) Difference between DLL and EXE?**
 An EXE cannot be shared with other applications, and can run right and directly the applications. All the assemblies will be LOAD when we run the EXE. DLL otherwise, consists of code that needs to be hide. The code is encapsulated in this library, and can be shared with other N applications.
 
 ### MultiParallel Programming - Task, Async, Await\*\*
 
-**(27) ASYNC and AWAIT Review**:
+**(28) ASYNC and AWAIT Review**:
 In "general" words, you should use async when you have IO operations, and you want to increase the performance and scability of your app. In the Sincronous programming you will have an ORDER and the things will happen in the order you defined. In Assincronous programming you will allow your application to do lot of things at same time, without blocking or waiting for other operations.
 
 In the Development of Desktop, ClientSide, like WindowsForms, Mobile or FrontEnd Web the most benefit of async is to keep the UI responsible meanwhile operations are being executed in background. In BackEnd Development, the principal reason to use Async is scability.
@@ -334,13 +337,13 @@ EXCELENT Article: https://www.brunobrito.net.br/asp-net-e-iis-anatomia-de-uma-ap
 
 ### WEB PARTS (old, more relative to classic AspNet WebForms):
 
-**(28) What is caching?**  
+**(29) What is caching?**  
 Caching means storing the data temporarily in memory so the data can be access in a more efficiency and speed way.
 
-**(29) What is Localization and Globalization?**
+**(30) What is Localization and Globalization?**
 Localization means changing the already Globalized application to cater a specific language or culture. Globalization is the process of developing apps to suppor multi languages. One is opose other.
 
-**(30) Different type of validators in Asp.Net?**
+**(31) Different type of validators in Asp.Net?**
 Client Side validation (normally JS) and ServerSide, that will runs on the backend.
 
 ---
