@@ -38,7 +38,7 @@ namespace Consumer.Console
             using (var connection = factory.CreateConnection())
             using (var channel = connection.CreateModel())
             {
-                channel.QueueDeclare(queue: "CarregarCotacoes",
+                channel.QueueDeclare(queue: "HalfMillionQueue",
                                      durable: false,
                                      exclusive: false,
                                      autoDelete: false,
@@ -56,11 +56,11 @@ namespace Consumer.Console
         {
             var body = e.Body.ToArray();
             var message = Encoding.UTF8.GetString(body);
-            var jsonMessage = JObject.Parse(message);
-            ItemOrcResult orcItem = JsonConvert.DeserializeObject<ItemOrcResult>(jsonMessage.ToString());            
-            ItemOrcRepository itemRepo = new ItemOrcRepository(_configuration.GetConnectionString("JkDataBase"));
-            itemRepo.Create(orcItem);
-            System.Console.WriteLine("Nova Mensagem Recebida - gravando no banco: " + orcItem.ItoPk);
+            //var jsonMessage = JObject.Parse(message);
+            //ItemOrcResult orcItem = JsonConvert.DeserializeObject<ItemOrcResult>(jsonMessage.ToString());            
+            //ItemOrcRepository itemRepo = new ItemOrcRepository(_configuration.GetConnectionString("JkDataBase"));
+            //itemRepo.Create(orcItem);
+            System.Console.WriteLine("Nova Mensagem Recebida - gravando no banco: " + message);
         }
     }
 }

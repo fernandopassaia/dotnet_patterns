@@ -12,7 +12,6 @@ When you create a table, for DEFAULT SQL Server will create a clustered index. C
 (ITE) Item Orcamento: 555,793. (will be used on Profiler)
 (PRO) Products: 20,693. (will be used on Profiler)
 
-
 **Inner Join**:
 SELECT CLI.CODIGO AS CLICODIGO, CLI.NOME AS CLINOME, CLI.RAZAOSOCIAL AS CLIRAZAO,
 ORC.CODIGO AS ORCCOD, ORC.VALORFINAL AS ORCVALOR, ORC.FK_NUMVENDEDOR AS ORCVEND,
@@ -62,31 +61,34 @@ INNER JOIN TB_VENDEDORES222 VEN ON VEN.PK_CODIGO = ORC.FK_NUMVENDEDOR
 Theorical: It combines the results of both left and right outer joins. Gets all records from both tables and puts NULL in the columns where related records do not exist in the opposite table.
 Practical: Again bring-me 273,924 rows, because it will join the RIGHT and LEFT, bring everything with "null" where there is no data. Same result as Left Join in this case.
 
+**Outer Join**:
+Inner and Outer, both are used to combine rows for two or more tables. Inner don't include non-matching rows, OUTER include them. =)
+
 **Note**: Take a Look to IMG1-5 to understand what this 4 types (Inner, Left, Right, Full) does.
 
 **Stored Procedure**: This is an anatomy of a stored-procedure I've wrote on the past. The code talks by itself:
 
 CREATE PROCEDURE [dbo].[sp_GravaOrcamento]
-    @fk_numcliente INT ,
-    @fk_numvendedor INT ,
-    @tipoFrete VARCHAR(80) ,
-    @prazoEntrega DATETIME,
-    @garantia DATETIME,
-    @validadeProposta  DATETIME,
-    @funcionarioRetira VARCHAR(80),   
-    @fkPagamento INT,
-    @infoAdicional VARCHAR(250),
-    @valorfinal DECIMAL(10, 4),
-    @fkNumeroLoja INT,
-    @nomePdv VARCHAR(50),
-    @serialPDV VARCHAR(50),
-    @pkPDV INT,
-    @log_FkUsuarioCriador INT,
-    @log_fkDataCriacao DATETIME,     
-    @idClienteFuturaData INT,
-    @ultimoOrcamento INT OUTPUT
-    
-AS 
+@fk_numcliente INT ,
+@fk_numvendedor INT ,
+@tipoFrete VARCHAR(80) ,
+@prazoEntrega DATETIME,
+@garantia DATETIME,
+@validadeProposta DATETIME,
+@funcionarioRetira VARCHAR(80),  
+ @fkPagamento INT,
+@infoAdicional VARCHAR(250),
+@valorfinal DECIMAL(10, 4),
+@fkNumeroLoja INT,
+@nomePdv VARCHAR(50),
+@serialPDV VARCHAR(50),
+@pkPDV INT,
+@log_FkUsuarioCriador INT,
+@log_fkDataCriacao DATETIME,  
+ @idClienteFuturaData INT,
+@ultimoOrcamento INT OUTPUT
+  
+AS
 INSERT INTO ISORCAM765
 (FK_NUMCLIENTE
 ,FK_NUMVENDEDOR
@@ -107,28 +109,29 @@ INSERT INTO ISORCAM765
 ,LOG_DATACRIACAO
 ,QTD_ALTERACOES
 ,LOG_FKCLIENTEFD
-)        
-    VALUES  (  @fk_numcliente,
-    @fk_numvendedor,
-    @tipoFrete,
-    @prazoEntrega,
-    @garantia,
-    @validadeProposta,
-    @funcionarioRetira,    
-    @fkPagamento,
-    @infoAdicional,
-    'EM ABERTO',
-    @valorfinal,
-    @fkNumeroLoja,
-    @nomePdv,
-    @serialPDV,
-    @pkPDV,
-    @log_FkUsuarioCriador,
-    @log_fkDataCriacao,
-    0,
-    @idClienteFuturaData)
+)  
+ VALUES ( @fk_numcliente,
+@fk_numvendedor,
+@tipoFrete,
+@prazoEntrega,
+@garantia,
+@validadeProposta,
+@funcionarioRetira,  
+ @fkPagamento,
+@infoAdicional,
+'EM ABERTO',
+@valorfinal,
+@fkNumeroLoja,
+@nomePdv,
+@serialPDV,
+@pkPDV,
+@log_FkUsuarioCriador,
+@log_fkDataCriacao,
+0,
+@idClienteFuturaData)
 
     SELECT  @ultimoOrcamento = @@Identity
+
 GO
 
 **SQL Profile**: Here I'll mount a "Heavy" SQL Query based on the "ITE" (ItemOrcamento) that has 555,793 items. I'll also bring "PRO" fields (that have 26,693 registers), and also bring the fields of other queries from ORC, PED, CLI, VEN. So It will be a complex query. All images are saved on "Profiler" folder, about how to RUN the profiler, how to configure it, the query itself.
