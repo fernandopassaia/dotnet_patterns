@@ -1,8 +1,0 @@
-{
-  "version": 2,
-  "dgSpecHash": "oMRnzViRl5WzZGI0eNSpFnIdXDYJcWCBayJ4keQdx7SM9DktMDw++T4Bpy9IwFRqPWE/YXX+Jid6GXWtW7ZXGg==",
-  "success": true,
-  "projectFilePath": "C:\\Dev\\dotnet_patterns\\Messaging\\HalfMillionQueue_Sample\\src\\HalfMillionQueueApi\\HalfMillionQueueApi.csproj",
-  "expectedPackageFiles": [],
-  "logs": []
-}

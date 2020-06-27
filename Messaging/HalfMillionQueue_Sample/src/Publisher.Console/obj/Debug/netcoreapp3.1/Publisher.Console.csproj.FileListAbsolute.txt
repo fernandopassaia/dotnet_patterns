@@ -1,5 +1,4 @@
 C:\Dev\dotnet_patterns\Messaging\HalfMillionQueue_Sample\src\Publisher.Console\bin\Debug\netcoreapp3.1\Publisher.Console.exe
-C:\Dev\dotnet_patterns\Messaging\HalfMillionQueue_Sample\src\Publisher.Console\obj\Debug\netcoreapp3.1\Publisher.Console.csprojAssemblyReference.cache
 C:\Dev\dotnet_patterns\Messaging\HalfMillionQueue_Sample\src\Publisher.Console\obj\Debug\netcoreapp3.1\Publisher.Console.AssemblyInfoInputs.cache
 C:\Dev\dotnet_patterns\Messaging\HalfMillionQueue_Sample\src\Publisher.Console\obj\Debug\netcoreapp3.1\Publisher.Console.AssemblyInfo.cs
 C:\Dev\dotnet_patterns\Messaging\HalfMillionQueue_Sample\src\Publisher.Console\bin\Debug\netcoreapp3.1\Publisher.Console.deps.json
@@ -35,3 +34,4 @@ C:\Dev\dotnet_patterns\Messaging\HalfMillionQueue_Sample\src\Publisher.Console\b
 C:\Dev\dotnet_patterns\Messaging\HalfMillionQueue_Sample\src\Publisher.Console\bin\Debug\netcoreapp3.1\System.Threading.Channels.dll
 C:\Dev\dotnet_patterns\Messaging\HalfMillionQueue_Sample\src\Publisher.Console\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 C:\Dev\dotnet_patterns\Messaging\HalfMillionQueue_Sample\src\Publisher.Console\obj\Debug\netcoreapp3.1\Publisher.Console.csproj.CoreCompileInputs.cache
+C:\Dev\dotnet_patterns\Messaging\HalfMillionQueue_Sample\src\Publisher.Console\obj\Debug\netcoreapp3.1\Publisher.Console.csprojAssemblyReference.cache

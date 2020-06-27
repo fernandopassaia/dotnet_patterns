@@ -17,10 +17,26 @@ namespace Publisher.Console.Repository
         public IEnumerable<ItemOrcResult> Get()
         {
             StringBuilder str = new StringBuilder();
-            str.Append("SELECT ITO.PK_ID as ItoPk, ITO.CODIGOFABRIC AS ItoCodFabr, ITO.DESCRICAOAPLICACAO AS ItoDescrAplic, ITO.VALORUNITARIO AS ItoValorUnit, ITO.QUANTIDADE AS ItoQtd, ");
-            str.Append("ITO.VALORTOTAL AS ItoValorTotal, PRO.CODIGOFABRIC AS ProCodFabr, PRO.NCM AS ProNcm, PRO.DESCRICAO AS ProDescr, PRO.APLICACAO AS ProAplic, PRO.QTD_ATUAL AS ProEstoque, ");
-            str.Append("CLI.CODIGO AS CliPk, CLI.NOME AS CliNome, ORC.CODIGO AS OrcPk, ORC.VALORFINAL AS OrcValor, ORC.FK_NUMVENDEDOR AS VendPk, ");
-            str.Append("PED.CODIGO AS PedCod, PED.VALORFINALPAGO AS PedValorPago, PED.IDENTIFICACAO_CAIXA AS PedCaixa, VEN.NOMEFANTASIA AS VendNome ");
+            str.Append("SELECT ITO.PK_ID as ItoPk, ");
+            str.Append("REPLACE(REPLACE(REPLACE(REPLACE(ITO.CODIGOFABRIC, '\', ''), ' / ', ''), '\"', ''), '', '')  AS ItoCodFabr, ");
+            str.Append("REPLACE(REPLACE(REPLACE(REPLACE(ITO.DESCRICAOAPLICACAO, '\', ''), ' / ', ''), '\"', ''), '', '')  AS ItoDescrAplic, ");
+            str.Append("ITO.VALORUNITARIO AS ItoValorUnit, ");
+            str.Append("ITO.QUANTIDADE AS ItoQtd, ");
+            str.Append("ITO.VALORTOTAL AS ItoValorTotal, ");
+            str.Append("REPLACE(REPLACE(REPLACE(REPLACE(PRO.CODIGOFABRIC, '\', ''), ' / ', ''), '\"', ''), '', '')  AS ProCodFabr, ");
+            str.Append("PRO.NCM AS ProNcm, ");
+            str.Append("REPLACE(REPLACE(REPLACE(REPLACE(PRO.DESCRICAO, '\', ''), ' / ', ''), '\"', ''), '', '')  AS ProDescr,  ");
+            str.Append("REPLACE(REPLACE(REPLACE(REPLACE(PRO.APLICACAO, '\', ''), ' / ', ''), '\"', ''), '', '')  AS ProAplic,  ");
+            str.Append("PRO.QTD_ATUAL AS ProEstoque, ");
+            str.Append("CLI.CODIGO AS CliPk, ");
+            str.Append("REPLACE(REPLACE(REPLACE(REPLACE(CLI.NOME, '\', ''), ' / ', ''), '\"', ''), '', '')  AS CliNome, ");
+            str.Append("ORC.CODIGO AS OrcPk, ");
+            str.Append("ORC.VALORFINAL AS OrcValor, ");
+            str.Append("ORC.FK_NUMVENDEDOR AS VendPk, ");
+            str.Append("PED.CODIGO AS PedCod, ");
+            str.Append("PED.VALORFINALPAGO AS PedValorPago, ");
+            str.Append("REPLACE(REPLACE(REPLACE(REPLACE(PED.IDENTIFICACAO_CAIXA, '\', ''), ' / ', ''), '\"', ''), '', '')  AS PedCaixa, ");
+            str.Append("REPLACE(REPLACE(REPLACE(REPLACE(VEN.NOMEFANTASIA, '\', ''), ' / ', ''), '\"', ''), '', '')  AS VendNome ");
             str.Append("FROM ISITEMORCAM567 ITO ");
             str.Append("LEFT JOIN ISPRO101 PRO ON ITO.FK_NUMPRODUTO = PRO.PK_CODIGOSIST ");
             str.Append("LEFT JOIN ISORCAM765 ORC ON ITO.FK_NUMORCAMENTO = ORC.CODIGO ");

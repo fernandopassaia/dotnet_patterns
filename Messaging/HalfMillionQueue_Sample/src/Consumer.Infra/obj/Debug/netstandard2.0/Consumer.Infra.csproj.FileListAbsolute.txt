@@ -1,9 +1,0 @@
-C:\Dev\dotnet_patterns\Messaging\HalfMillionQueue_Sample\src\Consumer.Infra\bin\Debug\netstandard2.0\Consumer.Infra.deps.json
-C:\Dev\dotnet_patterns\Messaging\HalfMillionQueue_Sample\src\Consumer.Infra\bin\Debug\netstandard2.0\Consumer.Infra.dll
-C:\Dev\dotnet_patterns\Messaging\HalfMillionQueue_Sample\src\Consumer.Infra\bin\Debug\netstandard2.0\Consumer.Infra.pdb
-C:\Dev\dotnet_patterns\Messaging\HalfMillionQueue_Sample\src\Consumer.Infra\obj\Debug\netstandard2.0\Consumer.Infra.csprojAssemblyReference.cache
-C:\Dev\dotnet_patterns\Messaging\HalfMillionQueue_Sample\src\Consumer.Infra\obj\Debug\netstandard2.0\Consumer.Infra.AssemblyInfoInputs.cache
-C:\Dev\dotnet_patterns\Messaging\HalfMillionQueue_Sample\src\Consumer.Infra\obj\Debug\netstandard2.0\Consumer.Infra.AssemblyInfo.cs
-C:\Dev\dotnet_patterns\Messaging\HalfMillionQueue_Sample\src\Consumer.Infra\obj\Debug\netstandard2.0\Consumer.Infra.csproj.CoreCompileInputs.cache
-C:\Dev\dotnet_patterns\Messaging\HalfMillionQueue_Sample\src\Consumer.Infra\obj\Debug\netstandard2.0\Consumer.Infra.dll
-C:\Dev\dotnet_patterns\Messaging\HalfMillionQueue_Sample\src\Consumer.Infra\obj\Debug\netstandard2.0\Consumer.Infra.pdb

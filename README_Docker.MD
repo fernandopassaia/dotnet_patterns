@@ -3,7 +3,7 @@
 ### Practical Part Images and Containers: -----------------------------------------------------------------------------------------------------------
 
 **SQL Server**:
-docker pull mcr.microsoft.com/mssql/server:2017-latest 
+docker pull mcr.microsoft.com/mssql/server:2017-latest
 docker pull mcr.microsoft.com/mssql/server:2019-latest
 docker pull mcr.microsoft.com/mssql/server:2017-CU20-ubuntu-16.04
 docker pull mcr.microsoft.com/mssql/server:2019-CU5-ubuntu-16.04
@@ -12,17 +12,16 @@ docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=yourStrong(!)Password' -e 'MSSQL_P
 
 **RabbitMQ**:
 docker pull rabbitmq:3.8.5-management-alpine
-docker run -d --hostname rabbit-local --name testes-rabbitmq -p 6672:5672 -p 15672:15672 -e RABBITMQ_DEFAULT_USER=testes -e RABBITMQ_DEFAULT_PASS=TESTES2020! rabbitmq:3.8.5-management-alpine
-
+docker run -d --hostname rabbit-local --name testes-rabbitmq -p 6672:5672 -p 15672:15672 -e RABBITMQ_DEFAULT_USER=passaia -e RABBITMQ_DEFAULT_PASS=PASSAIA2020! rabbitmq:3.8.5-management-alpine
 
 ### Theorical Part Studies: -------------------------------------------------------------------------------------------------------------------------
+
 **What is Docker**:
 It's a "kind" of Virtualization for Systems, but with a lot of benefits, once Docker don't uses HyperV (or another virtualization layer) and can have access right to the Processor and Memory of the Hosts. So once you don't need a whole operational system and hyperV managing it, you have less maintanence (to keep a second operational system) and better performance once you have access right to the CPU/Memory.
 
 **Important and Oficial Links**:
 Main page of Documentation: https://docs.docker.com/
 Main page of DockerHub: https://hub.docker.com/
-
 
 **How to install Docker on my Ubuntu 20.04**:
 Here is the Official Guide: https://docs.docker.com/engine/install/ubuntu/
@@ -40,38 +39,39 @@ To install it:
 (1) sudo wget https://github.com/bcicen/ctop/releases/download/v0.7.3/ctop-0.7.3-linux-amd64 -O /usr/local/bin/ctop
 (2) sudo chmod +x /usr/local/bin/ctop
 (3) docker run --rm -ti \
-  --name=ctop \
-  --volume /var/run/docker.sock:/var/run/docker.sock:ro \
-  quay.io/vektorlab/ctop:latest
+ --name=ctop \
+ --volume /var/run/docker.sock:/var/run/docker.sock:ro \
+ quay.io/vektorlab/ctop:latest
 
 To RUN ctop you just need to call it from terminal: ctop
 
 Shortcuts:
--a 	show active containers only
--f <string> 	set an initial filter string
--h 	display help dialog
--i 	invert default colors
--r 	reverse container sort order
--s 	select initial container sort field
--scale-cpu 	show cpu as % of system total
--v 	output version information and exit
--shell 	specify shell (default: sh)
+-a show active containers only
+-f <string> set an initial filter string
+-h display help dialog
+-i invert default colors
+-r reverse container sort order
+-s select initial container sort field
+-scale-cpu show cpu as % of system total
+-v output version information and exit
+-shell specify shell (default: sh)
 
 Keybindings
-<enter> 	Open container menu
-a 	Toggle display of all (running and non-running) containers
-f 	Filter displayed containers (esc to clear when open)
-H 	Toggle ctop header
-h 	Open help dialog
-s 	Select container sort field
-r 	Reverse container sort order
-o 	Open single view
-l 	View container logs (t to toggle timestamp when open)
-e 	Exec Shell
-S 	Save current configuration to file
-q 	Quit ctop
+<enter> Open container menu
+a Toggle display of all (running and non-running) containers
+f Filter displayed containers (esc to clear when open)
+H Toggle ctop header
+h Open help dialog
+s Select container sort field
+r Reverse container sort order
+o Open single view
+l View container logs (t to toggle timestamp when open)
+e Exec Shell
+S Save current configuration to file
+q Quit ctop
 
------------------------------------------------------------------------------------------------------------------------------------------
+---
+
 **Now we go to the MAIN commands**:
 
 docker --version
@@ -156,7 +156,7 @@ file. So basically what i need to do is to see this folders on my LocalHost (Ubu
 
 (on the folder /home/fernandopassaia)
 mkdir html (important, stay on the folder fernandopassaia)
-docker container run -d --name ws1 -p 8080:80 -v $(pwd)/html:/usr/share/nginx/html nginx (pwd is my actual folder - home/fernandopassaia)
+docker container run -d --name ws1 -p 8080:80 -v \$(pwd)/html:/usr/share/nginx/html nginx (pwd is my actual folder - home/fernandopassaia)
 
 Note that if you access the Nginx server (8080), you will see an error, because index.html don't exists on my LocalHost html folder.
 This folder is empty, so let's create the "index.html" file.
@@ -176,7 +176,7 @@ So just Refresh it and yupi! It's working again but now with my Index.html. MAP 
 
 With this command you have details of the container, on "Mounts" section you can see the details of the map.
 
------------------------------------------------------------------------------------------------------------------------------------------
+---
 
 **Intermediate: IMAGES of Docker**
 
@@ -185,7 +185,7 @@ describes it's requirements and capacities, including the code of app inside the
 runtime. If we can do a parallel with OO: Image is a CLASS meanwhile containners is a objects of this class.
 
 **Layers**: One thing important to understand is that a Image of Docker contains 1-N layers. So for example, if you remove "nginx" image
-(docker image rmi nginx) and download again (docker image pull nginx) you will see that docker download 3 different files, so the 
+(docker image rmi nginx) and download again (docker image pull nginx) you will see that docker download 3 different files, so the
 nginx image contains 3 different layers. To inspect the layers of a image use:
 
 docker image inspect nginx
@@ -193,13 +193,13 @@ docker image inspect nginx
 In your result you'll find:
 
 RootFS": {
-            "Type": "layers",
-            "Layers": [
-                "sha256:ffc9b21953f4cd7956cdf532a5db04ff0a2daa7475ad796f1bad58cfbaf77a07",
-                "sha256:2f4accd375d93db49e5a47c9bebe4e0dd3cef35f765f5cd36840a986435affc9",
-                "sha256:6c7de695ede33d90077f01d60ec29e6a51552a3e350757018ff1b1ecd6cee0bf"
-            ]
-        },
+"Type": "layers",
+"Layers": [
+"sha256:ffc9b21953f4cd7956cdf532a5db04ff0a2daa7475ad796f1bad58cfbaf77a07",
+"sha256:2f4accd375d93db49e5a47c9bebe4e0dd3cef35f765f5cd36840a986435affc9",
+"sha256:6c7de695ede33d90077f01d60ec29e6a51552a3e350757018ff1b1ecd6cee0bf"
+]
+},
 
 For what: You have Read/Write layers and you have shared layers. So for example: Some containers can use same layers, for example, the
 layer "6c7de695ede33d90077f01d60ec29e6a51552a3e350757018ff1b1ecd6cee0bf" could be used for "Microsoft .Net Core SDK 3 Image" and at the
@@ -224,6 +224,7 @@ DockerFile > Build > Docker Image > Run > Docker Container
 So basically DockerFile constains in ORDER, all commands necessary to build a image. In this file we define all the rules, informations and instructions of the image.
 
 ### Moving to the Exercixes for Images
+
 Note: I'm saving all my Files inside the "Docker" folder, so you'll find them there by number of Exercises.
 
 **First Exercise:**
@@ -274,11 +275,11 @@ will exists, but also the Debian 8 image. So your image of Debian could be SHARE
 We will now make a contanerization of a **Asp.Net Core MVC App**. We will use base-images of Microsoft to create our own images using Dockerfile. This image will be available on Docker > DeployAspNetCoreMvc folder.
 
 Here is the link oficial from Microsoft: https://hub.docker.com/_/microsoft-dotnet-core
-    dotnet/core/sdk: .NET Core SDK
-    dotnet/core/aspnet: ASP.NET Core Runtime
-    dotnet/core/runtime: .NET Core Runtime
-    dotnet/core/runtime-deps: .NET Core Runtime Dependencies
-    dotnet/core/samples: .NET Core Samples
+dotnet/core/sdk: .NET Core SDK
+dotnet/core/aspnet: ASP.NET Core Runtime
+dotnet/core/runtime: .NET Core Runtime
+dotnet/core/runtime-deps: .NET Core Runtime Dependencies
+dotnet/core/samples: .NET Core Samples
 
 The Image I'll use is the Microsoft Asp.Net Core Runtime 3.1 that is smaller than the images with SDK.
 docker pull mcr.microsoft.com/dotnet/core/aspnet:3.1
@@ -316,7 +317,7 @@ docker container run -p 5000:80 --name appmvc aspmvc1-passaia:1.0
 
 Now if you open your browser on you LocalHost Ubuntu 20.04: http://localhost:5000 - here there is =)
 
------------------------------------------------------------------------------------------------------------------------------------------
+---
 
 **Intermediate: VOLUMES of Docker**
 
@@ -339,11 +340,11 @@ the Folder mapped on Docker Host (my Ubuntu 20.04 in this case). So what's the m
 **The systax of the command is:**
 
 docker container run -v <folder_host>:<folder_container> image
-where -v : $(pwd)/teste:/usr/share (pwd gets the folder where i am)
+where -v : \$(pwd)/teste:/usr/share (pwd gets the folder where i am)
 
 So let's make a sample. I'll create a container of alpine, and map the folder share to my local/maptest folder.
 
-docker container run -it --name alp1 -v $(pwd)/maptest:/usr/share alpine
+docker container run -it --name alp1 -v \$(pwd)/maptest:/usr/share alpine
 
 (it is interative, it will create a new container)
 
@@ -362,7 +363,6 @@ Docker will show names of volumes and drivers where they are (usually your local
 
 **docker voume rm teste** to remove volumes or **docker volume prune** to remove all.
 
-
 **First Exercise:**
 Wow, that will be good: I want to create a volume called "sqldata". Then I'll download the image from MYSQL, and yeah, wow, I want MySql to store it data (dbs) inside this Volume called "sqldata". That's impressing no? Let's move ahead. https://hub.docker.com/_/mysql
 
@@ -375,7 +375,7 @@ On the first inspect, I'll see that this image uses the VOLUME (volumes) directo
 
 **docker container run -d --name mysql -v sqldata:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=@1234Fd# mysql:5.7**
 
-Now if i RUN "docker container inspect mysql" and check the mounts, I'll see that this container is mapping the folder of it's data (/var/lib/mysql) to my Ubuntu Host 20.04 on (/var/lib/docker/volumes/sqldata/_data)
+Now if i RUN "docker container inspect mysql" and check the mounts, I'll see that this container is mapping the folder of it's data (/var/lib/mysql) to my Ubuntu Host 20.04 on (/var/lib/docker/volumes/sqldata/\_data)
 
 Now that it's create what i need to do. I'll connect interactively on container and connect to bash. Yeah, wow. My point now is to create a new DataBase on MySQL and then I'll see it reflecting on my Ubuntu host.
 
@@ -396,7 +396,7 @@ docker container exec -it mysql2 /bin/bash
 mysql -u root -p
 show databases; (you'll see that database testedb is still alive, because the volume)
 
------------------------------------------------------------------------------------------------------------------------------------------
+---
 
 **ADVANCED: NetWork on Docker and Connecting Two Containners**:
 Now we want to Connect Two Containners: I have a Containner called "aspmvc1-passaia:1.0" that contains my App Deployed in Asp.Net Core. And i Have a Containner called "mysql" that i have a DataBase that stores it's data on My Host Machine (the DataBase itself on a Volume called sqldata). What I want to Do is Connect this Two Containers, so the AspNet Core App can use the DataBase on the MySQL Container over network. I Have a Image explaining it on Docker > img folder called "1 - Architecture of Apps".
@@ -428,6 +428,7 @@ Now we have to connect this two networks, to make appmvc talk with mysql. Docker
 (3) Bridge: This is the one that we want, because docker adds all containers to this network when we create a new container (by default). So all the containers will be added to "Bridge", except if we explicity change it while creation. So by Default, my two containers are on this Bridge Network. So by Default: The containers on this network (Bridge) could communicate between them using TCP/IP. So if i add new containers, basically docker will give IP 172.17.0.4, 172.17.0.5 ... and they can communicate between then.
 
 Now that we have all Theory, let's go to the **EXERCISE**:
+
 ### NOTE: This exercise is a kind of REVIEW of Everything that we learned until now. So it's one of the most important...
 
 This Exercise is entirely stored on the folder DeployAspNetCoreMvcConnectedMySql.
@@ -457,10 +458,9 @@ Create Table Students(StudentId smallint unsigned not null auto_increment, Name 
 insert into Students(Name, Email) Values ('Fernando Passaia', 'fernandopassaia@futuradata.com.br');
 insert into Students(Name, Email) Values ('Jaqueline Guimaraes', 'jaque@futuradata.com.br');
 insert into Students(Name, Email) Values ('Hubinha Guimaraes Passaia', 'hubinha@ossinho.com');
-select * from Students;
+select \* from Students;
 exit
 exit
-
 
 Now you need to Check if your container is still running OK and what's the IP:
 docker container ps -a (ok, Up for 11 minutes)
@@ -503,14 +503,13 @@ Anow now that i have the image, let's create the container pointing to my MySQL:
 docker container run -d --name mvc1 -p 5000:80 -e DBHOST=172.17.0.2 mvcstudents/app:1.0 (don't forget your MySql image should be running UP)
 docker container ps (both containers should be running here =)
 
-
 Now Let's **TEST it**:
 On your console RUN: docker logs -f mvc1 (to watch the mvc app)
 
 If you Access your browser on localhost:5000 you'll see the app.
 If you Access your **http://localhost:5000/students** - Whoala: Your data. Nice! No HTML code and Layout, but there! =)
 
------------------------------------------------------------------------------------------------------------------------------------------
+---
 
 **LAST Level Advanced: Docker Compose**:
 
@@ -521,9 +520,9 @@ The combination between containners, volumes and networks in a creation where ea
 To Solve it: Docker componse is a tool used to describe applications and manage containers, networks and volumes that this applications needs to work. Compose simplify the process of configuration and execution of apps in a way you don't need to input complex commands that could take you to errors of config.
 
 Compose is used to describe complex applications in consistent form using a composition file (extension .yml) that contains all the details of all volumes, networks and containers that compound an application and all information of relationship between then. Docker Compose will agilize the process of deploy of your envoirnment in a simple and patternized way =)
- 
+
 On Linux, first of all i need to INSTALL Docker Compose: https://docs.docker.com/compose/install/
-sudo curl -L "https://github.com/docker/compose/releases/download/1.25.5/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo curl -L "https://github.com/docker/compose/releases/download/1.25.5/docker-compose-$(uname -s)-\$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 docker-compose --version
 
@@ -557,21 +556,16 @@ Note: You need to be on the folder of PROJECT, so in our case, DeployAspNetCoreM
 
 version: "3"
 volumes:
-    studentsdata:
+studentsdata:
 networks:
-    backend:
+backend:
 
 services:
-    mysql:
-        image: "mysql:5.7"
-        volumes:
-            - studentsdata:/var/lib/mysql
-        networks:
-            - backend
-        environment: 
-            - MYSQL_ROOT_PASSWORD=@1234Fd#
-            - bind-address=0.0.0.0
-
+mysql:
+image: "mysql:5.7"
+volumes: - studentsdata:/var/lib/mysql
+networks: - backend
+environment: - MYSQL_ROOT_PASSWORD=@1234Fd# - bind-address=0.0.0.0
 
 services: descibe services used to create the container.
 mysql - indicates start of description for a service that will creates a container mysql.
@@ -579,7 +573,6 @@ image - define the image docker will uses to create this container.
 volumes - specify the volumes used by container and directories envolved.
 networks - specify the networks witch container will be connected on.
 environment - define envoirnment variables that will be used when container is created.
-
 
 Note that basically this container will do the SAME that i did in commands/terminal, but in a compose file. So now i have 3 commands that i can run using this compose file, let's move ahead:
 
@@ -603,44 +596,38 @@ use Studentsdb;
 DROP TABLE IF EXISTS `Students`;
 Create Table `Students`
 (
-    `StudentId` INT AUTO_INCREMENT,
-    `Name` varchar(80) NOT NULL,
-    `Email` varchar(100) NOT NULL,
-    PRIMARY KEY (`StudentId`)
+`StudentId` INT AUTO_INCREMENT,
+`Name` varchar(80) NOT NULL,
+`Email` varchar(100) NOT NULL,
+PRIMARY KEY (`StudentId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-    
-LOCK TABLES `Students` WRITE;
-    insert into `Students` Values ('Fernando Passaia', 'fernandopassaia@futuradata.com.br');
-    insert into `Students` Values ('Jaqueline Guimaraes', 'jaque@futuradata.com.br');
-    insert into `Students` Values ('Hubinha Guimaraes Passaia', 'hubinha@ossinho.com');
-UNLOCK TABLES;
 
+LOCK TABLES `Students` WRITE;
+insert into `Students` Values ('Fernando Passaia', 'fernandopassaia@futuradata.com.br');
+insert into `Students` Values ('Jaqueline Guimaraes', 'jaque@futuradata.com.br');
+insert into `Students` Values ('Hubinha Guimaraes Passaia', 'hubinha@ossinho.com');
+UNLOCK TABLES;
 
 **And Here there is my final docker-compose now calling my Script SQL and also my AspNet Core Mvc Project**:
 
 version: "3"
 volumes:
-    studentsdata:
+studentsdata:
 networks:
-    backend:
+backend:
 
 services:
-    mysql:
-        image: "mysql:5.7"
-        volumes:
-            - studentsdata:/var/lib/mysql
-            - ./MySqlInitScript:/docker-entrypoint-initdb.d
-        networks:
-            - backend
-        environment: 
-            - MYSQL_ROOT_PASSWORD=@1234Fd#
-            - bind-address=0.0.0.0
+mysql:
+image: "mysql:5.7"
+volumes: - studentsdata:/var/lib/mysql - ./MySqlInitScript:/docker-entrypoint-initdb.d
+networks: - backend
+environment: - MYSQL_ROOT_PASSWORD=@1234Fd# - bind-address=0.0.0.0
 
 **Note:** I know that all this docker-entrypoint sound stranges, because do not point right to the ".sql" file, but if you look for the oficial image of MySql on DockerHub, this information is available on "Initializing a fresh instance" part. This command will process the files on the folder (in this case the init.sql on folder).
 
 Now let's move ahead and **create again**:
 docker-compose build
-docker-compose up -d --build 
+docker-compose up -d --build
 docker-compose ps (check if the container is running UP on 3306)
 docker-compose logs (check if ready for connections)
 
@@ -650,42 +637,31 @@ docker container exec -it deployaspnetcoremvcconnectedmysql_mysql_1 /bin/bash
 mysql -u root -p (password)
 show databases;
 use Studentsdb;
-select * from Students;
-
+select \* from Students;
 
 **NICE!** Now I see that i have my database with data. This is cool not? =). Now I need my Service that will start my container of AspNetCore MVC. Note that now I'll add to DockerCompose my DOCKERFILE archive of the AspNetMVC Project, passing my network (to communicate with MySql), and asking it to build the file. Look that the lines pass all the parameters that i use before on the TERMINAL command line, but now on the compose file:
 
 version: "3"
 volumes:
-    studentsdata:
+studentsdata:
 networks:
-    backend:
+backend:
 
 services:
-    mysql:
-        image: "mysql:5.7"
-        volumes:
-            - studentsdata:/var/lib/mysql
-            - ./MySqlInitScript:/docker-entrypoint-initdb.d
-        networks:
-            - backend
-        environment: 
-            - MYSQL_ROOT_PASSWORD=@1234Fd#
-            - bind-address=0.0.0.0
-    
-    mvc:
-        build :
-            context: .
-            dockerfile: Dockerfile
-        networks :
-            - backend            
-        ports :
-            - 5000:80
-        environment :
-            - DBHOST=mysql
-            - ASPNETCORE_ENVIRONMENT=Development
-        depends_on :
-            - mysql
+mysql:
+image: "mysql:5.7"
+volumes: - studentsdata:/var/lib/mysql - ./MySqlInitScript:/docker-entrypoint-initdb.d
+networks: - backend
+environment: - MYSQL_ROOT_PASSWORD=@1234Fd# - bind-address=0.0.0.0
+
+mvc:
+build :
+context: .
+dockerfile: Dockerfile
+networks : - backend  
+ ports : - 5000:80
+environment : - DBHOST=mysql - ASPNETCORE_ENVIRONMENT=Development
+depends_on : - mysql
 
 mvc - name of my service
 build - indicates the start of section build that tells Docker how to create the image to the container of this service.
@@ -694,7 +670,6 @@ dockerfile - define the file used to create the image.
 ports - define the mapping of ports.
 DBHOST - name of host
 depends_on - Tells docker the order to witch the containers will be created. Here "mysql" container will be created before mvc.
-
 
 Now we have our final docker-compose. Let's Run:
 docker-compose down -v
@@ -710,14 +685,12 @@ localhost:5000/students
 
 IT's Working. WELL DONE! =) . Macoratti course is OVER.
 
------------------------------------------------------------------------------------------------------------------------------------------
+---
 
 **Level Supreme - I'll containarize my AppFullStackDemo - An AspNet API + SQL Server Express + Angular App**:
 
 **NOTE HERE ON 11062020**: I've archived this DockerFile and DockerCompose here because basically the .NET Core Docker Image don't work good with the SQL
 Server Docker Image. Yeah, sounds crazy, but those images of MS is bugged. So I'll switch the DataBase to POSTGRESQL giving a better solution.
-
-
 
 First of All, let's pull the **SQL Server Image** using Ubuntu 16.04: https://hub.docker.com/_/microsoft-mssql-server
 
@@ -726,41 +699,35 @@ docker pull mcr.microsoft.com/mssql/server:2017-CU20-ubuntu-16.04
 You can for test create a container and see if it's running:
 docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=@1234Fd#' -e 'MSSQL_PID=Express' --name sqlserver -p 4002:1433 -d mcr.microsoft.com/mssql/server:2017-CU20-ubuntu-16.04
 
-
 To connect to this instance of SQL Server you can use Azure Data Studio and: localhost,4002 as SERVER, sa as user, as @1234Fd# as password. Yeah it works! =)
 But yeah, I'll not install it using Terminal, so here are my Dockerfile and Docker-Compse file. Both of Them are in BackEnd Folder with .sln Files. Here we go:
-
 
 **docker-compose**:
 version: "3.6"
 
 services:
-    appfullstackdemo.database:
-        container_name: mssqlserver
-        image: mcr.microsoft.com/mssql/server:2019-CU4-ubuntu-16.04        
-        environment:
-            SA_PASSWORD: "@1234Fd#"
-            ACCEPT_EULA: "Y"
-        networks:
-            testing_net:
-                ipv4_address: 198.162.1.5
-        ports:
-            - "4002:1433"    
-    
-    appfullstackdemo.backend:
-        container_name: webapi
-        build :
-            context: .
-            dockerfile: Dockerfile
-        networks:
-            testing_net:
-                ipv4_address: 198.162.1.10
-        ports :
-            - 4001:4001
-        environment :
-            - ASPNETCORE_ENVIRONMENT=Development
-        depends_on :
-            - appfullstackdemo.database        
+appfullstackdemo.database:
+container_name: mssqlserver
+image: mcr.microsoft.com/mssql/server:2019-CU4-ubuntu-16.04  
+ environment:
+SA_PASSWORD: "@1234Fd#"
+ACCEPT_EULA: "Y"
+networks:
+testing_net:
+ipv4_address: 198.162.1.5
+ports: - "4002:1433"
+
+appfullstackdemo.backend:
+container_name: webapi
+build :
+context: .
+dockerfile: Dockerfile
+networks:
+testing_net:
+ipv4_address: 198.162.1.10
+ports : - 4001:4001
+environment : - ASPNETCORE_ENVIRONMENT=Development
+depends_on : - appfullstackdemo.database
 
     appfullstackdemo.sqltools:
         container_name: mssqlservertools
@@ -770,11 +737,10 @@ services:
                 ipv4_address: 198.162.1.15
 
 networks:
-    testing_net:
-        ipam:
-            driver: default
-            config:
-                - subnet: 198.162.1.0/16
+testing_net:
+ipam:
+driver: default
+config: - subnet: 198.162.1.0/16
 
 **Dockerfile:**
 FROM mcr.microsoft.com/dotnet/core/aspnet:3.1-bionic AS base
@@ -810,7 +776,6 @@ EXPOSE 4001
 EXPOSE 4002
 ENTRYPOINT ["dotnet", "AppFullStackDemo.Api.dll"]
 
-
 **Annottations:**
 (1) Workdir /src (here I'm creating a folder called /src inside the container)
 (2) ADD / ./ (here I'm copy ALL my actual folder (backEnd) to this folder src inside the container - so my entire solution will be copied to the container)
@@ -838,7 +803,7 @@ docker container inspect 8c2e (will inspect the CONTAINER running)
 
 docker logs --follow 8c2e (will inspect the errors)
 
-To Check IP Address: 
+To Check IP Address:
 docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' 517b
 
 Then i see that my connection string is 172.18.0.2, so i've changed it on my backend SOURCE on appsettings.json AND AppFullStackDemoContext.cs:
@@ -855,7 +820,7 @@ docker-compose ps (will check if the two containers are running)
 docker-compose down -v --remove (remove will force the stop the containers running)
 docker-compose down --remove-orphans (remove and force to remove the containers - better)
 docker images (will list the images)
-docker image rmi 80c9 (there are two images - one for SQL and other for backend) (*80c9 is the first 4 digits of the IMAGE ID)
+docker image rmi 80c9 (there are two images - one for SQL and other for backend) (\*80c9 is the first 4 digits of the IMAGE ID)
 
 **How to DEBUG and see OUTPUTS in case of errors:**
 docker-compose logs
@@ -868,8 +833,7 @@ To install **Tools** on the Containers and Use for Tests:
 apt-get update
 apt-get install iputils-ping
 
------------------------------------------------------------------------------------------------------------------------------------------
-
+---
 
 ### New Version of DockerFile and DockerCompose with PostgreSQL for AppFullStackDemo:
 
@@ -911,7 +875,6 @@ docker-compose down --remove-orphans
 docker images
 docker image rmi 34cc (and the number of the respective images)
 
-
 And here there's my **FINAL** Docker-compose and DockerFiles for the BackEnd and the Angular Projects:
 
 **Docker-compose File**:
@@ -919,25 +882,23 @@ And here there's my **FINAL** Docker-compose and DockerFiles for the BackEnd and
 version: '3.6'
 
 services:
-    postgres:
-        container_name: postgres_container
-        image: postgres:10.13-alpine
-        environment:
-            POSTGRES_USER: "postgres"
-            POSTGRES_PASSWORD: "@1234Fd#"
-            PGDATA: /data/postgres        
-        ports:
-            - "5432:5432"
-        networks:
-            - postgres
-        restart: unless-stopped
-  
+postgres:
+container_name: postgres_container
+image: postgres:10.13-alpine
+environment:
+POSTGRES_USER: "postgres"
+POSTGRES_PASSWORD: "@1234Fd#"
+PGDATA: /data/postgres  
+ ports: - "5432:5432"
+networks: - postgres
+restart: unless-stopped
+
     pgadmin:
         container_name: pgadmin_container
         image: dpage/pgadmin4
         environment:
             PGADMIN_DEFAULT_EMAIL: "pgadmin4@pgadmin.org"
-            PGADMIN_DEFAULT_PASSWORD: "@1234Fd#"        
+            PGADMIN_DEFAULT_PASSWORD: "@1234Fd#"
         ports:
             - "5050:80"
         networks:
@@ -968,11 +929,11 @@ services:
             - "4200:80"
         networks:
             - postgres
-        restart: unless-stopped        
+        restart: unless-stopped
 
 networks:
-  postgres:
-    driver: bridge
+postgres:
+driver: bridge
 
 **DockerFile for FrontEnd (DockerfileBackEnd)**:
 
@@ -1018,7 +979,8 @@ RUN npm install
 COPY . .
 RUN npm run build --prod
 
-### STAGE 2: Run ###
+### STAGE 2: Run
+
 FROM nginx:1.19.0-alpine
 COPY --from=build /src/dist/demo /usr/share/nginx/html
 EXPOSE 4200

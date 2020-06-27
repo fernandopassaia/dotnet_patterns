@@ -55,12 +55,12 @@ namespace Consumer.Console
         private static void Consumer_Received(object sender, BasicDeliverEventArgs e)
         {
             var body = e.Body.ToArray();
-            var message = Encoding.UTF8.GetString(body);
-            //var jsonMessage = JObject.Parse(message);
-            //ItemOrcResult orcItem = JsonConvert.DeserializeObject<ItemOrcResult>(jsonMessage.ToString());            
-            //ItemOrcRepository itemRepo = new ItemOrcRepository(_configuration.GetConnectionString("JkDataBase"));
-            //itemRepo.Create(orcItem);
-            System.Console.WriteLine("Nova Mensagem Recebida - gravando no banco: " + message);
+            var message = Encoding.UTF8.GetString(body);            
+            ItemOrcResult orcItem = JsonConvert.DeserializeObject<ItemOrcResult>(message.ToString());
+            ItemOrcRepository itemRepo = new ItemOrcRepository(_configuration.GetConnectionString("JkDataBase"));
+            //Note: Will be better to create a "List", add everyone into list, and do something like "AddRange", but this is just a sample, so, let's let this way
+            itemRepo.Create(orcItem);
+            System.Console.WriteLine("Nova Mensagem Recebida - gravando no banco: " + message);            
         }
     }
 }
