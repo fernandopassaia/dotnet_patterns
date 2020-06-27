@@ -1020,26 +1020,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\FernandoPassaia\\.nuget\\packages\\": {}
+    "/home/fernandopassaia/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Dev\\dotnet_patterns\\Messaging\\HalfMillionQueue_Sample\\src\\Publisher.Console\\Publisher.Console.csproj",
+      "projectUniqueName": "/home/fernandopassaia/Dev/dotnet_patterns/Messaging/HalfMillionQueue_Sample/src/Publisher.Console/Publisher.Console.csproj",
       "projectName": "Publisher.Console",
-      "projectPath": "C:\\Dev\\dotnet_patterns\\Messaging\\HalfMillionQueue_Sample\\src\\Publisher.Console\\Publisher.Console.csproj",
-      "packagesPath": "C:\\Users\\FernandoPassaia\\.nuget\\packages\\",
-      "outputPath": "C:\\Dev\\dotnet_patterns\\Messaging\\HalfMillionQueue_Sample\\src\\Publisher.Console\\obj\\",
+      "projectPath": "/home/fernandopassaia/Dev/dotnet_patterns/Messaging/HalfMillionQueue_Sample/src/Publisher.Console/Publisher.Console.csproj",
+      "packagesPath": "/home/fernandopassaia/.nuget/packages/",
+      "outputPath": "/home/fernandopassaia/Dev/dotnet_patterns/Messaging/HalfMillionQueue_Sample/src/Publisher.Console/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\FernandoPassaia\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/home/fernandopassaia/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -1096,7 +1094,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.301/RuntimeIdentifierGraph.json"
       }
     }
   }

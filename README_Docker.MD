@@ -1,5 +1,21 @@
-### Docker Review and Documentations
+## Docker Review and Documentations
 
+### Practical Part Images and Containers: -----------------------------------------------------------------------------------------------------------
+
+**SQL Server**:
+docker pull mcr.microsoft.com/mssql/server:2017-latest 
+docker pull mcr.microsoft.com/mssql/server:2019-latest
+docker pull mcr.microsoft.com/mssql/server:2017-CU20-ubuntu-16.04
+docker pull mcr.microsoft.com/mssql/server:2019-CU5-ubuntu-16.04
+
+docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=yourStrong(!)Password' -e 'MSSQL_PID=Express' -p 1433:1433 -d mcr.microsoft.com/mssql/server:2019-CU5-ubuntu-16.04
+
+**RabbitMQ**:
+docker pull rabbitmq:3.8.5-management-alpine
+docker run -d --hostname rabbit-local --name testes-rabbitmq -p 6672:5672 -p 15672:15672 -e RABBITMQ_DEFAULT_USER=testes -e RABBITMQ_DEFAULT_PASS=TESTES2020! rabbitmq:3.8.5-management-alpine
+
+
+### Theorical Part Studies: -------------------------------------------------------------------------------------------------------------------------
 **What is Docker**:
 It's a "kind" of Virtualization for Systems, but with a lot of benefits, once Docker don't uses HyperV (or another virtualization layer) and can have access right to the Processor and Memory of the Hosts. So once you don't need a whole operational system and hyperV managing it, you have less maintanence (to keep a second operational system) and better performance once you have access right to the CPU/Memory.
 
