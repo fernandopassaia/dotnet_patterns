@@ -2,6 +2,7 @@
 
 namespace Consumer.Console.Dto
 {
+    
     public class ItemOrcResult
     {
         public string ItoPk { get; set; } = "";

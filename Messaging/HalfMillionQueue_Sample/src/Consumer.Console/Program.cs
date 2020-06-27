@@ -3,10 +3,8 @@ using Consumer.Console.Repository;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
-using System;
 using System.IO;
 using System.Text;
 
