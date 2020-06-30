@@ -24,6 +24,7 @@ Install-Package xunit.runner.visualstudio
 
 Framework of Mock: **Moq**
 Install-Package Moq
+Install-Package Moq.automock
 
 Both xUnit and Moq are the OFICIAL test-packages used in .NetCore and Asp.Net Core Tests from Microsoft.
 
