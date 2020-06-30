@@ -16,6 +16,8 @@ I wrote a BAD Application inside the folder UnitTests. Then I compromisse myself
 
 ### Starting EduardoPires Testing Course (5 Hours):
 
+**Note**: Lots of informations about this course is inside "UnitTests > EduardoPires > Doc" folder in prints.
+
 Used Framework for Course: **xUnit**.
 Install-Package xunit
 Install-Package xunit.runner.visualstudio
@@ -24,3 +26,7 @@ Framework of Mock: **Moq**
 Install-Package Moq
 
 Both xUnit and Moq are the OFICIAL test-packages used in .NetCore and Asp.Net Core Tests from Microsoft.
+
+**FakeData Sane Generator (generate test-data really near to reality)**:
+Install-Package Bogus
+https://github.com/bchavez/Bogus
