@@ -1,0 +1,6 @@
+{
+    "dotnet-test-explorer.codeLensFailed": "❌",
+    "dotnet-test-explorer.codeLensPassed": "✔️",
+    "dotnet-test-explorer.codeLensSkipped": "⚠️",
+    "dotnet-test-explorer.testProjectPath": "**/*.Tests.csproj"
+}

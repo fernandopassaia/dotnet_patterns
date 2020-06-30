@@ -13,3 +13,14 @@ A tool used to test the API itself. It's a Typescript library that allow you to 
 
 **Note**:
 I wrote a BAD Application inside the folder UnitTests. Then I compromisse myself to rewrite it using DDD, SOLID and all unit-testing techniquies. On a Second folder I've rewrite the entire APP and the Whole Tests for it.
+
+### Starting EduardoPires Testing Course (5 Hours):
+
+Used Framework for Course: **xUnit**.
+Install-Package xunit
+Install-Package xunit.runner.visualstudio
+
+Framework of Mock: **Moq**
+Install-Package Moq
+
+Both xUnit and Moq are the OFICIAL test-packages used in .NetCore and Asp.Net Core Tests from Microsoft.
