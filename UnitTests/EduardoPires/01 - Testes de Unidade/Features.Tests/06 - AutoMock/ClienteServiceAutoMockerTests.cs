@@ -9,7 +9,7 @@ using Xunit;
 namespace Features.Tests
 {
     // NOTA: Essa classe funciona perfeitamente como está, porém dentro da pasta "RefactorImproved" há uma refatoração desse código
-    // deixando ele ainda mais enxuto... é basicamente a mesma coisa, mas refatorada.
+    // deixando ele ainda mais enxuto... é basicamente a mesma coisa, mas refatorada. Abra a pasta RefactorImpproved pra ver como ficou...
 
     [Collection(nameof(ClienteBogusCollection))]
     public class ClienteServiceAutoMockerTests

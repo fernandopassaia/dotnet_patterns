@@ -31,3 +31,7 @@ Both xUnit and Moq are the OFICIAL test-packages used in .NetCore and Asp.Net Co
 **FakeData Sane Generator (generate test-data really near to reality)**:
 Install-Package Bogus
 https://github.com/bchavez/Bogus
+
+**Fluent Assertions**:
+install-package FluentAssertions
+https://fluentassertions.com/
