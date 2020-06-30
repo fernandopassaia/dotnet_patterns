@@ -1,0 +1,14 @@
+C:\Dev\dotnet_patterns\UnitTests\EduardoPires\02 - TDD\src\NerdStore.Vendas.Application\bin\Debug\netcoreapp2.2\NerdStore.Vendas.Application.deps.json
+C:\Dev\dotnet_patterns\UnitTests\EduardoPires\02 - TDD\src\NerdStore.Vendas.Application\bin\Debug\netcoreapp2.2\NerdStore.Vendas.Application.dll
+C:\Dev\dotnet_patterns\UnitTests\EduardoPires\02 - TDD\src\NerdStore.Vendas.Application\bin\Debug\netcoreapp2.2\NerdStore.Vendas.Application.pdb
+C:\Dev\dotnet_patterns\UnitTests\EduardoPires\02 - TDD\src\NerdStore.Vendas.Application\bin\Debug\netcoreapp2.2\NerdStore.Core.dll
+C:\Dev\dotnet_patterns\UnitTests\EduardoPires\02 - TDD\src\NerdStore.Vendas.Application\bin\Debug\netcoreapp2.2\NerdStore.Vendas.Domain.dll
+C:\Dev\dotnet_patterns\UnitTests\EduardoPires\02 - TDD\src\NerdStore.Vendas.Application\bin\Debug\netcoreapp2.2\NerdStore.Core.pdb
+C:\Dev\dotnet_patterns\UnitTests\EduardoPires\02 - TDD\src\NerdStore.Vendas.Application\bin\Debug\netcoreapp2.2\NerdStore.Vendas.Domain.pdb
+C:\Dev\dotnet_patterns\UnitTests\EduardoPires\02 - TDD\src\NerdStore.Vendas.Application\obj\Debug\netcoreapp2.2\NerdStore.Vendas.Application.csprojAssemblyReference.cache
+C:\Dev\dotnet_patterns\UnitTests\EduardoPires\02 - TDD\src\NerdStore.Vendas.Application\obj\Debug\netcoreapp2.2\NerdStore.Vendas.Application.AssemblyInfoInputs.cache
+C:\Dev\dotnet_patterns\UnitTests\EduardoPires\02 - TDD\src\NerdStore.Vendas.Application\obj\Debug\netcoreapp2.2\NerdStore.Vendas.Application.AssemblyInfo.cs
+C:\Dev\dotnet_patterns\UnitTests\EduardoPires\02 - TDD\src\NerdStore.Vendas.Application\obj\Debug\netcoreapp2.2\NerdStore.Vendas.Application.csproj.CoreCompileInputs.cache
+C:\Dev\dotnet_patterns\UnitTests\EduardoPires\02 - TDD\src\NerdStore.Vendas.Application\obj\Debug\netcoreapp2.2\NerdStore.Vendas.Application.csproj.CopyComplete
+C:\Dev\dotnet_patterns\UnitTests\EduardoPires\02 - TDD\src\NerdStore.Vendas.Application\obj\Debug\netcoreapp2.2\NerdStore.Vendas.Application.dll
+C:\Dev\dotnet_patterns\UnitTests\EduardoPires\02 - TDD\src\NerdStore.Vendas.Application\obj\Debug\netcoreapp2.2\NerdStore.Vendas.Application.pdb

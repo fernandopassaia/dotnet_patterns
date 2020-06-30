@@ -1,0 +1,9 @@
+C:\Dev\dotnet_patterns\UnitTests\EduardoPires\02 - TDD\src\NerdStore.Core\bin\Debug\netcoreapp2.2\NerdStore.Core.deps.json
+C:\Dev\dotnet_patterns\UnitTests\EduardoPires\02 - TDD\src\NerdStore.Core\bin\Debug\netcoreapp2.2\NerdStore.Core.dll
+C:\Dev\dotnet_patterns\UnitTests\EduardoPires\02 - TDD\src\NerdStore.Core\bin\Debug\netcoreapp2.2\NerdStore.Core.pdb
+C:\Dev\dotnet_patterns\UnitTests\EduardoPires\02 - TDD\src\NerdStore.Core\obj\Debug\netcoreapp2.2\NerdStore.Core.csprojAssemblyReference.cache
+C:\Dev\dotnet_patterns\UnitTests\EduardoPires\02 - TDD\src\NerdStore.Core\obj\Debug\netcoreapp2.2\NerdStore.Core.AssemblyInfoInputs.cache
+C:\Dev\dotnet_patterns\UnitTests\EduardoPires\02 - TDD\src\NerdStore.Core\obj\Debug\netcoreapp2.2\NerdStore.Core.AssemblyInfo.cs
+C:\Dev\dotnet_patterns\UnitTests\EduardoPires\02 - TDD\src\NerdStore.Core\obj\Debug\netcoreapp2.2\NerdStore.Core.csproj.CoreCompileInputs.cache
+C:\Dev\dotnet_patterns\UnitTests\EduardoPires\02 - TDD\src\NerdStore.Core\obj\Debug\netcoreapp2.2\NerdStore.Core.dll
+C:\Dev\dotnet_patterns\UnitTests\EduardoPires\02 - TDD\src\NerdStore.Core\obj\Debug\netcoreapp2.2\NerdStore.Core.pdb

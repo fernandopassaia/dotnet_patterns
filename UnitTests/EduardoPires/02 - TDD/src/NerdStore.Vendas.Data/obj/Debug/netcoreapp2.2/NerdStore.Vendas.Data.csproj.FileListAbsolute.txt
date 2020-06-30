@@ -1,0 +1,17 @@
+C:\Dev\dotnet_patterns\UnitTests\EduardoPires\02 - TDD\src\NerdStore.Vendas.Data\bin\Debug\netcoreapp2.2\NerdStore.Vendas.Data.deps.json
+C:\Dev\dotnet_patterns\UnitTests\EduardoPires\02 - TDD\src\NerdStore.Vendas.Data\bin\Debug\netcoreapp2.2\NerdStore.Vendas.Data.runtimeconfig.json
+C:\Dev\dotnet_patterns\UnitTests\EduardoPires\02 - TDD\src\NerdStore.Vendas.Data\bin\Debug\netcoreapp2.2\NerdStore.Vendas.Data.runtimeconfig.dev.json
+C:\Dev\dotnet_patterns\UnitTests\EduardoPires\02 - TDD\src\NerdStore.Vendas.Data\bin\Debug\netcoreapp2.2\NerdStore.Vendas.Data.dll
+C:\Dev\dotnet_patterns\UnitTests\EduardoPires\02 - TDD\src\NerdStore.Vendas.Data\bin\Debug\netcoreapp2.2\NerdStore.Vendas.Data.pdb
+C:\Dev\dotnet_patterns\UnitTests\EduardoPires\02 - TDD\src\NerdStore.Vendas.Data\bin\Debug\netcoreapp2.2\NerdStore.Core.dll
+C:\Dev\dotnet_patterns\UnitTests\EduardoPires\02 - TDD\src\NerdStore.Vendas.Data\bin\Debug\netcoreapp2.2\NerdStore.Vendas.Domain.dll
+C:\Dev\dotnet_patterns\UnitTests\EduardoPires\02 - TDD\src\NerdStore.Vendas.Data\bin\Debug\netcoreapp2.2\NerdStore.Core.pdb
+C:\Dev\dotnet_patterns\UnitTests\EduardoPires\02 - TDD\src\NerdStore.Vendas.Data\bin\Debug\netcoreapp2.2\NerdStore.Vendas.Domain.pdb
+C:\Dev\dotnet_patterns\UnitTests\EduardoPires\02 - TDD\src\NerdStore.Vendas.Data\obj\Debug\netcoreapp2.2\NerdStore.Vendas.Data.csprojAssemblyReference.cache
+C:\Dev\dotnet_patterns\UnitTests\EduardoPires\02 - TDD\src\NerdStore.Vendas.Data\obj\Debug\netcoreapp2.2\NerdStore.Vendas.Data.AssemblyInfoInputs.cache
+C:\Dev\dotnet_patterns\UnitTests\EduardoPires\02 - TDD\src\NerdStore.Vendas.Data\obj\Debug\netcoreapp2.2\NerdStore.Vendas.Data.AssemblyInfo.cs
+C:\Dev\dotnet_patterns\UnitTests\EduardoPires\02 - TDD\src\NerdStore.Vendas.Data\obj\Debug\netcoreapp2.2\NerdStore.Vendas.Data.csproj.CoreCompileInputs.cache
+C:\Dev\dotnet_patterns\UnitTests\EduardoPires\02 - TDD\src\NerdStore.Vendas.Data\obj\Debug\netcoreapp2.2\NerdStore.Vendas.Data.csproj.CopyComplete
+C:\Dev\dotnet_patterns\UnitTests\EduardoPires\02 - TDD\src\NerdStore.Vendas.Data\obj\Debug\netcoreapp2.2\NerdStore.Vendas.Data.dll
+C:\Dev\dotnet_patterns\UnitTests\EduardoPires\02 - TDD\src\NerdStore.Vendas.Data\obj\Debug\netcoreapp2.2\NerdStore.Vendas.Data.pdb
+C:\Dev\dotnet_patterns\UnitTests\EduardoPires\02 - TDD\src\NerdStore.Vendas.Data\obj\Debug\netcoreapp2.2\NerdStore.Vendas.Data.genruntimeconfig.cache

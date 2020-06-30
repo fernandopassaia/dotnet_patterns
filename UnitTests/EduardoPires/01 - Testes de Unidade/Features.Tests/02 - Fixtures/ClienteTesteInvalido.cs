@@ -2,6 +2,7 @@
 
 namespace Features.Tests
 {
+    //todas as classes de teste que receberão a FIXTURE injeta precisam fazer parte da mesma collection
     [Collection(nameof(ClienteCollection))]
     public class ClienteTesteInvalido
     {

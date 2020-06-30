@@ -1,0 +1,9 @@
+C:\Dev\dotnet_patterns\UnitTests\EduardoPires\01 - Testes de Unidade\Features\bin\Debug\netcoreapp2.2\Features.deps.json
+C:\Dev\dotnet_patterns\UnitTests\EduardoPires\01 - Testes de Unidade\Features\bin\Debug\netcoreapp2.2\Features.dll
+C:\Dev\dotnet_patterns\UnitTests\EduardoPires\01 - Testes de Unidade\Features\bin\Debug\netcoreapp2.2\Features.pdb
+C:\Dev\dotnet_patterns\UnitTests\EduardoPires\01 - Testes de Unidade\Features\obj\Debug\netcoreapp2.2\Features.csprojAssemblyReference.cache
+C:\Dev\dotnet_patterns\UnitTests\EduardoPires\01 - Testes de Unidade\Features\obj\Debug\netcoreapp2.2\Features.AssemblyInfoInputs.cache
+C:\Dev\dotnet_patterns\UnitTests\EduardoPires\01 - Testes de Unidade\Features\obj\Debug\netcoreapp2.2\Features.AssemblyInfo.cs
+C:\Dev\dotnet_patterns\UnitTests\EduardoPires\01 - Testes de Unidade\Features\obj\Debug\netcoreapp2.2\Features.csproj.CoreCompileInputs.cache
+C:\Dev\dotnet_patterns\UnitTests\EduardoPires\01 - Testes de Unidade\Features\obj\Debug\netcoreapp2.2\Features.dll
+C:\Dev\dotnet_patterns\UnitTests\EduardoPires\01 - Testes de Unidade\Features\obj\Debug\netcoreapp2.2\Features.pdb

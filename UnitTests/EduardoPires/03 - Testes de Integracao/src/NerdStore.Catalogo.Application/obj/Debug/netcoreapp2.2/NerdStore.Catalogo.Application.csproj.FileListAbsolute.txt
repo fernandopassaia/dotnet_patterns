@@ -1,0 +1,16 @@
+C:\Dev\dotnet_patterns\UnitTests\EduardoPires\03 - Testes de Integracao\src\NerdStore.Catalogo.Application\bin\Debug\netcoreapp2.2\NerdStore.Catalogo.Application.deps.json
+C:\Dev\dotnet_patterns\UnitTests\EduardoPires\03 - Testes de Integracao\src\NerdStore.Catalogo.Application\bin\Debug\netcoreapp2.2\NerdStore.Catalogo.Application.dll
+C:\Dev\dotnet_patterns\UnitTests\EduardoPires\03 - Testes de Integracao\src\NerdStore.Catalogo.Application\bin\Debug\netcoreapp2.2\NerdStore.Catalogo.Application.pdb
+C:\Dev\dotnet_patterns\UnitTests\EduardoPires\03 - Testes de Integracao\src\NerdStore.Catalogo.Application\bin\Debug\netcoreapp2.2\NerdStore.Catalogo.Data.dll
+C:\Dev\dotnet_patterns\UnitTests\EduardoPires\03 - Testes de Integracao\src\NerdStore.Catalogo.Application\bin\Debug\netcoreapp2.2\NerdStore.Catalogo.Domain.dll
+C:\Dev\dotnet_patterns\UnitTests\EduardoPires\03 - Testes de Integracao\src\NerdStore.Catalogo.Application\bin\Debug\netcoreapp2.2\NerdStore.Core.dll
+C:\Dev\dotnet_patterns\UnitTests\EduardoPires\03 - Testes de Integracao\src\NerdStore.Catalogo.Application\bin\Debug\netcoreapp2.2\NerdStore.Catalogo.Data.pdb
+C:\Dev\dotnet_patterns\UnitTests\EduardoPires\03 - Testes de Integracao\src\NerdStore.Catalogo.Application\bin\Debug\netcoreapp2.2\NerdStore.Catalogo.Domain.pdb
+C:\Dev\dotnet_patterns\UnitTests\EduardoPires\03 - Testes de Integracao\src\NerdStore.Catalogo.Application\bin\Debug\netcoreapp2.2\NerdStore.Core.pdb
+C:\Dev\dotnet_patterns\UnitTests\EduardoPires\03 - Testes de Integracao\src\NerdStore.Catalogo.Application\obj\Debug\netcoreapp2.2\NerdStore.Catalogo.Application.csprojAssemblyReference.cache
+C:\Dev\dotnet_patterns\UnitTests\EduardoPires\03 - Testes de Integracao\src\NerdStore.Catalogo.Application\obj\Debug\netcoreapp2.2\NerdStore.Catalogo.Application.AssemblyInfoInputs.cache
+C:\Dev\dotnet_patterns\UnitTests\EduardoPires\03 - Testes de Integracao\src\NerdStore.Catalogo.Application\obj\Debug\netcoreapp2.2\NerdStore.Catalogo.Application.AssemblyInfo.cs
+C:\Dev\dotnet_patterns\UnitTests\EduardoPires\03 - Testes de Integracao\src\NerdStore.Catalogo.Application\obj\Debug\netcoreapp2.2\NerdStore.Catalogo.Application.csproj.CoreCompileInputs.cache
+C:\Dev\dotnet_patterns\UnitTests\EduardoPires\03 - Testes de Integracao\src\NerdStore.Catalogo.Application\obj\Debug\netcoreapp2.2\NerdStore.Catalogo.Application.csproj.CopyComplete
+C:\Dev\dotnet_patterns\UnitTests\EduardoPires\03 - Testes de Integracao\src\NerdStore.Catalogo.Application\obj\Debug\netcoreapp2.2\NerdStore.Catalogo.Application.dll
+C:\Dev\dotnet_patterns\UnitTests\EduardoPires\03 - Testes de Integracao\src\NerdStore.Catalogo.Application\obj\Debug\netcoreapp2.2\NerdStore.Catalogo.Application.pdb

@@ -1,9 +1,12 @@
-﻿using System;
+﻿ using System;
 using Features.Clientes;
 using Xunit;
 
 namespace Features.Tests
 {
+    // Nota: Eu estou implementando essa classe "ClienteCollection" e a interface "ICollectionFixture" (do xUnit)
+    // para que o Framework cuide das instâncias e GC dessas classes corretamente. Poderia funcionar se eu não
+    // fizesse isso, porém, todavia, essa é uma maneira mais correta de implementar.
     [CollectionDefinition(nameof(ClienteCollection))]
     public class ClienteCollection : ICollectionFixture<ClienteTestsFixture>
     {}

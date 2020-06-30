@@ -1,0 +1,9 @@
+C:\Dev\dotnet_patterns\UnitTests\EduardoPires\01 - Testes de Unidade\Demo\bin\Debug\netcoreapp2.2\Demo.deps.json
+C:\Dev\dotnet_patterns\UnitTests\EduardoPires\01 - Testes de Unidade\Demo\bin\Debug\netcoreapp2.2\Demo.dll
+C:\Dev\dotnet_patterns\UnitTests\EduardoPires\01 - Testes de Unidade\Demo\bin\Debug\netcoreapp2.2\Demo.pdb
+C:\Dev\dotnet_patterns\UnitTests\EduardoPires\01 - Testes de Unidade\Demo\obj\Debug\netcoreapp2.2\Demo.csprojAssemblyReference.cache
+C:\Dev\dotnet_patterns\UnitTests\EduardoPires\01 - Testes de Unidade\Demo\obj\Debug\netcoreapp2.2\Demo.AssemblyInfoInputs.cache
+C:\Dev\dotnet_patterns\UnitTests\EduardoPires\01 - Testes de Unidade\Demo\obj\Debug\netcoreapp2.2\Demo.AssemblyInfo.cs
+C:\Dev\dotnet_patterns\UnitTests\EduardoPires\01 - Testes de Unidade\Demo\obj\Debug\netcoreapp2.2\Demo.csproj.CoreCompileInputs.cache
+C:\Dev\dotnet_patterns\UnitTests\EduardoPires\01 - Testes de Unidade\Demo\obj\Debug\netcoreapp2.2\Demo.dll
+C:\Dev\dotnet_patterns\UnitTests\EduardoPires\01 - Testes de Unidade\Demo\obj\Debug\netcoreapp2.2\Demo.pdb
