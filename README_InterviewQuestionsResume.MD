@@ -1,4 +1,7 @@
+--- EDF --------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 ### C#:
+
 **How would you write async method and how would you call the async? What happens if you don't use the await?**
 public Async Task<IActionResult> or public async Task<IEnumerable<Object>> and call with await.
 If you don't use the "await", it will runs anyway, but if EXCEPTIONS happen, it will be lost. Always use await.
@@ -59,6 +62,7 @@ Mocha - to generate Fake Data. Selenium also read HTML pages (control browser). 
 **Importance of GC**:
 
 ### Angular:
+
 Nested Components (study if it is father and childs on same page).
 
 ### Databinding:
@@ -70,6 +74,7 @@ Nested Components (study if it is father and childs on same page).
 ### Angular Build Process:
 
 ### CSS:
+
 **In CSS how do you select element with ID or with class?**
 .people {
 background-color: white;
@@ -87,6 +92,7 @@ text-transform: uppercase;
 <div class="people" id="bob">Bob</div>
 
 ### JS:
+
 **How do you empty an array in javascript?**
 arr1 = []; (equal square brackets + commapoint)
 
@@ -97,6 +103,7 @@ It's when you declare it OUTSIDE of the function, and can be accessed by any oth
 To Study.
 
 ### SQL Server:
+
 **What is the difference between inner join and outer join in sql?**
 Both are used to combine rows for two or more tables. Inner don't include non-matching rows, OUTER include them. =)
 
@@ -115,6 +122,7 @@ SQL Server Tuning Advisor and Profiler.
 To Study how to responde better.
 
 ### DevOps:
+
 **What do you know about CI/CD?**
 IIS - Old VPS Servers.
 Azure - Publish using GitHub Actions, Running all tests and deploying it into Azure, Also Deploying using Container pushing into DockerHub and
@@ -137,3 +145,5 @@ public class Email{
 public void sendEmail(Client client) WRONG!!!
 }
 Should implement IContact, and all classes that implement IContact could use the sendEmail.
+
+---
