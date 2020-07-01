@@ -35,3 +35,9 @@ https://github.com/bchavez/Bogus
 **Fluent Assertions**:
 install-package FluentAssertions
 https://fluentassertions.com/
+
+**Code Coverage**:
+Code Coverage just comes with VS 2019 Enterprise, it's not available on Community editions.
+But we have FREE Alternatives that can also does the job:
+
+OpenCover: https://github.com/OpenCover/opencover
