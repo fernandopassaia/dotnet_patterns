@@ -41,3 +41,4 @@ Code Coverage just comes with VS 2019 Enterprise, it's not available on Communit
 But we have FREE Alternatives that can also does the job:
 
 OpenCover: https://github.com/OpenCover/opencover
+Install-Package OpenCover -Version 4.7.922
