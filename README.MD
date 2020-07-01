@@ -11,7 +11,7 @@ C# TOP Questions/Principles (**Done**)<br>
 C# Review for Async/Await (**Done**)<br>
 Azure Pipeline <br>
 Cache and Data Compression <br>
-MediatR, SignalR, ElasticSearch (opcional)<br>
+MediatR, SignalR, ElasticSearch (opcional) (procurar artigos Groffe, Balta, Pires)<br>
 IoC, DI, DIP e Service Locator(pergunta mais técnica e mais difícil) https://balta.io/blog/dependency-injection<br>
 O que você faria se uma API estiver gargalando - lenta? (application insights, monitoramento API, profiler no banco, cache, compressão)<br>
 
