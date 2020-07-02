@@ -64,6 +64,25 @@ Practical: Again bring-me 273,924 rows, because it will join the RIGHT and LEFT,
 **Outer Join**:
 Inner and Outer, both are used to combine rows for two or more tables. Inner don't include non-matching rows, OUTER include them. =)
 
+**Group By and Distinct**:
+GroupBy is used to "group" values, it's used TOGETHER with agregation functions, like SUM, COUNT. (Group by é usado pra agrupar valores, e usado junto com funções de agregação
+como SUM, COUNT, MAX, MIN).
+
+**Exemplo GroupBy 1**:
+Select Sexo,Count(Sexo) from Pessoa
+Group by Sexo
+
+**Exemplo GroupBy 2**:
+SELECT
+cliente,
+count(\*) as 'Total Pedidos',
+SUM(total_pedido) as 'Total em compras'
+FROM Pedidos GROUP BY cliente;
+
+Ou seja, **Group By** caso eu queira contar o total de pedidos, total de compras, total de alguma coisa por exemplo, usarei o GroupBy.
+
+**Distinct** é usado pra trazer informações ÚNICAS, removendo itens duplicados. Ou seja, se tiver várias linhas iguais, ele trará apenas uma.
+
 **Note**: Take a Look to IMG1-5 to understand what this 4 types (Inner, Left, Right, Full) does.
 
 **Stored Procedure**: This is an anatomy of a stored-procedure I've wrote on the past. The code talks by itself:
@@ -87,7 +106,7 @@ CREATE PROCEDURE [dbo].[sp_GravaOrcamento]
 @log_fkDataCriacao DATETIME,  
  @idClienteFuturaData INT,
 @ultimoOrcamento INT OUTPUT
-  
+
 AS
 INSERT INTO ISORCAM765
 (FK_NUMCLIENTE
