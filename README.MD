@@ -38,3 +38,11 @@ Normatization of Data (To-Do)<br>
 
 **Books** <br>
 Should Read Book 1 CleanCode and 2 Domain Driven Design. (To-Do) <br>
+
+**TempUtil links**:
+
+MediatR:
+https://medium.com/tableless/mediatr-com-asp-net-core-7b98ba0ca640
+
+Compressão Respostas:
+https://www.wellingtonjhn.com/posts/compress%C3%A3o-de-respostas-em-apis-asp.net-core/
