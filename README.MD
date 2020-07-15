@@ -22,8 +22,8 @@ Agile (**Done**)<br>
 
 **Angular**: <br>
 Angular Redux / Promisses (Async/Await) (To-Do)<br>
-Angular TOP Questions/Principles (To-Do)<br>
-Angular NgRx/Redux (Store)<br>
+Angular TOP Questions/Principles (**Done**)<br>
+Angular Rxjs/NgRx/Redux (Store)<br>
 
 **Unit-Testing**: <br>
 UnitTests complete course (**Done**) <br>
