@@ -12,6 +12,18 @@ so inside this README I'll also break-down the annotattions into 11 parts. Make 
 
 ### 1 - Installation: ----------------------------------------------------------------------------------------------------
 npm init -y (starts the project and creates the package.json)
+npm i typescript -D
+
+To Compile a File in TERMINAL:
+npx tsc index.ts
+
+To Watch the Folder and change in files (hot-reload):
+npx tsc -w
+
+To use CODERUNNER and click on "RUN" to compile and run a file:
+npm i ts-node -D (this will enable code-runner and a easy way to compile and run my TS files - see IMG)
+
+(note: the best way is WEBPACK but we will see it in next classes)
 
 
 ### 2- BaseTypes: --------------------------------------------------------------------------------------------------------
