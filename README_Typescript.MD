@@ -37,6 +37,7 @@ npm i prettier eslint-config-prettier eslint-plugin-prettier -D
 **tsconfig.json** (will create a config file for my typescript env) (see IMG5):
 npx tsc --init (will create the tsconfig.json)
 
+
 ### 2- BaseTypes: --------------------------------------------------------------------------------------------------------
 
 ### 3- Classes Interfaces POO: -------------------------------------------------------------------------------------------
