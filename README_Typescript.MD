@@ -17,6 +17,7 @@ npm i typescript -D
 **Compilation**:
 To Compile a File in TERMINAL:
 npx tsc index.ts
+npx tsc --help (show all commands)
 
 To Watch the Folder and change in files (hot-reload):
 npx tsc -w
@@ -32,6 +33,9 @@ npm i @typescript-eslint/eslint-plugin @typescript-eslint/parser -D
 
 **Pretier** (see IMG4):
 npm i prettier eslint-config-prettier eslint-plugin-prettier -D
+
+**tsconfig.json** (will create a config file for my typescript env) (see IMG5):
+npx tsc --init (will create the tsconfig.json)
 
 ### 2- BaseTypes: --------------------------------------------------------------------------------------------------------
 
