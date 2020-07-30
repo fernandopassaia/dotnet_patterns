@@ -17,10 +17,9 @@ npm i typescript -D
 **Compilation**:
 To Compile a File in TERMINAL:
 npx tsc index.ts
+npx tsc (compile all files)
 npx tsc --help (show all commands)
-
-To Watch the Folder and change in files (hot-reload):
-npx tsc -w
+npx tsc -w (To Watch the Folder and change in files (hot-reload))
 
 To use CODERUNNER and click on "RUN" to compile and run a file (note: needs to install CodeRunner BunHan Extension):
 npm i ts-node -D (this will enable code-runner and a easy way to compile and run my TS files - see IMG2)
@@ -37,8 +36,10 @@ npm i prettier eslint-config-prettier eslint-plugin-prettier -D
 **tsconfig.json** (will create a config file for my typescript env) (see IMG5):
 npx tsc --init (will create the tsconfig.json)
 
+**WebPack**: 
 
 ### 2- BaseTypes: --------------------------------------------------------------------------------------------------------
+All Files are on Folder 2_TiposBasicos inside SRC.
 
 ### 3- Classes Interfaces POO: -------------------------------------------------------------------------------------------
 
