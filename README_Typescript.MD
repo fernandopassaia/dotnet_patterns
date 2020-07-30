@@ -48,6 +48,15 @@ npm i ts-loader webpack webpack-cli -D
 npx webpack (compilate)
 npx webpack -w (watch the files)
 
+Note: On folder Doc > 2_TiposBasicos you also have DOCUMENTATION about the config of WebPack - from IMG2 to 7.
+
+**Exercise**:
+On the final of the module I made an exercise of VALIDATION FORM. So I've created a folder called "exercicio-formcontrol"
+inside the src folder, and I've updated the webpack.config.js to point to entry of this file "exercicio.ts".
+
+npm i validator
+npm i @types/validator
+
 ### 3- Classes Interfaces POO: -------------------------------------------------------------------------------------------
 
 ### 4- Advanced Types: ---------------------------------------------------------------------------------------------------
