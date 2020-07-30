@@ -1,11 +1,12 @@
 {
-    "name": "1_Instalacao",
+    "name": "2_TiposBasicos",
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "dev": "webpack -w"
+        "build:frontend": "webpack -w",
+        "build:backend": "tsc"
     },
     "keywords": [],
     "author": "",
