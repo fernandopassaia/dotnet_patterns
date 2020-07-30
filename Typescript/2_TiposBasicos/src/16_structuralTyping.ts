@@ -1,6 +1,9 @@
 type VerifyUserFn = (user: User, sentValue: User) => boolean;
 type User = { username: string; password: string };
 
+
+// falo que minha função é do tipo VerifyUserFn e vai receber um user e um sentValue
+//
 const verifyUser: VerifyUserFn = (user, sentValue) => {
     return (
         user.username === sentValue.username && user.password === sentValue.password

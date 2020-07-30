@@ -36,10 +36,17 @@ npm i prettier eslint-config-prettier eslint-plugin-prettier -D
 **tsconfig.json** (will create a config file for my typescript env) (see IMG5):
 npx tsc --init (will create the tsconfig.json)
 
-**WebPack**: 
-
 ### 2- BaseTypes: --------------------------------------------------------------------------------------------------------
 All Files are on Folder 2_TiposBasicos inside SRC.
+
+**WebPack**: You'll use WebPack to generate webapps and more: bundles, to unity your project and generate a final project.
+First of all you need to go to WebPack website to get the config files and generate bundles:
+
+npm i ts-loader webpack webpack-cli -D
+(see the configuration of webpack on project by IMG2 on folder 2)
+
+npx webpack (compilate)
+npx webpack -w (watch the files)
 
 ### 3- Classes Interfaces POO: -------------------------------------------------------------------------------------------
 
