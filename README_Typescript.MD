@@ -69,6 +69,7 @@ in the respective folders, so you can see the print, and also open the tool and 
 ### 4- Advanced Types: ---------------------------------------------------------------------------------------------------
 
 ### 5- Generics: ---------------------------------------------------------------------------------------------------------
+Too much documentation in my DOC folder... take a look! Generics is a nice subject stuff.
 
 ### 6- Decorators: -------------------------------------------------------------------------------------------------------
 
