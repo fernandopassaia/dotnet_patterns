@@ -2,6 +2,7 @@
 
 I'm doing a big-revision now and a complete course of Typescript based on this course on Udemy: <br>
 https://www.udemy.com/course/curso-de-javascript-moderno-do-basico-ao-avancado/
+https://github.com/luizomf/cursojstypescript
 
 It has an **entire part** for Typescript with about 25h of course, so I'll do it. The instructor will also explain another
 stuff like OOP, SOLID, Design Patterns and everything. So Yeah, it will be also a big big "another" big-review.<br><br>
