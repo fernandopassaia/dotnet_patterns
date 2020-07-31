@@ -59,6 +59,12 @@ npm i @types/validator
 
 ### 3- Classes Interfaces POO: -------------------------------------------------------------------------------------------
 
+**Note**: Some classes of OOP course he's designing some DIAGRAMS on "yEd live". It's a tool (nice one) to print diagrams
+on the screen. This Tool generates a PNG and also a export/import file in "graphml" extension. I'm saving those extensions
+in the respective folders, so you can see the print, and also open the tool and re-generate the original diagram.
+
+**Dependency Inversion**: See IMG2 on the folder 03. It explain beautifuly!
+
 ### 4- Advanced Types: ---------------------------------------------------------------------------------------------------
 
 ### 5- Generics: ---------------------------------------------------------------------------------------------------------
