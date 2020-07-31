@@ -32,5 +32,4 @@ empresa1.adicionaColaborador(colaborador1);
 empresa1.adicionaColaborador(colaborador2);
 empresa1.adicionaColaborador(colaborador3);
 console.log(empresa1);
-empresa1.mostrarColaboradores();
-//# sourceMappingURL=01_Classes.js.map
+//# sourceMappingURL=02_PublicPrivate.js.map

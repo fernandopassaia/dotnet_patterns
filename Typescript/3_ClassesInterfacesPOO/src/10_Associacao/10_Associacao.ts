@@ -1,4 +1,5 @@
-// associação: Tem 1, nesse caso Escritor tem uma Ferramenta
+// Associação: Significa que uma classe usa outra classe em determinado momento. É a relação mais FRACA que existe.
+// Poderia traduzir como "TEM 1", como nesse exemplo, Um Escritor tem uma Ferramenta.
 
 export class Escritor {
     private _ferramenta: Ferramenta | null = null;
