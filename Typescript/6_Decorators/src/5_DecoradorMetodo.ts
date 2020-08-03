@@ -1,6 +1,6 @@
 function decorador(
-    classPrototype: any,
-    nomeMetodo: string,
+    classPrototype: any, //recebo um prototype da classe
+    nomeMetodo: string, //nome do método
     descriptor: PropertyDescriptor,
 ): PropertyDescriptor | void {
     console.log(classPrototype);

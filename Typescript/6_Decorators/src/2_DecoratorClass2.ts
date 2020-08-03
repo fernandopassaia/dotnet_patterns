@@ -17,7 +17,7 @@ function inverteNomeECor<T extends new (...args: any[]) => any>(target: T): T {
     };
 }
 
-@inverteNomeECor
+@inverteNomeECor //
 export class Animal {
     constructor(public nome: string, public cor: string) {
         console.log('Sou a classe');
