@@ -72,6 +72,11 @@ in the respective folders, so you can see the print, and also open the tool and 
 Too much documentation in my DOC folder... take a look! Generics is a nice subject stuff.
 
 ### 6- Decorators: -------------------------------------------------------------------------------------------------------
+Let's suppose that you have a class Animal. This class is inside some project or some library where I don't have access,
+or even I have access but I CANNOT change it codes. I can create a "decorator" that will simulate the working of the class,
+but you can CHANGE it, simulate. The world in portuguese is "fingir" for this - imitate, pretend, simulator.
+
+You can have decorators for classes, but also for methods, params, properties and other stuffs.
 
 ### 7- Namespaces and Modules: -------------------------------------------------------------------------------------------
 
