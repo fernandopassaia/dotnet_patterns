@@ -76,7 +76,7 @@ Let's suppose that you have a class Animal. This class is inside some project or
 or even I have access but I CANNOT change it codes. I can create a "decorator" that will simulate the working of the class,
 but you can CHANGE it, simulate. The world in portuguese is "fingir" for this - imitate, pretend, simulator.
 
-You can have decorators for classes, but also for methods, params, properties and other stuffs.
+You can have decorators for classes, but also for methods, params, properties and other stuffs. See prints on folder!
 
 ### 7- Namespaces and Modules: -------------------------------------------------------------------------------------------
 
