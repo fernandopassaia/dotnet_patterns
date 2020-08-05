@@ -81,6 +81,7 @@ You can have decorators for classes, but also for methods, params, properties an
 ### 7- Namespaces and Modules: -------------------------------------------------------------------------------------------
 
 ### 8- SOLID: ------------------------------------------------------------------------------------------------------------
+Note: A lot of IMAGES explaining what professor does to follow all principles is inside the DOC > SOLID folder in IMGS.
 
 ### 9- Tests with Jest: --------------------------------------------------------------------------------------------------
 
