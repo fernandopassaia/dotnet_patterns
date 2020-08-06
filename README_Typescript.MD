@@ -119,3 +119,5 @@ Note: This part of the course is really awesome! I'll let a LOT of documents and
 Inside this DOC folder > DesignPatterns I'll put a lot of information inside the Printscreens and it's very organized.
 
 On the Project Folder (11_DesignPatterns) there's the full source, and with it diagrams and lot of other documentations.
+For Example: If you check SINGLETON folder, you'll find the DIAGRAM and also in README the explanation about singleton, 
+like the intention of it, good and bad things and other informations. Very good docs.
