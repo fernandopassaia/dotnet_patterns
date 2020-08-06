@@ -37,6 +37,10 @@ npm i prettier eslint-config-prettier eslint-plugin-prettier -D
 **tsconfig.json** (will create a config file for my typescript env) (see IMG5):
 npx tsc --init (will create the tsconfig.json)
 
+**How to check if there are UPDATES on Our Packages**:
+npx npm-check -u
+npm audit fix --force
+
 ### 2- BaseTypes: --------------------------------------------------------------------------------------------------------
 All Files are on Folder 2_TiposBasicos inside SRC.
 
@@ -84,6 +88,30 @@ You can have decorators for classes, but also for methods, params, properties an
 Note: A lot of IMAGES explaining what professor does to follow all principles is inside the DOC > SOLID folder in IMGS.
 
 ### 9- Tests with Jest: --------------------------------------------------------------------------------------------------
+npm i jest js-test @types/jest -D
+
+
+**Way of configure TsJest with all options**:
+npm jest --init 
+(add test to json - yes)
+(test environment: node)
+(coverage reports: no)
+(provider: v8)
+(clear mock calls: no)
+
+will create jest.config.js will all configs.
+
+**Way to create TsJest in a simple way(course mode):**
+npx ts-jest config:init
+
+will create same jest.config.js but with too less information.
+
+**How to Create Files with Tests**:
+If i have a file called "index.ts": I should create "index.test.ts" or "index.spec.ts" names on test file, Jest will
+automatically detects that these are test files and will execute it. To RUN the tests on a project:
+
+**npx jest**
+
 
 ### 10- TypeScript and React: --------------------------------------------------------------------------------------------
 

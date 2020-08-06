@@ -4,7 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "build:frontend": "webpack -w",
     "build:backend": "tsc"
   },
@@ -12,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/jest": "^26.0.9",
     "@types/lodash": "^4.14.157",
     "@types/node": "^14.0.23",
     "@types/validator": "^13.1.0",
@@ -20,6 +20,8 @@
     "eslint": "^7.5.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.4",
+    "jest": "^26.2.2",
+    "js-test": "0.0.1",
     "prettier": "^2.0.5",
     "ts-loader": "^8.0.1",
     "ts-node": "^8.10.2",
