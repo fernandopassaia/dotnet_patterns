@@ -112,11 +112,10 @@ automatically detects that these are test files and will execute it. To RUN the 
 
 **npx jest**
 
-
 ### 10- TypeScript and React: --------------------------------------------------------------------------------------------
 
 ### 11- Design Patterns: --------------------------------------------------------------------------------------------------
+Note: This part of the course is really awesome! I'll let a LOT of documents and informations inside DOC > DesignPatterns.
+Inside this DOC folder > DesignPatterns I'll put a lot of information inside the Printscreens and it's very organized.
 
-
-
-
+On the Project Folder (11_DesignPatterns) there's the full source, and with it diagrams and lot of other documentations.
