@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\DevPassaia\\dotnet_patterns\\MediatR AutoMapper\\MediatRSample\\MediatRSample\\MediatRSample.csproj": {}
+    "c:\\DevPassaia\\dotnet_patterns\\MediatR AutoMapper\\MediatRSample\\MediatRSample.csproj": {}
   },
   "projects": {
-    "C:\\DevPassaia\\dotnet_patterns\\MediatR AutoMapper\\MediatRSample\\MediatRSample\\MediatRSample.csproj": {
+    "c:\\DevPassaia\\dotnet_patterns\\MediatR AutoMapper\\MediatRSample\\MediatRSample.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\DevPassaia\\dotnet_patterns\\MediatR AutoMapper\\MediatRSample\\MediatRSample\\MediatRSample.csproj",
+        "projectUniqueName": "c:\\DevPassaia\\dotnet_patterns\\MediatR AutoMapper\\MediatRSample\\MediatRSample.csproj",
         "projectName": "MediatRSample",
-        "projectPath": "C:\\DevPassaia\\dotnet_patterns\\MediatR AutoMapper\\MediatRSample\\MediatRSample\\MediatRSample.csproj",
+        "projectPath": "c:\\DevPassaia\\dotnet_patterns\\MediatR AutoMapper\\MediatRSample\\MediatRSample.csproj",
         "packagesPath": "C:\\Users\\PassaiaDeAlencarFern\\.nuget\\packages\\",
-        "outputPath": "C:\\DevPassaia\\dotnet_patterns\\MediatR AutoMapper\\MediatRSample\\MediatRSample\\obj\\",
+        "outputPath": "c:\\DevPassaia\\dotnet_patterns\\MediatR AutoMapper\\MediatRSample\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\PassaiaDeAlencarFern\\AppData\\Roaming\\NuGet\\NuGet.Config",
