@@ -93,11 +93,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\DevPassaia\\dotnet_patterns\\MediatR AutoMapper\\MediatRSample\\MediatRSample\\MediatRSample.csproj",
+      "projectUniqueName": "C:\\DevPassaia\\dotnet_patterns\\MediatR AutoMapper\\MediatRSample\\MediatRSample.csproj",
       "projectName": "MediatRSample",
-      "projectPath": "C:\\DevPassaia\\dotnet_patterns\\MediatR AutoMapper\\MediatRSample\\MediatRSample\\MediatRSample.csproj",
+      "projectPath": "C:\\DevPassaia\\dotnet_patterns\\MediatR AutoMapper\\MediatRSample\\MediatRSample.csproj",
       "packagesPath": "C:\\Users\\PassaiaDeAlencarFern\\.nuget\\packages\\",
-      "outputPath": "C:\\DevPassaia\\dotnet_patterns\\MediatR AutoMapper\\MediatRSample\\MediatRSample\\obj\\",
+      "outputPath": "C:\\DevPassaia\\dotnet_patterns\\MediatR AutoMapper\\MediatRSample\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\PassaiaDeAlencarFern\\AppData\\Roaming\\NuGet\\NuGet.Config",
